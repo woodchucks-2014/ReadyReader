@@ -1,6 +1,28 @@
 
-var Sentence = function(){
+var Book = function(current, sentence){
+  this.current = current;
+  this.end = +$('.pages').text();
+  this.sentence = sentence;
+}
+
+Book.prototype.checkForEnd = function(){
+  //console.log(sentence.currentSentence)
+  if (this.current < this.end) {
+        $('.current_sentence').text(this.sentence.currentSentence(this.current));
+      } else {$('.current_sentence').text("You've reached the end :-(")}
+}
+
+Book.prototype.checkForBeginning = function(){
+  //console.log(sentence.currentSentence)
+  if (this.current > 0) {
+          $('.current_sentence').text(this.sentence.currentSentence(this.current));
+        } else {$('.current_sentence').text("You're just beginning!")}
+}
+
+var Sentence = function(book){
+   this.book = book;
    this.pages = +$('.pages').text();
+
    if (localStorage['index'] === undefined) {
    this.index = 0;
   } else {this.index = +localStorage['index']}
@@ -10,16 +32,20 @@ var Sentence = function(){
 
 Sentence.prototype.increment = function() {
    this.index += 1
+   this.book.current = this.index;
    if (this.index > this.pages) {
     this.index = this.pages;
+    this.book.current = this.pages;
    }
    localStorage['index'] = this.index;
 }
 
 Sentence.prototype.decrement = function() {
   this.index -= 1
+  this.book.current = this.index;
   if (this.index <= 0) {
     this.index = 0;
+    this.book.current = 0;
   }
   localStorage['index'] = this.index;
 }
@@ -29,9 +55,12 @@ Sentence.prototype.currentSentence = function(index) {
 }
 
 
+
 $(document).ready(function() {
 
-  var sentence = new Sentence();
+  var book = new Book(0, new Sentence());
+  console.log(book)
+  var sentence = new Sentence(book);
   var pages = sentence.pages;
 
 
@@ -42,22 +71,18 @@ $(document).ready(function() {
       e.preventDefault();
       sentence.increment();
       console.log(sentence.index);
+      console.log(book);
+      book.checkForEnd();
 
-      if (sentence.index < sentence.pages) {
-        $('.current_sentence').text(sentence.currentSentence(sentence.index));
-      } else {$('.current_sentence').text("You've reached the end :-(")}
     });
 
 
   $(".left").on("click", function(e) {
-      console.log("HI");
       e.preventDefault();
       sentence.decrement();
       console.log(sentence.index);
-
-      if (sentence.index > 0) {
-        $('.current_sentence').text(sentence.currentSentence(sentence.index));
-      } else {$('.current_sentence').text("You're just beginning!")}
+      console.log(book);
+      book.checkForBeginning();
 
     });
 });
