@@ -38,6 +38,28 @@ ActiveRecord::Schema.define(version: 20140724185121) do
   add_index "comments", ["book_id"], name: "index_comments_on_book_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
+  create_table "restaurants", force: true do |t|
+    t.string   "CAMIS"
+    t.string   "DBA"
+    t.string   "BORO"
+    t.string   "BUILDING"
+    t.string   "STREET"
+    t.string   "ZIPCODE"
+    t.string   "PHONE"
+    t.string   "CUISINECODE"
+    t.string   "INSPDATE"
+    t.string   "ACTION"
+    t.string   "VIOLCODE"
+    t.string   "SCORE"
+    t.string   "CURRENTGRADE"
+    t.string   "GRADEDATE"
+    t.string   "RECORDDATE"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
