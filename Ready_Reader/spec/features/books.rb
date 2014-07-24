@@ -1,13 +1,10 @@
 require 'rails_helper'
 
-feature 'ability to read a sentence from a book' do
-
-  before(:each) do
-    let(:book) { FactoryGirl.create :book}
-    visit books_path(1)
-  end
+  feature 'ability to read a sentence from a book' do
+  let!(:book) { Book.create(title: "test", content: "test")}
 
   scenario 'user sees the title of the book' do
+    visit book_path(book.id)
     expect(page).to have_content(book.title)
   end
 
