@@ -9,4 +9,8 @@ class Book < ActiveRecord::Base
     self.sentences = tokenizer.tokenize_text(self.content)
   end
 
+  def pages
+    self.sentences.size
+  end
+
 end
