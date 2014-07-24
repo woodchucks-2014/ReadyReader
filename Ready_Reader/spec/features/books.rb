@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'ability to read a sentence from a book' do
 
   before(:each) do
-    let(:book) { FactoryGirl.create :book}
+    let(:book) { Book.create(name: "test", content: "test")}
     visit books_path(1)
   end
   scenario 'user sees the title of the book' do
