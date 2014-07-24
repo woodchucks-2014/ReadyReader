@@ -4,6 +4,8 @@ var Sentence = function(){
    if (localStorage['index'] === undefined) {
    this.index = 0;
   } else {this.index = +localStorage['index']}
+
+  $('p').hide();
 }
 
 Sentence.prototype.increment = function() {
@@ -31,14 +33,12 @@ $(document).ready(function() {
 
   var sentence = new Sentence();
   var pages = sentence.pages;
-  console.log(sentence.index);
 
-  $('p').hide();
+
   $('.current_sentence').text(sentence.currentSentence(sentence.index));
 
 
   $(".right").on("click", function(e) {
-      console.log("HI");
       e.preventDefault();
       sentence.increment();
       console.log(sentence.index);
