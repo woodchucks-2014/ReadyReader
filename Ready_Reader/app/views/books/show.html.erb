@@ -1,5 +1,9 @@
-<h1> <%= @book.title %> </h1>
 
+<div class="book_wrapper">
+<h1> <%= @book.title %> </h1>
+<div class="sentence_wrapper">
 <% @book.sentences.each do |sentence| %>
 <p><%= sentence %></p>
 <% end %>
+</div>
+</div>
