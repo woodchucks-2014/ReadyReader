@@ -54,6 +54,18 @@ Sentence.prototype.currentSentence = function(index) {
   return $('.sentence' + index).text();
 }
 
+var PageTurn = {
+
+  right: function(sentence, book) {
+      sentence.increment();
+      book.checkForEnd();
+  },
+
+  left: function(sentence, book) {
+      sentence.decrement();
+      book.checkForBeginning();
+  }
+}
 
 
 $(document).ready(function() {
@@ -68,21 +80,11 @@ $(document).ready(function() {
 
 
   $(".right").on("click", function(e) {
-      e.preventDefault();
-      sentence.increment();
-      console.log(sentence.index);
-      console.log(book);
-      book.checkForEnd();
-
+      PageTurn.right(sentence, book);
     });
 
 
   $(".left").on("click", function(e) {
-      e.preventDefault();
-      sentence.decrement();
-      console.log(sentence.index);
-      console.log(book);
-      book.checkForBeginning();
-
+      PageTurn.left(sentence, book);
     });
 });
