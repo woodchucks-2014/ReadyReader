@@ -12,7 +12,6 @@ require 'rails_helper'
     end
 
     scenario 'user sees one sentence from the book' do
-      visit book_path(book.id)
       expect(page).to have_content(book.sentences[0])
     end
 
