@@ -14,3 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore coverage tests from SimpleCov
+coverage
+coverage/
+coverage/*
+*/coverage/*
