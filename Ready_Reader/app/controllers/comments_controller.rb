@@ -19,6 +19,6 @@ class CommentsController < ApplicationController
 
   private
   def commentary_params(params)
-    params.permit(:user_id, :book_id, :commentary)
+    params.permit(:user_id, :book_id, :commentary, :commented_on)
   end
 end
