@@ -5,11 +5,8 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     # tokenizer = TactfulTokenizer::Model.new
     @sentences = @book.sentences
-    session[:book_id] = @book.id
+    session[:book] = @book.id
     @pages = @book.pages
-  end
-
-  def test
   end
 
   def upload

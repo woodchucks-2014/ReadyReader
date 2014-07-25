@@ -110,4 +110,7 @@ $(document).ready(function() {
     PageTurn.right(sentence, book);
   }
 
+
 });
+
+
