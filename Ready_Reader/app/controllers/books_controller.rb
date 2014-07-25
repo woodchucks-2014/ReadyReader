@@ -3,6 +3,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    session[:book_id] = @book.id
     @pages = @book.pages
   end
 
