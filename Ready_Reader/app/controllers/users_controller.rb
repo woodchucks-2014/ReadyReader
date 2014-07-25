@@ -21,13 +21,9 @@ class UsersController < ApplicationController
   end
 
   def login
-    p "*" * 100
-    p "LOGIN INITIATED"
     @user = User.find_by(email: params[:user][:email])
     if @user && @user.authenticate(params[:user][:password])
       session[:user] = @user.id
-      p "*" * 100
-      p "SESSION INITIATED"
       redirect_to profile_path(@user)
     else
       redirect_to root_path, flash: {notice_login: 'Invalid credentials.' }
