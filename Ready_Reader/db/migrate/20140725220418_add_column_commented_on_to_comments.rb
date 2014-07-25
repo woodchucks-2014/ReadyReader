@@ -1,5 +1,5 @@
 class AddColumnCommentedOnToComments < ActiveRecord::Migration
   def change
-    add_column :comments, :commmented_on, :text
+    add_column :comments, :commented_on, :text
   end
 end

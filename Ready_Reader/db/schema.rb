@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140725220418) do
   create_table "books", force: true do |t|
     t.string   "title"
     t.text     "content"
-    t.text     "sentences",  array: true
+    t.text     "sentences",  default: [], array: true
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -33,33 +33,11 @@ ActiveRecord::Schema.define(version: 20140725220418) do
     t.integer  "book_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "commmented_on"
+    t.text     "commented_on"
   end
 
   add_index "comments", ["book_id"], name: "index_comments_on_book_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
-
-  create_table "restaurants", force: true do |t|
-    t.string   "CAMIS"
-    t.string   "DBA"
-    t.string   "BORO"
-    t.string   "BUILDING"
-    t.string   "STREET"
-    t.string   "ZIPCODE"
-    t.string   "PHONE"
-    t.string   "CUISINECODE"
-    t.string   "INSPDATE"
-    t.string   "ACTION"
-    t.string   "VIOLCODE"
-    t.string   "SCORE"
-    t.string   "CURRENTGRADE"
-    t.string   "GRADEDATE"
-    t.string   "RECORDDATE"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.float    "latitude"
-    t.float    "longitude"
-  end
 
   create_table "users", force: true do |t|
     t.string   "name"

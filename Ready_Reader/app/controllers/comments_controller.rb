@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     @user = User.find(params["comment"]["user_id"])
     p "*" * 100
     p "EXECUTED"
+    p params
 
     @comment = Comment.create(commentary_params(params["comment"]))
     respond_to do |format|
