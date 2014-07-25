@@ -1,11 +1,12 @@
 <header>
   <nav>
-    <a href=<%= :root %>><img src="http://www.japanese-symbols.org/font.php?text=%E8%AA%AD%E6%9B%B8&size=130&f=8&a=1d2837183385ffd6bf3a4be0975e2303" height="20%" width="20%" id="logo" ></a>
+    <a href=<%= :root %>><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaDf9Cor4dY894UMFymJ5OVkiFLiERKrabBgiZSuUQrn8j_DrG" height="15%" width="15%"</a>
 
     <ul>
       <% if !logged_in? %>
-      <%= link_to "Sign Up", new_user_path, :class => "nav_link" %>
-      <%= link_to "Log In", users_login_path, :class => "nav_link" %>
+      <%= link_to "Sign Up", new_user_path, :class => "nav_right" %>
+      <span class="log_in"> Log In </span>
+      <%= render 'layouts/log_in_form'%>
       <% end %>
 
       <% if logged_in? %>
