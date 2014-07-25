@@ -1,7 +1,7 @@
-
   <%= form_for :comment, url: {action: "create"}, remote: true do |f| %>
     <%= f.hidden_field :book_id, :value => session[:book_id]  %>
-    <%= f.hidden_field :user_id, :value => 2 %>
+    <%= f.hidden_field :user_id, :value => session[:user] %>
+
   <p>
     <%= f.label :commentary %>
     <%= f.text_area :commentary %>
