@@ -1,10 +1,11 @@
 require 'rails_helper'
 
   feature 'ability to read a title and sentence from a book' do
-    let!(:book) { Book.create(title: "test", content: "test")}
+    let!(:book) { FactoryGirl.create :book }
+    let!(:user) { FactoryGirl.create :user }
 
     before :each do
-      visit book_path(book.id)
+      visit user_book_path(user.id, book.id)
     end
 
     scenario 'user sees the title of the book' do
