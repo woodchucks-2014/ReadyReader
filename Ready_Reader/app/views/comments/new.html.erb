@@ -1,0 +1,9 @@
+<div id="comment_fun">
+  <%= form_for :comment, url: {action: "create"} do |f| %>
+  <p>
+    <%= f.label :commentary %>
+    <%= f.text_area :commentary %>
+  </p>
+  <p><%= f.submit %></p>
+  <% end %>
+</div>
