@@ -4,7 +4,7 @@ class Book < ActiveRecord::Base
   before_save :sentence_parse
 
 
-  def sentence_parse
+  def sentence_parse #detrimental to perf. time
     tokenizer = TactfulTokenizer::Model.new
     self.sentences = tokenizer.tokenize_text(self.content)
   end

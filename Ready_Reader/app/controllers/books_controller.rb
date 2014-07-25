@@ -3,6 +3,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    # tokenizer = TactfulTokenizer::Model.new
+    @sentences = @book.sentences
     @pages = @book.pages
   end
 
@@ -10,8 +12,9 @@ class BooksController < ApplicationController
   end
 
   def upload
-   # @user = User.find(params[:user_id])
-    uploaded_io = params[:book]
+    #@book = Book.new(book_params)
+    @user = User.find(params[:user_id])
+    p uploaded_io = params[:book]
     p "THIS IS THE UPLOADED BOOK"
     p uploaded_io
     p "*" * 100
@@ -31,7 +34,7 @@ class BooksController < ApplicationController
       content << page.text
     end
 
-    book = Book.create(title: params[:title], content: content)
+    book = Book.create(title: params[:title], content: content, user_id: @user.id)
 
     redirect_to profile_path(@user)
   end
@@ -44,5 +47,12 @@ class BooksController < ApplicationController
   def delete
 
   end
+
+  private
+
+  def book_params(params)
+    params.require(:book).permit(:title, :content)
+  end
+
 
 end

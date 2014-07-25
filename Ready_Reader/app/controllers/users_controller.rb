@@ -20,10 +20,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def existing
-
-  end
-
   def login
     p "*" * 100
     p "LOGIN INITIATED"
