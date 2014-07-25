@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140724185121) do
   create_table "books", force: true do |t|
     t.string   "title"
     t.text     "content"
-    t.text     "sentences",  array: true
+    t.text     "sentences",  default: [], array: true
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

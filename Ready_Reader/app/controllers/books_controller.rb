@@ -3,14 +3,25 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    # tokenizer = TactfulTokenizer::Model.new
+    @sentences = @book.sentences
     @pages = @book.pages
   end
 
+  def test
+  end
+
   def upload
-    uploaded_book = params[:book]
-    filename = Rails.root.join('public', 'uploads', uploaded_book.original_filename)
+    #@book = Book.new(book_params)
+    @user = User.find(params[:user_id])
+    p uploaded_io = params[:book]
+    p "THIS IS THE UPLOADED BOOK"
+    p uploaded_io
+    p "*" * 100
+    p params
+    filename = Rails.root.join('public', 'uploads', uploaded_io.original_filename)
     File.open(filename, 'wb') do |file|
-      file.write(uploaded_book.read)
+      file.write(uploaded_io.read)
     end
 
     book = EPUB::Parser.parse(filename)
@@ -23,10 +34,11 @@ class BooksController < ApplicationController
       content << page.text
     end
 
-    book = Book.create(title: params[:title], content: content)
+    book = Book.create(title: params[:title], content: content, user_id: @user.id)
 
-    redirect_to books_path(book.id)
+    redirect_to profile_path(@user)
   end
+
 
   def create
 
@@ -35,5 +47,12 @@ class BooksController < ApplicationController
   def delete
 
   end
+
+  private
+
+  def book_params(params)
+    params.require(:book).permit(:title, :content)
+  end
+
 
 end

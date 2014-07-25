@@ -1,13 +1,13 @@
 class UsersController < ApplicationController
 
   def index
-    @book = Book.first
+    @book = Book.first #always assumes the promo book is in the seed file
     @pages = @book.pages
   end
 
   def profile
-    user = User.find(params[:id])
-    @books = user.books
+    @this_user = User.find(params[:id])
+    @books = @this_user.books
   end
 
   def create
@@ -20,18 +20,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def existing
-
-  end
-
   def login
-    p "*" * 100
-    p "LOGIN INITIATED"
     @user = User.find_by(email: params[:user][:email])
     if @user && @user.authenticate(params[:user][:password])
       session[:user] = @user.id
-      p "*" * 100
-      p "SESSION INITIATED"
       redirect_to profile_path(@user)
     else
       redirect_to root_path, flash: {notice_login: 'Invalid credentials.' }
