@@ -4,6 +4,11 @@ require 'rails_helper'
     let!(:book) { FactoryGirl.create :book }
     let!(:user) { FactoryGirl.create :user }
 
+  before :each do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    allow_any_instance_of(ApplicationController).to receive(:logged_in?).and_return(true)
+  end
+
     scenario 'user sees the title of the book' do
       visit user_book_path(user.id, book.id)
       expect(page).to have_content(book.title)

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'users#index'
   get '/users/:id/sign_out', to: 'users#sign_out', as: :sign_out
+  get '/users/login', to: 'users#existing', as: :users_login
 
   post '/users/login', to: 'users#login'
   get '/users/:id/profile', to: 'users#profile', as: :profile
