@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :book do
     # id 1
-    name { "harry potter"}
+    title { "harry potter"}
     content {"voldermort was a bad dude. he didn't like wizards. he didn't drink fernet branca."}
 
     # factory :invalid_user do

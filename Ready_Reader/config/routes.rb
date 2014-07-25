@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
+  root 'users#index'
+  get '/users/:id/sign_out', to: 'users#sign_out', as: :sign_out
+  get '/users/login', to: 'users#existing', as: :users_login
 
-  resources :books, only: [:show, :delete, :new]
-  post 'books/upload', to: 'books#upload'
+  post '/users/login', to: 'users#login'
+  get '/users/:id/profile', to: 'users#profile', as: :profile
 
-  resources :comments
+  resources :users, only: [:new, :create, :destroy, :update, :edit] do
+    resources :books, only: [:show, :delete, :new]
+    post 'books/upload', to: 'books#upload'
+    resources :comments
+  end
 
 end

@@ -1,0 +1,17 @@
+<header>
+  <nav>
+    <a href=<%= root_path %>> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaDf9Cor4dY894UMFymJ5OVkiFLiERKrabBgiZSuUQrn8j_DrG" height="15%" width="15%"></a>
+
+    <ul>
+      <% if !logged_in? %>
+      <%= link_to "Sign Up", new_user_path, :class => "nav_right" %>
+      <%= link_to "Log In", users_login_path , :class => "nav_right" %>
+      <% end %>
+
+      <% if logged_in? %>
+      <span class="left_nav"> Logged in as <%=current_user.name%> </span>
+      <%= link_to "Sign Out", sign_out_path, :class => "nav_right"  %>
+      <% end %>
+    </ul>
+  </nav>
+</header>
