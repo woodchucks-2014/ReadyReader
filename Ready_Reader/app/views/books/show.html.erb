@@ -1,0 +1,16 @@
+
+<div class="pages"> <%= @pages %> </div>
+<div class="book_wrapper">
+  <h1> <%= @book.title %> </h1>
+  <div class="sentence_wrapper">
+  <div class="current_sentence"></div>
+  <% @book.sentences.each_with_index do |sentence, index| %>
+    <p class ="sentence<%=index%>"><%= sentence %></p>
+  <% end %>
+  </div>
+</div>
+
+<center>
+<h2 class="right"> RIGHT </h2>
+<h2 class="left"> LEFT </h2>
+</center>
