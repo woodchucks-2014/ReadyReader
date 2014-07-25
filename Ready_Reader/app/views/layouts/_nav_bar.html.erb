@@ -1,11 +1,11 @@
 <header>
   <nav>
-    <a href=<%= :root %>> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaDf9Cor4dY894UMFymJ5OVkiFLiERKrabBgiZSuUQrn8j_DrG" height="15%" width="15%"></a>
+    <a href=<%= root_path %>> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaDf9Cor4dY894UMFymJ5OVkiFLiERKrabBgiZSuUQrn8j_DrG" height="15%" width="15%"></a>
 
     <ul>
       <% if !logged_in? %>
       <%= link_to "Sign Up", new_user_path, :class => "nav_right" %>
-      <span class="log_in"> Log In </span>
+      <div class="log_in"> Log In </div>
       <%= render 'layouts/log_in_form'%>
       <% end %>
 

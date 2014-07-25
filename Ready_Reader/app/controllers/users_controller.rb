@@ -4,13 +4,18 @@ class UsersController < ApplicationController
 
   end
 
+  def profile
+    user = User.find(params[:id])
+    @books = user.books
+  end
+
   def create
     @user = User.new(user_params(params))
     if @user.save
       session[:user] = @user.id
-      redirect_to user_ratings_path(@user), flash: {notice: 'Successful log in!'}
+      redirect_to profile_path(@user), flash: {notice: 'Successful log in!'}
     else
-      redirect_to new_user_path, flash: {notice: 'Invalid signup.'}
+      redirect_to root_path, flash: {notice: 'Invalid signup.'}
     end
   end
 
