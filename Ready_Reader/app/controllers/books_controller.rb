@@ -6,11 +6,19 @@ class BooksController < ApplicationController
     @pages = @book.pages
   end
 
+  def test
+  end
+
   def upload
-    uploaded_book = params[:book]
-    filename = Rails.root.join('public', 'uploads', uploaded_book.original_filename)
+   # @user = User.find(params[:user_id])
+    uploaded_io = params[:book]
+    p "THIS IS THE UPLOADED BOOK"
+    p uploaded_io
+    p "*" * 100
+    p params
+    filename = Rails.root.join('public', 'uploads', uploaded_io.original_filename)
     File.open(filename, 'wb') do |file|
-      file.write(uploaded_book.read)
+      file.write(uploaded_io.read)
     end
 
     book = EPUB::Parser.parse(filename)
@@ -25,8 +33,9 @@ class BooksController < ApplicationController
 
     book = Book.create(title: params[:title], content: content)
 
-    redirect_to books_path(book.id)
+    redirect_to profile_path(@user)
   end
+
 
   def create
 

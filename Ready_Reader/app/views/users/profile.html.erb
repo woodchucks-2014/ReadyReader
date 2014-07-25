@@ -1,7 +1,14 @@
-
-
 <h3> Your Books </h3>
 
 <% @books.each do |book| %>
   <%= book.title %>
 <% end %>
+
+<h3> Upload a Book </h3>
+
+<%= form_tag( user_books_upload_path(@this_user) , multipart: true, method: "post") do %>
+  <%= file_field_tag :book %>
+  <%= text_field_tag :title %>
+  <%= submit_tag('Upload') %>
+<% end %>
+
