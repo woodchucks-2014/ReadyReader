@@ -1,7 +1,7 @@
 <h3> Your Books </h3>
 
 <% @books.each do |book| %>
-  <%= book.title %>
+  <%= link_to book.title, user_book_path(@this_user, book) %>
 <% end %>
 
 <h3> Upload a Book </h3>

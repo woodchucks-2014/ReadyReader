@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @book = Book.first
+    @book = Book.first #always assumes the promo book is in the seed file
     @pages = @book.pages
   end
 
