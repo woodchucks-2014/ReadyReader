@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @book = Book.find(1)
+    @book = Book.first
     @pages = @book.pages
   end
 

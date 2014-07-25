@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  # before_action :require_login - we need to figure out how to redirect if not logged in
 
   def show
     @book = Book.find(params[:id])
