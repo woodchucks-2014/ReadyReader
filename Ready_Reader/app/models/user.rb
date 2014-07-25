@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_many :books, :comments, dependent: :destroy
+  has_many :books, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   validates_presence_of :name, :email
   validates_uniqueness_of :email
