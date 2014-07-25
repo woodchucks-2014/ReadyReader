@@ -1,0 +1,16 @@
+<header>
+  <nav>
+    <a href=<%= :root %>><img src="http://www.japanese-symbols.org/font.php?text=%E8%AA%AD%E6%9B%B8&size=130&f=8&a=1d2837183385ffd6bf3a4be0975e2303" height="20%" width="20%" id="logo" ></a>
+
+    <ul>
+      <% if !logged_in? %>
+      <%= link_to "Sign Up", new_user_path, :class => "nav_link" %>
+      <%= link_to "Log In", users_login_path, :class => "nav_link" %>
+      <% end %>
+
+      <% if logged_in? %>
+      <span class="left_nav"> Logged in as <%=current_user.name%> </span>
+      <% end %>
+    </ul>
+  </nav>
+</header>
