@@ -15,12 +15,16 @@ class UsersController < ApplicationController
   end
 
   def login
+    p "*" * 100
+    p "LOGIN INITIATED"
     @user = User.find_by(email: params[:user][:email])
     if @user && @user.authenticate(params[:user][:password])
       session[:user] = @user.id
-      redirect_to user_ratings_path(@user), flash: {notice: "Successful log in!"}
+      p "*" * 100
+      p "SESSION INITIATED"
+      redirect_to profile_path(@user), flash: {notice: "Successful log in!"}
     else
-      redirect_to users_path, flash: {notice: 'Invalid credentials!' }
+      redirect_to root_path, flash: {notice: 'Invalid credentials!' }
     end
   end
 
