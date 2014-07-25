@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def index
-
+    @book = Book.find(1)
+    @pages = @book.pages
   end
 
   def profile
@@ -13,10 +14,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params(params))
     if @user.save
       session[:user] = @user.id
-      redirect_to profile_path(@user), flash: {notice: 'Successful log in!'}
+      redirect_to profile_path(@user)
     else
-      redirect_to root_path, flash: {notice: 'Invalid signup.'}
+      redirect_to root_path, flash: {notice_signup: 'Invalid signup.'}
     end
+  end
+
+  def existing
+
   end
 
   def login
@@ -27,9 +32,9 @@ class UsersController < ApplicationController
       session[:user] = @user.id
       p "*" * 100
       p "SESSION INITIATED"
-      redirect_to profile_path(@user), flash: {notice: "Successful log in!"}
+      redirect_to profile_path(@user)
     else
-      redirect_to root_path, flash: {notice: 'Invalid credentials!' }
+      redirect_to root_path, flash: {notice_login: 'Invalid credentials.' }
     end
   end
 

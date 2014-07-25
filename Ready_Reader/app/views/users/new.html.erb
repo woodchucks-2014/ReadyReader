@@ -1,7 +1,7 @@
 <div class="sign_up">
 <h1> Sign Up </h1>
 
-<%= flash[:notice] %>
+
 <%= form_for :user,  url: {action: "create"} do |f| %>
 
     <%= f.label :name, "Name" %><br />
