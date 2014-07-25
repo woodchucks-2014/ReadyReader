@@ -56,12 +56,12 @@ Sentence.prototype.currentSentence = function(index) {
 
 var PageTurn = {
 
-  right: function(sentence, book) {
+  left: function(sentence, book) {
       sentence.increment();
       book.checkForEnd();
   },
 
-  left: function(sentence, book) {
+  right: function(sentence, book) {
       sentence.decrement();
       book.checkForBeginning();
   }
@@ -79,12 +79,14 @@ $(document).ready(function() {
   $('.current_sentence').text(sentence.currentSentence(sentence.index));
 
 
-  $(".right").on("click", function(e) {
-      PageTurn.right(sentence, book);
-    });
+  $('.book_wrapper').on("swipeleft", swipeleftHandler);
+  $('.book_wrapper').on("swiperight", swiperightHandler);
 
+  function swipeleftHandler(){
+    PageTurn.left(sentence, book);
+  }
 
-  $(".left").on("click", function(e) {
-      PageTurn.left(sentence, book);
-    });
+  function swiperightHandler() {
+    PageTurn.right(sentence, book);
+  }
 });
