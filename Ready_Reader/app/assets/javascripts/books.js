@@ -1,4 +1,6 @@
 
+
+
 var Book = function(current, sentence){
   this.current = current;
   this.end = +$('.pages').text();
@@ -30,6 +32,11 @@ var Sentence = function(book){
 
   $(document).ready(function(){
     $('.non_current_sentence').hide();
+    my_element = document.getElementById('test')
+  var h = new Hammer(my_element);
+  h.on('tap', function(){
+    console.log('YOLO!');
+  });
   });
 }
 
