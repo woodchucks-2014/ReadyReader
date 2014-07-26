@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
   $('#signup').on("click", function(e) {
     e.preventDefault();
     $('#signup-modal').show();
@@ -7,7 +8,10 @@ $(document).ready(function() {
 
   $('#login').on("click", function(e) {
     e.preventDefault();
-    $('#login-modal').show();
+    console.log("TEST");
+    $('#loginModal').modal();
   })
+
+
 
 });

@@ -1,11 +1,19 @@
-
-<div class="log_in_form">
-<%= form_for :user, url: {action: "login"} do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit "Log In", class: 'button_link' %>
-<% end %>
-
+<div class="modal fade" id="loginModal" tabindex="1" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body" id='login-form'>
+          <%= form_for :user, url: {action: "login"} do |f| %>
+          <%= f.label :email %>
+          <%= f.text_field :email %>
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        <div class="modal-footer">
+        <center>
+          <%= f.submit "Log In" %>
+          <% end %>
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

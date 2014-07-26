@@ -11,9 +11,10 @@
  * file per style scope.
  *
  *= require_tree .
- *= require_self
- *= require jquery.mobile
  *= require progress-bar
+ *= require bootstrap
+
+ *= require_self
  */
 
 nav {
