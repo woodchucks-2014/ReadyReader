@@ -7,11 +7,6 @@ class CommentsController < ApplicationController
     p "*" * 100
     @user = User.find(session[:user])
     @book = Book.find(session[:book])
-    #@book = Book.find(params["comment"]["user_id"])
-    p "*" * 100
-    p "EXECUTED"
-    p params
-
     @comment = Comment.create(user_id: @user.id, book_id: @book.id, commentary: params["commentary"], commented_on: params["commented_on"])
     redirect_to user_book_path(@user, session[:book])
   end

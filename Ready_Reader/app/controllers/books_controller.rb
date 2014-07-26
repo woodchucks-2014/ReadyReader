@@ -13,9 +13,7 @@ class BooksController < ApplicationController
     #@book = Book.new(book_params)
     @user = User.find(params[:user_id])
     p uploaded_io = params[:book]
-    p "THIS IS THE UPLOADED BOOK"
     p uploaded_io
-    p "*" * 100
     p params
     filename = Rails.root.join('public', 'uploads', uploaded_io.original_filename)
     File.open(filename, 'wb') do |file|
