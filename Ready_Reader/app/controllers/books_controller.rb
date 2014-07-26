@@ -21,7 +21,6 @@ class BooksController < ApplicationController
     end
 
     book = EPUB::Parser.parse(filename)
-
     content = ""
 
     book.each_page_on_spine do |page|
@@ -31,7 +30,6 @@ class BooksController < ApplicationController
     end
 
     book = Book.create(title: params[:title], content: content, user_id: @user.id)
-
     redirect_to profile_path(@user)
   end
 
