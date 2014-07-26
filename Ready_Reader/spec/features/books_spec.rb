@@ -13,7 +13,6 @@ require 'rails_helper'
     click_button 'Log In'
 
     click_link book_1.title
-    #visit user_book_path(user_1, book_1)
   end
 
     scenario 'user sees the title of the book' do
