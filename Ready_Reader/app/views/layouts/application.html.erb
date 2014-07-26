@@ -12,8 +12,10 @@
 
 <%= render 'layouts/nav_bar' %>
 
+<% if !logged_in? %>
 <center id='login-modal' style="display: none z-index: 10"><%= render 'users/login' %></center>
 <center id='signup-modal' style="display: none z-index: 10"><%= render 'users/new' %></center>
+<% end %>
 
 <%= yield %>
 
