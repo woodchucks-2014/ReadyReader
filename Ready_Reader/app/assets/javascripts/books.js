@@ -57,16 +57,31 @@ Sentence.prototype.currentSentence = function(index) {
   return $('.sentence' + index).text();
 }
 
+Sentence.prototype.barProgress = function(current, end){
+   $(function() {
+    $( "#progressbar" ).progressbar({
+      value: (current / end) * 100,
+      check: console.log(this.value)
+    });
+  });
+}
+
 var PageTurn = {
 
   left: function(sentence, book) {
       sentence.increment();
       book.checkForEnd();
+      sentence.barProgress(book.current, book.end);
+      $('.progress_bar').hide();
+      $('.progress_bar').show();
   },
 
   right: function(sentence, book) {
       sentence.decrement();
       book.checkForBeginning();
+      sentence.barProgress(book.current, book.end);
+      $('.progress_bar').hide();
+      $('.progress_bar').show();
   }
 }
 
@@ -76,32 +91,27 @@ $(document).ready(function() {
   var book = new Book(0, new Sentence());
   var sentence = new Sentence(book);
   var pages = sentence.pages;
+  sentence.barProgress(book.current, book.end);
 
   $('.current_sentence').text(sentence.currentSentence(sentence.index));
-
-  $(".right").on("click", function(e) {
+  $(".right").on("click", function() {
       PageTurn.right(sentence, book);
     });
 
   $('.book_wrapper').on("swipeleft", swipeleftHandler);
   $('.book_wrapper').on("swiperight", swiperightHandler);
 
-
   function swipeleftHandler(){
     PageTurn.left(sentence, book);
   }
 
-
-  $(".left").on("click", function(e) {
+  $(".left").on("click", function() {
       PageTurn.left(sentence, book);
-      console.log(book.current);
-      console.log(sentence.index);
     });
 
   function swiperightHandler() {
     PageTurn.right(sentence, book);
   }
-
 
 });
 
