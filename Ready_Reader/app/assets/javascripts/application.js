@@ -14,8 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap
 
-
-
-
-
+//= require hammer
 //= require_tree .
