@@ -11,6 +11,10 @@
 <body>
 
 <%= render 'layouts/nav_bar' %>
+
+<center id='login-modal' style="display: none z-index: 10"><%= render 'users/login' %></center>
+<center id='signup-modal' style="display: none z-index: 10"><%= render 'users/new' %></center>
+
 <%= yield %>
 
 </body>
