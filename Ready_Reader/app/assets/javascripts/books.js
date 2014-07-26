@@ -32,11 +32,7 @@ var Sentence = function(book){
 
   $(document).ready(function(){
     $('.non_current_sentence').hide();
-    my_element = document.getElementById('test')
-  var h = new Hammer(my_element);
-  h.on('tap', function(){
-    console.log('YOLO!');
-  });
+
   });
 }
 
@@ -114,18 +110,23 @@ $(document).ready(function() {
       $('#last_point').html() = book.current
     });
 
-  $('.book_wrapper').on("swipeleft", swipeleftHandler);
-  $('.book_wrapper').on("swiperight", swiperightHandler);
 
-  console.log(localStorage)
+  page = document.getElementById('book_wrapper')
+
+  var hammer_time = new Hammer(page);
+  hammer_time.on('swipeleft', function(){
+    swipeleftHandler();
+  });
+  hammer_time.on('swiperight', function(){
+    swiperightHandler();
+  });
+
+
   function swipeleftHandler(){
     PageTurn.left(sentence, book);
   }
 
-  $(".left").on("click", function() {
-      PageTurn.left(sentence, book);
-      $('#last_point').val() = book.current
-    });
+
 
   function swiperightHandler() {
     PageTurn.right(sentence, book);
@@ -133,6 +134,7 @@ $(document).ready(function() {
 
   localStorage["last_point"] = $('last_point').html();
   console.log(localStorage);
+
 });
 
 
