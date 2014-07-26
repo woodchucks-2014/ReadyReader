@@ -14,7 +14,7 @@ class Book < ActiveRecord::Base
     first_half = []
     second_half = []
     self.sentences.each do |sentence|
-      if sentence.length > 15
+      if sentence.length > 80
         word_array = sentence.split(" ") #array of words
         first_half << word_array[0..(word_array.length/2)]
         second_half << word_array[(word_array.length/2 + 1)..-1]
