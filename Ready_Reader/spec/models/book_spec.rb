@@ -8,12 +8,11 @@ RSpec.describe Book, :type => :model do
   end
 
   context "#long parse"
-      let(:book_2) {Book.create(title: "Test", content: "If you're trying to use features that don't seem to be in the latest released gem, but are mentioned in this README, then you probably need to specify the master branch if you want to use them.")}
+      let(:book_2) { Book.create(title: "A", content: "Hello. This is a test to see if our thing works and this is the sentence that should be split up blah blah and I am working on this project with Brendan and Greg this is so fun blah blah blah.") }
 
-    it "takes a sentence that is over 150 characters long and breaks it in half" do
-      book_2.long_parse
+    it "takes a sentence that is over 20 words long and breaks it in half" do
 
-      expect(book_2.sentences).to eq("If you're trying to use features that don't seem to be in the latest released gem, but are mentioned", "in this README, then you probably need to specify the master branch if you want to use them.")
+      expect(book_2.sentences).to eq(["Hello.", "This is a test to see if our thing works and this is the sentence that should be split up", "blah blah and I am working on this project with Brendan and Greg this is so fun blah blah blah."])
 
     end
 end
