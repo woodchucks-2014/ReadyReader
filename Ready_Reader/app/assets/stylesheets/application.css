@@ -20,7 +20,9 @@
 body{
   overflow: hidden;
 }
-
+body{
+  overflow: hidden;
+}
 #test{
   width: 400px;
   height: 400px;
