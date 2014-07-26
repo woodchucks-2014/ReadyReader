@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
   def index
-    @book = Book.first #always assumes the promo book is in the seed file
+    @book = Book.first #assume the promo book is always first in DB
+    @sentences = @book.sentences
+    session[:book] = @book.id
     @pages = @book.pages
   end
 

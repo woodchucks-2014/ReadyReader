@@ -15,7 +15,7 @@
 
        <% if session[:user] && session[:book] %>
          <% if current_page?(user_book_path(current_user, session[:book]))%>
-            <span class="left_nav">TEST<%= book_title %></span>
+            <span class="left_nav"><%= book_title %></span>
          <%end%>
        <%end%>
 
