@@ -12,4 +12,6 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  post '/comment_on_book', to: 'comments#comment_on_book'
+
 end

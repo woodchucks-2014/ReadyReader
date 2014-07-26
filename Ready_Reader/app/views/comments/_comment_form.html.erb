@@ -1,10 +1,12 @@
-  <%= form_for :comment, url: {action: "create"}, remote: true do |f| %>
-    <%= f.hidden_field :book_id, :value => session[:book_id]  %>
+  <div id="form_fun">
+  <%= form_for :comment, id: "comment_form" do |f| %>
+    <%= f.hidden_field :book_id, :value => session[:book]  %>
     <%= f.hidden_field :user_id, :value => session[:user] %>
-
-  <p>
+    <%= f.hidden_field :commented_on, :class => "current_sentence" %>
+    <p>
     <%= f.label :commentary %>
     <%= f.text_area :commentary %>
   </p>
   <p><%= f.submit %></p>
   <% end %>
+</div>

@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def profile
     @this_user = User.find(params[:id])
     @books = @this_user.books
+    @comments = @this_user.comments
   end
 
   def create

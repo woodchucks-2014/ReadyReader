@@ -1,5 +1,5 @@
 <div id="comment_fun">
-  <%= form_for :comment, url: {action: "create"} do |f| %>
+  <%= form_for :comment, url: {action: "create"}, remote: true do |f| %>
   <p>
     <%= f.label :commentary %>
     <%= f.text_area :commentary %>
