@@ -28,7 +28,7 @@ var Sentence = function(book){
   // this.index = 0;
   //} else {this.index = +localStorage['index']}
 
-  $('p').hide();
+  $('.non_current_sentence').hide();
 }
 
 Sentence.prototype.increment = function() {
@@ -74,21 +74,13 @@ var PageTurn = {
 $(document).ready(function() {
 
   var book = new Book(0, new Sentence());
-  console.log(book)
   var sentence = new Sentence(book);
   var pages = sentence.pages;
 
-   console.log(book.current);
-   console.log(sentence.index);
-
   $('.current_sentence').text(sentence.currentSentence(sentence.index));
-
-
 
   $(".right").on("click", function(e) {
       PageTurn.right(sentence, book);
-      console.log(book.current);
-      console.log(sentence.index);
     });
 
   $('.book_wrapper').on("swipeleft", swipeleftHandler);
@@ -110,4 +102,7 @@ $(document).ready(function() {
     PageTurn.right(sentence, book);
   }
 
+
 });
+
+
