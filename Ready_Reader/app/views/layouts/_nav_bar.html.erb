@@ -12,6 +12,11 @@
       <a href=<%= profile_path(current_user) %>> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaDf9Cor4dY894UMFymJ5OVkiFLiERKrabBgiZSuUQrn8j_DrG" height="15%" width="15%"></a>
       <span class="left_nav"> Logged in as <%=current_user.name%> </span>
       <%= link_to "Sign Out", sign_out_path(current_user), :class => "nav_right"  %>
+
+       <% if current_page?(user_book_path(current_user, session[:book]))%>
+        <%= book_title %>
+       <%end%>
+
       <% end %>
     </ul>
   </nav>

@@ -1,7 +1,7 @@
 
 <div class="pages"> <%= @pages %> </div>
 <div class="book_wrapper">
-  <h1> <%= @book.title %></h1>
+
 
   <div class="sentence_wrapper">
   <div class="current_sentence"></div>
@@ -16,6 +16,8 @@
 <h2 class="left"> LEFT </h2>
 </center>
 <div id="progressbar"></div>
-<%=link_to "Add Comment", new_user_comment_path, id: "new_comment", remote: true%>
 
+<div class="comment_box">
+<%=link_to "Add Comment", new_user_comment_path, id: "new_comment", remote: true%>
+</div>
 

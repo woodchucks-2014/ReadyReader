@@ -46,6 +46,14 @@ nav {
   background: #36AECC;
 }
 
+.comment_box{
+  margin-left: 46%;
+  height: 25%;
+}
 
+#comment_commentary{
+  height: 400px;
+  width: 400px;
+}
 
 
