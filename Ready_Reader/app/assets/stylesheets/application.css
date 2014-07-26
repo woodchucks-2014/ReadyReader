@@ -11,15 +11,66 @@
  * file per style scope.
  *
  *= require_tree .
- *= require_self
- *= require jquery.mobile
  *= require progress-bar
+ *= require bootstrap
+
+ *= require_self
  */
+
+body{
+  overflow: hidden;
+}
+
+.book_wrapper {
+  text-align: center;
+  margin-top: 5%;
+  margin-left: 17%;
+  height: 300px;
+  width: 60%;
+  color: #36AECC;
+  font-family: 'Georgia';
+  font-size: 30px;
+}
+
+.sentence_wrapper {
+  color: black;
+  font-size: 60px;
+}
+
+@media (max-width: 480px) {
+    .modal {
+        position: fixed;
+        top: 3%;
+        right: 3%;
+        left: 3%;
+        bottom: 3%;
+        width: auto;
+        margin: 0;
+    }
+    .modal-body {
+        max-height: 350px;
+        padding: 15px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+     }
+}
+
+.bottom_bar{
+  margin-top: 250px;
+}
+
+.signup-form, .login-form {
+  font-size: 23px;
+  text-align: center;
+}
+
 
 nav {
   font-size:30px;
   padding-right: 40px;
   width: 100%;
+  height: 200px;
+  background-color: black;
 }
 
 .nav_right {
@@ -55,5 +106,112 @@ nav {
   height: 400px;
   width: 400px;
 }
+
+#reader_nav,
+#reader_nav ul,
+#reader_nav ul li,
+#reader_nav ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  font-family: 'Georgia';
+}
+#reader_nav {
+  width: auto;
+  height: 100px;
+  padding-bottom: 4px;
+}
+#reader_nav.align-right {
+  float: right;
+}
+#reader_nav.align-right ul li {
+  float: right;
+  margin-right: 0;
+  margin-left: 4px;
+}
+#reader_nav.align-right ul li:first-child,
+#reader_nav.align-right ul li:first-child > a {
+  border-bottom-right-radius: 3px;
+}
+#reader_nav #bg-one,
+#reader_nav #bg-two,
+#reader_nav #bg-three,
+#reader_nav #bg-four {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+#reader_nav #bg-one {
+  height: 10px;
+  background: #0f71ba;
+}
+#reader_nav #bg-two {
+  height: 59px;
+  z-index: 2;
+  background: url('images/bg.png');
+}
+#reader_nav #bg-three {
+  bottom: 4px;
+  height: 55px;
+  z-index: 3;
+  background: #222222;
+  background: -moz-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #555555), color-stop(100%, #222222));
+  background: -webkit-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -o-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -ms-linear-gradient(top, #555555 0%, #222222 100%);
+  background: linear-gradient(to bottom, #555555 0%, #222222 100%);
+}
+#reader_nav #bg-four {
+  bottom: 4px;
+  height: 55px;
+  z-index: 4;
+  background: url('images/bg.png');
+}
+#reader_nav ul {
+  height: 59px;
+}
+#reader_nav ul li {
+  float: left;
+  margin-right: 4px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  z-index: 5;
+}
+#reader_nav ul li a {
+  padding: 24px 30px 20px 30px;
+  margin-bottom: 4px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #eeeeee;
+  font-size: 15px;
+  text-decoration: none;
+}
+#reader_nav ul li:first-child,
+#reader_nav ul li:first-child > a {
+  border-bottom-left-radius: 3px;
+}
+#reader_nav ul li:hover,
+#reader_nav ul li.active {
+  background: #0f71ba;
+  background: -moz-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3fa4f0), color-stop(100%, #0f71ba));
+  background: -webkit-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: -o-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: -ms-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: linear-gradient(to bottom, #3fa4f0 0%, #0f71ba 100%);
+}
+#reader_nav ul li a:hover,
+#reader_nav ul li.active > a {
+  background: url('images/bg.png');
+  color: #ffffff;
+}
+
 
 
