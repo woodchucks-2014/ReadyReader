@@ -17,6 +17,31 @@
  *= require_self
  */
 
+
+@media (max-width: 480px) {
+    .modal {
+        position: fixed;
+        top: 3%;
+        right: 3%;
+        left: 3%;
+        bottom: 3%;
+        width: auto;
+        margin: 0;
+    }
+    .modal-body {
+        max-height: 350px;
+        padding: 15px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+     }
+}
+
+.signup-form, .login-form {
+  font-size: 23px;
+  text-align: center;
+}
+
+
 nav {
   font-size:30px;
   padding-right: 40px;

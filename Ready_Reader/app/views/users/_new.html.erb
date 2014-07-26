@@ -2,7 +2,7 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-body" >
-        <%= form_for :user,  url: {action: "create"} do |f| %>
+        <%= form_for :user,  url: {action: "create"}, :html => {:class => "signup-form"} do |f| %>
         <%= f.label :name, "Name" %><br />
         <%= f.text_field :name, placeholder: "First Last" %><br><br>
         <%= f.label :email, "Email" %><br />
