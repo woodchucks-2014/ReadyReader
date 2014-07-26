@@ -16,6 +16,7 @@
        <% if session[:user] && session[:book] %>
          <% if current_page?(user_book_path(current_user, session[:book]))%>
             <li><%= book_title %></li>
+            <li id="add_comment"> Comment </li>
          <%end%>
        <%end%>
 

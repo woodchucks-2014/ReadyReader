@@ -1,4 +1,11 @@
 $(document).ready(function(){
+
+  $('#add_comment').on("click", function(e) {
+    e.preventDefault();
+    console.log("FUCK YOU HAMMER");
+    $('#commentModal').modal();
+  })
+
   $(document).on('submit', '#form_fun', function(e){
     e.preventDefault();
     var ajaxRequest = $.ajax({

@@ -1,12 +1,24 @@
-  <div id="form_fun">
-  <%= form_for :comment, id: "comment_form" do |f| %>
-    <%= f.hidden_field :book_id, :value => session[:book]  %>
-    <%= f.hidden_field :user_id, :value => session[:user] %>
-    <%= f.hidden_field :commented_on, :class => "current_sentence" %>
-    <p>
-    <%= f.label :commentary %>
-    <%= f.text_area :commentary %>
-  </p>
-  <p><%= f.submit %></p>
-  <% end %>
+
+<div class="modal fade" id="commentModal" tabindex="1" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body" >
+        <div id="form_fun">
+          <%= form_for :comment, id: "comment_form" do |f| %>
+          <%= f.hidden_field :book_id, :value => session[:book]  %>
+          <%= f.hidden_field :user_id, :value => session[:user] %>
+          <%= f.hidden_field :commented_on, :class => "current_sentence" %>
+          <%= f.label :commentary %>
+          <%= f.text_area :commentary %>
+          <div class="modal-footer">
+          <br><br>
+          <center>
+          <%= f.submit %>
+          <% end %>
+          </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

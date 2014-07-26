@@ -9,11 +9,15 @@
 </head>
 <body>
 
+
 <%= render 'layouts/nav_bar' %>
+
+<center id='comment-modal' style="display: none z-index: 10"><%= render 'comments/comment_form'%></center>
 
 <% if !logged_in? %>
   <center id='login-modal' style="display: none z-index: 10"><%= render 'users/login' %></center>
   <center id='signup-modal' style="display: none z-index: 10"><%= render 'users/new' %></center>
+
 <% end %>
 
 <%= yield %>
