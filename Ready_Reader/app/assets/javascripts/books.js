@@ -28,7 +28,9 @@ var Sentence = function(book){
   // this.index = 0;
   //} else {this.index = +localStorage['index']}
 
-  $('.non_current_sentence').hide();
+  $(document).ready(function(){
+    $('.non_current_sentence').hide();
+  });
 }
 
 Sentence.prototype.increment = function() {
@@ -86,7 +88,7 @@ var PageTurn = {
 }
 
 
-$(document).ready(function() {
+$(document).on('pageinit',function() {
 
   var book = new Book(0, new Sentence());
   var sentence = new Sentence(book);

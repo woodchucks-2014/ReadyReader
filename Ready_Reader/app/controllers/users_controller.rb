@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
   def index
-    @book = Book.first #always assumes the promo book is in the seed file
+     @book = Book.first
+    # tokenizer = TactfulTokenizer::Model.new
+    @sentences = @book.sentences
     @pages = @book.pages
   end
 

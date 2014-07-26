@@ -13,9 +13,11 @@
       <span class="left_nav"> Logged in as <%=current_user.name%> </span>
       <%= link_to "Sign Out", sign_out_path(current_user), :class => "nav_right"  %>
 
-       <% if current_page?(user_book_path(current_user, session[:book]))%>
-        <%= book_title %>
-       <%end%>
+       <% if current_user && session[:book] %>
+        <% if current_page?(user_book_path(current_user, session[:book]))%>
+          <%= book_title %>
+        <%end%>
+      <%end%>
 
       <% end %>
     </ul>
