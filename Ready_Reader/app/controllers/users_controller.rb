@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
   def index
-     @book = Book.first
-    # tokenizer = TactfulTokenizer::Model.new
+    @book = Book.first #assume the promo book is always first in DB
     @sentences = @book.sentences
+    session[:book] = @book.id
     @pages = @book.pages
   end
 

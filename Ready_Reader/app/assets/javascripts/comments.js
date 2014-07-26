@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $(document).on('submit', '#comment_form', function(e){
+  $(document).on('submit', '#form_fun', function(e){
     e.preventDefault();
     var ajaxRequest = $.ajax({
       url : '/comment_on_book',

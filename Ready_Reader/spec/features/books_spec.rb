@@ -2,21 +2,25 @@ require 'rails_helper'
 
   feature 'ability to read a title and sentence from a book' do
 
-    let!(:book) { FactoryGirl.create :book }
-    let!(:user) { FactoryGirl.create :user }
+    let!(:user_1) { FactoryGirl.create :user }
+    let!(:book_1) { Book.create(title: "harry potter", content: "Wizards. Muggles. Conflict.", user_id: user_1.id) }
 
   before :each do
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-    allow_any_instance_of(ApplicationController).to receive(:logged_in?).and_return(true)
-    visit user_book_path(user.id, book.id)
+    visit root_path
+    click_link 'Log In'
+    fill_in 'Email', with: user_1.email
+    fill_in 'Password', with: "test"
+    click_button 'Log In'
+
+    click_link book_1.title
   end
 
     scenario 'user sees the title of the book' do
-      expect(page).to have_content(book.title)
+      expect(page).to have_content(book_1.title)
     end
 
     scenario 'user sees one sentence from the book' do
-      expect(page).to have_content(book.sentences[0])
+      expect(page).to have_content(book_1.sentences.sample)
     end
 
 end

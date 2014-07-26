@@ -12,11 +12,14 @@ hp = Book.create(title: "Harry Potter and the Deathly Hallows", content: "It's t
 
 sound_fury = Book.create(title: "The Sound and the Fury", content: "Benny has no idea what's going on. The family is fighting! The Old South is full of sound and fury. The end.")
 
+
+infinite_jest = Book.create(title: "Infinite Jest", content: "Really meaningful stuff. Here's a super long sentence that our app should parse and if it doesn't you probably know that sentence went wrong, DFW likes to write long sentences but that's fine since he at one point was considered the best writer of our time blah blah blah blah. The end")
+
 ben = User.create(name: "Ben", email: "ben@ben.com", password: "test", password_confirmation: "test")
 
 greg = User.create(name: "Greg", email: "greg@greg.com", password: "test", password_confirmation: "test")
 
-ben.books << hp
+ben.books << [hp, infinite_jest]
 greg.books << sound_fury
 
 

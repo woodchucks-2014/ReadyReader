@@ -48,7 +48,7 @@ Sentence.prototype.increment = function() {
     this.index = this.pages;
     this.book.current = this.pages;
    }
-   //localStorage['index'] = this.index;
+   localStorage['index'] = this.index;
 }
 
 Sentence.prototype.decrement = function() {
@@ -59,7 +59,6 @@ Sentence.prototype.decrement = function() {
     this.index = -1;
     this.book.current = -1;
   }
-  //localStorage['index'] = this.index;
 }
 
 Sentence.prototype.currentSentence = function(index) {
@@ -75,6 +74,11 @@ Sentence.prototype.barProgress = function(current, end){
   });
 }
 
+Sentence.prototype.last_point = function(index){
+  localStorage['last_point'] = this.index
+
+}
+
 var PageTurn = {
 
   left: function(sentence, book) {
@@ -83,6 +87,8 @@ var PageTurn = {
       sentence.barProgress(book.current, book.end);
       $('.progress_bar').hide();
       $('.progress_bar').show();
+      sentence.last_point(book.current)
+      console.log(localStorage)
   },
 
   right: function(sentence, book) {
@@ -95,7 +101,7 @@ var PageTurn = {
 }
 
 
-$(document).on('pageinit',function() {
+$(document).ready(function() {
 
   var book = new Book(0, new Sentence());
   var sentence = new Sentence(book);
@@ -105,23 +111,28 @@ $(document).on('pageinit',function() {
   $('.current_sentence').text(sentence.currentSentence(sentence.index));
   $(".right").on("click", function() {
       PageTurn.right(sentence, book);
+      $('#last_point').html() = book.current
     });
 
   $('.book_wrapper').on("swipeleft", swipeleftHandler);
   $('.book_wrapper').on("swiperight", swiperightHandler);
 
+  console.log(localStorage)
   function swipeleftHandler(){
     PageTurn.left(sentence, book);
   }
 
   $(".left").on("click", function() {
       PageTurn.left(sentence, book);
+      $('#last_point').val() = book.current
     });
 
   function swiperightHandler() {
     PageTurn.right(sentence, book);
   }
 
+  localStorage["last_point"] = $('last_point').html();
+  console.log(localStorage);
 });
 
 
