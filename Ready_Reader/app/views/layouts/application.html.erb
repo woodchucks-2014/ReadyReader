@@ -5,7 +5,6 @@
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application'%>
   <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -13,8 +12,8 @@
 <%= render 'layouts/nav_bar' %>
 
 <% if !logged_in? %>
-<center id='login-modal' style="display: none z-index: 10"><%= render 'users/login' %></center>
-<center id='signup-modal' style="display: none z-index: 10"><%= render 'users/new' %></center>
+  <center id='login-modal' style="display: none z-index: 10"><%= render 'users/login' %></center>
+  <center id='signup-modal' style="display: none z-index: 10"><%= render 'users/new' %></center>
 <% end %>
 
 <%= yield %>
