@@ -21,6 +21,12 @@ body{
   overflow: hidden;
 }
 
+#test{
+  width: 400px;
+  height: 400px;
+  background: green;
+}
+
 .book_wrapper {
   text-align: center;
   margin-top: 5%;
@@ -30,6 +36,7 @@ body{
   color: #36AECC;
   font-family: 'Georgia';
   font-size: 30px;
+  height: 35%
 }
 
 .sentence_wrapper {
@@ -63,7 +70,6 @@ body{
   font-size: 23px;
   text-align: center;
 }
-
 
 nav {
   font-size:30px;
@@ -104,7 +110,7 @@ nav {
 
 #comment_commentary{
   height: 400px;
-  width: 400px;
+  widt: 400px;
 }
 
 #reader_nav,
