@@ -1,6 +1,4 @@
 
-
-
 var Book = function(current, sentence){
   this.current = current;
   this.end = +$('.pages').text();
@@ -44,7 +42,6 @@ Sentence.prototype.increment = function() {
     this.index = this.pages;
     this.book.current = this.pages;
    }
-   localStorage['index'] = this.index;
 }
 
 Sentence.prototype.decrement = function() {
@@ -83,7 +80,7 @@ var PageTurn = {
       sentence.barProgress(book.current, book.end);
       $('.progress_bar').hide();
       $('.progress_bar').show();
-      sentence.last_point(book.current)
+      sentence.last_point(book.current);
       console.log(localStorage)
   },
 
@@ -93,22 +90,32 @@ var PageTurn = {
       sentence.barProgress(book.current, book.end);
       $('.progress_bar').hide();
       $('.progress_bar').show();
+      sentence.last_point(book.current);
   }
 }
 
 
 $(document).ready(function() {
+  if (localStorage.last_point === "undefined"){
+    var book = new Book(0, new Sentence());
+  } else {
+    var start = localStorage.last_point
+     var book = new Book(start, new Sentence());
+  }
 
-  var book = new Book(0, new Sentence());
+
+
+
+
   var sentence = new Sentence(book);
   var pages = sentence.pages;
   sentence.barProgress(book.current, book.end);
 
-  $('.current_sentence').text(sentence.currentSentence(sentence.index));
-  $(".right").on("click", function() {
-      PageTurn.right(sentence, book);
-      $('#last_point').html() = book.current
-    });
+  $('.current_sentence').text(sentence.currentSentence(book.current));
+  // $(".right").on("click", function() {
+  //     PageTurn.right(sentence, book);
+  //     $('#last_point').html() = book.current
+  //   });
 
 
   page = document.getElementById('book_wrapper')
@@ -132,8 +139,8 @@ $(document).ready(function() {
     PageTurn.right(sentence, book);
   }
 
-  localStorage["last_point"] = $('last_point').html();
-  console.log(localStorage);
+  // localStorage["last_point"] = $('last_point').html();
+  // console.log(localStorage);
 
 });
 
