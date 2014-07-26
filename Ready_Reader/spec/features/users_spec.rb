@@ -84,3 +84,31 @@ feature 'ability to log out as an existing user' do
   end
 
 end
+
+feature 'ability to view uploaded books' do
+
+  let!(:user_1) { FactoryGirl.create :user }
+  let!(:book_1) { Book.create(title: "Harry Potter", content: "A", user_id: user_1.id) }
+
+  before :each do
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user_1)
+    allow_any_instance_of(ApplicationController).to receive(:logged_in?).and_return(true)
+    visit profile_path(user_1.id)
+  end
+
+  scenario 'existing user can see a book he or she owns' do
+    expect(page).to have_content("Harry Potter")
+  end
+
+
+end
+
+
+
+
+
+
+
+
+
+
