@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require jquery.mobile
+ *= require progress-bar
  */
 
 nav {
@@ -32,6 +33,27 @@ nav {
   margin-left: 50%;
 }
 
+.progress_bar div {
+  font: 10px sans-serif;
+  background-color: #99CCFF;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
 
+.pro{
+  background: #36AECC;
+}
+
+.comment_box{
+  margin-left: 46%;
+  height: 25%;
+}
+
+#comment_commentary{
+  height: 400px;
+  width: 400px;
+}
 
 
