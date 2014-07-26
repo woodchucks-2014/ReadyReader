@@ -2,7 +2,7 @@ class Book < ActiveRecord::Base
   belongs_to :user
   has_many :comments, dependent: :destroy
   before_save :sentence_parse
-  #before_save :long_parse
+  before_save :long_parse
 
 
   def sentence_parse #detrimental to perf. time
@@ -16,13 +16,8 @@ class Book < ActiveRecord::Base
       if word_array.length > 20 #there are ~5 letters per word, we max out at 100 characters
         divisor = word_array.length/20
         sliced_sentence_array = word_array.each_slice((word_array.size / divisor).round).to_a
-        p "*" * 100
-        p sliced_sentence_array
         sliced_sentence_array.map! { |sentence| sentence.join(" ") }
-        p "THIS SHOULD LOOK LIKE THE OUTPUT WE WANT"
-        p sliced_sentence_array
         self.sentences[index] = sliced_sentence_array
-        p "I HAVE EXECUTED"
       end
       self.sentences = self.sentences.flatten
     end
