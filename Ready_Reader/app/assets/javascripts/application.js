@@ -12,9 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-
-
-
-
-
+//= require hammer
 //= require_tree .
