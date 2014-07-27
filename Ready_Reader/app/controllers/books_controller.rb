@@ -35,6 +35,15 @@ class BooksController < ApplicationController
     redirect_to profile_path(@user)
   end
 
+  def check_point
+    p "*" * 100
+    p session[:book]
+    @user = User.find(session[:user])
+    @book = Book.find(session[:book])
+    @book.farthest_point = params["last_point"]
+    p params
+    redirect_to user_book_path(@user, session[:book])
+  end
 
   def create
 
