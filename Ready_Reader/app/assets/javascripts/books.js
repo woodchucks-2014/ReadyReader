@@ -24,11 +24,7 @@ var Sentence = function(book){
    this.pages = +$('.pages').text();
    this.index = 0;
 
-  // if (localStorage['index'] === undefined) {
-  // this.index = 0;
-  //} else {this.index = +localStorage['index']}
-
-  $(document).ready(function(){
+  $(document).ready(function(){ //look into this tomorrow.
     $('.non_current_sentence').hide();
 
   });
@@ -112,7 +108,7 @@ $(document).ready(function() {
     return get_cp();
   }
 
- positionUpdate().done(function(result){
+ positionUpdate().done(function(result){ //may need slight tweaks.
     book = new Book(result.farthest_point, new Sentence())
     sentence = new Sentence(book);
     console.log(book);
@@ -120,91 +116,6 @@ $(document).ready(function() {
     $('.sentence_wrapper').show();
 
   })
-
-
-
-
-
-
-
-
-  // ;
-  // console.log(book);
-  //
-
-  // do the call
-
-  // do the reset
-
-
-//   if (localStorage.last_point === undefined){
-//   localStorage.last_point = 0;
-//   get_cp(response);//function(start_point){
-//   console.log("ABCD");
-//     var book = new Book(start_point, new Sentence());
-// } else {
-//   console.log('hello2');
-//   console.log(localStorage.last_point);
-//   get_cp(function(start_point){
-
-//     if (start_point < localStorage.last_point){
-//       console.log('ABCDEFG');
-//       var start = localStorage.last_point
-//       var book = new Book(start_point, new Sentence());
-//       var sentence = new Sentence(book);
-//       console.log(book)
-//       sentence.barProgress(book.current, book.end);
-//        $('.current_sentence').text(sentence.currentSentence(book.current));
-//     }
-//     else {
-//       console.log('hello');
-//       var book = new Book(localStorage.last_point, new Sentence());
-//       var sentence = new Sentence(book);
-//       var pages = sentence.pages;
-//       sentence.barProgress(book.current, book.end);
-//       console.log(book)
-//        $('.current_sentence').text(sentence.currentSentence(book.current));
-//     }
-//   });
-//   }
-
-//   console.log(sentence);
-
-
-
-  // });
-
-
-
-  //
-  //
-  //   start_point = get_cp();
-  //   console.log(start_point);
-  //
-  // } else {
-  //   start_point = get_cp();
-  //   console.log(start_point);
-  //
-  //
-  //   }
-  //   }
-
-
-  // }
-
-
-
-
-      // var book = new Book(0, new Sentence());
-
-
-
-  // $('.current_sentence').text(sentence.currentSentence(book.current));
-  // $(".right").on("click", function() {
-  //     PageTurn.right(sentence, book);
-  //     $('#last_point').html() = book.current
-  //   });
-
 
   page = document.getElementById('book_wrapper')
 
@@ -224,14 +135,9 @@ $(document).ready(function() {
 
   }
 
-
-
   function swiperightHandler() {
     PageTurn.right(sentence, book);
   }
-
-  // localStorage["last_point"] = $('last_point').html();
-  // console.log(localStorage);
 
 });
 
