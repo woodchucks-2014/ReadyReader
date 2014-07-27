@@ -9,8 +9,8 @@ function get_cp(){
 
   ajax2.success(function(response){
     console.log(response);
-    server_response = (response.responseJSON.farthest_point);
-     console.log(server_response)
+    server_response = response["farthest_point"];
+    console.log(server_response)
     return server_response;
 
   });
