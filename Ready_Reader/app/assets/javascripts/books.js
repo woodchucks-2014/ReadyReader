@@ -116,6 +116,16 @@ $(document).ready(function() {
 
   page = document.getElementById('book_wrapper')
 
+  // Please note this is temporary until we can include Hammer.js
+   $(".right").on("click", function() {
+      PageTurn.right(sentence, book);
+    });
+
+    $(".left").on("click", function() {
+      PageTurn.left(sentence, book);
+    });
+  // end of temporary code
+
   // var hammer_time = new Hammer(page);
   // hammer_time.on('swipeleft', function(){
   //   swipeleftHandler();
@@ -125,7 +135,6 @@ $(document).ready(function() {
   //   swiperightHandler();
   //   get_cp();
   // });
-
 
   function swipeleftHandler(){
     PageTurn.left(sentence, book);
