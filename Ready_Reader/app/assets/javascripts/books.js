@@ -6,14 +6,15 @@ var Book = function(current, sentence){
 }
 
 Book.prototype.checkForEnd = function(){
-  if (this.current < this.end) {
+  if (this.current < this.end) { // error message should trigger on ==
         $('.current_sentence').text(this.sentence.currentSentence(this.current));
       } else {$('.current_sentence').text("You've reached the end :-(")}
 }
 
 Book.prototype.checkForBeginning = function(){
-  if (this.current >= 0) {
+  if (this.current >= 0) {  // error message should trigger on ==
           $('.current_sentence').text(this.sentence.currentSentence(this.current));
+          // line 18 should NOT replace .current_sentence
         } else {$('.current_sentence').text("You're just beginning!")}
 }
 
@@ -31,7 +32,7 @@ var Sentence = function(book){
 Sentence.prototype.increment = function() {
    this.index += 1
    this.book.current = this.index;
-   if (this.index > this.pages) {
+   if (this.index > this.pages) { // should never be outside range
     this.index = this.pages;
     this.book.current = this.pages;
    }
@@ -41,7 +42,7 @@ Sentence.prototype.decrement = function() {
   this.index -= 1
   this.book.current = this.index;
   if (this.index < 0) {
-    this.index = -1;
+    this.index = -1; // 0 should be lowest it can sink
     this.book.current = -1;
   }
 }
