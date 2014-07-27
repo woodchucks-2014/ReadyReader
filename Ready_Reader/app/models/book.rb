@@ -4,6 +4,8 @@ class Book < ActiveRecord::Base
   before_save :sentence_parse
   before_save :long_parse
 
+  has_many :user_books
+  has_many :users, through: :user_books
 
   def sentence_parse #detrimental to perf. time
     tokenizer = TactfulTokenizer::Model.new
