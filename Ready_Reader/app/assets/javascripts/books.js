@@ -60,12 +60,12 @@ Sentence.prototype.barProgress = function(current, end){
   });
 }
 
-Sentence.prototype.bookId = function() {
-  localStorage['book_id'] = +$('.book_number').text();
-}
+var getBookId = function () {return +$('.book_number').text(); }
 
 Sentence.prototype.last_point = function(index){
-  localStorage['last_point'] = this.index;
+  var book_id = +$('.book_number').text();
+  localStorage[book_id] = this.index;
+  console.log(book_id)
 }
 
 var PageTurn = {
@@ -77,7 +77,6 @@ var PageTurn = {
       $('.progress_bar').hide();
       $('.progress_bar').show();
       sentence.last_point(book.current);
-      console.log(localStorage)
   },
 
   right: function(sentence, book) {
@@ -94,7 +93,7 @@ function get_cp(argument){
     return $.ajax({
     url : '/check_point',
     method : 'POST',
-    data : { last_point: localStorage['last_point'] },
+    data : { last_point: localStorage[getBookId()] },
     success : function(response){
 
     }
@@ -109,9 +108,8 @@ $(document).ready(function() {
   }
 
  positionUpdate().done(function(result){ //may need slight tweaks.
-    book = new Book(result.farthest_point, new Sentence())
+    book = new Book(result.farthest_point, new Sentence());
     sentence = new Sentence(book);
-    sentence.bookId();
     console.log(book);
     $('.current_sentence').text(sentence.currentSentence(book.current));
     $('.sentence_wrapper').show();

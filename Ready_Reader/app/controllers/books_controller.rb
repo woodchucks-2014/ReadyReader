@@ -38,10 +38,12 @@ class BooksController < ApplicationController
   def check_point
     p "*" * 100
     p "TEST"
-    @user = User.find(1) # need to create guest user
+    @user = User.find(session[:user]) # need to create guest user
     @book = Book.find(session[:book]) #Implement nesting to compensate for logging into multiple books.
     database_val = @book.farthest_point
+
     local_val = params["last_point"].to_i
+
     @book.farthest_point = local_val if local_val > database_val
     @book.save!
     p "*" * 100
