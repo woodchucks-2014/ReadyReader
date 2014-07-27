@@ -37,22 +37,11 @@ class BooksController < ApplicationController
 
   def check_point
     @user = User.find(session[:user])
-    @book = Book.find(session[:book])
-    p "*" * 100
-    p "THIS IS THE DATABASE VAL PRIOR TO UPDATE"
-    p @book.farthest_point
-
+    @book = Book.find(session[:book]) #Implement nesting to compensate for logging into multiple books.
     database_val = @book.farthest_point
     local_val = params["last_point"].to_i
-
-    # the comparison and reset occurs on line 49
     @book.farthest_point = local_val if local_val > database_val
     @book.save!
-
-    p "*" * 100
-    p "THIS IS THE DATABASE VAL AFTER UPDATE"
-    p @book.farthest_point
-    # end
     render json: {farthest_point: @book.farthest_point}.to_json
   end
 

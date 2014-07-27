@@ -6,14 +6,12 @@ var Book = function(current, sentence){
 }
 
 Book.prototype.checkForEnd = function(){
-  //console.log(sentence.currentSentence)
   if (this.current < this.end) {
         $('.current_sentence').text(this.sentence.currentSentence(this.current));
       } else {$('.current_sentence').text("You've reached the end :-(")}
 }
 
 Book.prototype.checkForBeginning = function(){
-  //console.log(sentence.currentSentence)
   if (this.current >= 0) {
           $('.current_sentence').text(this.sentence.currentSentence(this.current));
         } else {$('.current_sentence').text("You're just beginning!")}
@@ -31,7 +29,6 @@ var Sentence = function(book){
 }
 
 Sentence.prototype.increment = function() {
-   console.log("INCREMENT")
    this.index += 1
    this.book.current = this.index;
    if (this.index > this.pages) {
@@ -41,7 +38,6 @@ Sentence.prototype.increment = function() {
 }
 
 Sentence.prototype.decrement = function() {
-  console.log("DECREMENT")
   this.index -= 1
   this.book.current = this.index;
   if (this.index < 0) {
