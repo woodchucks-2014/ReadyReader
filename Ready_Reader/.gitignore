@@ -20,3 +20,6 @@ coverage
 coverage/
 coverage/*
 */coverage/*
+
+#Ignore DS Store plz
+.DS_Store
