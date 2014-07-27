@@ -77,6 +77,7 @@ var PageTurn = {
       $('.progress_bar').hide();
       $('.progress_bar').show();
       sentence.last_point(book.current);
+      $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
       $('.text_progress').text("Sentence " + book.current + " of " + book.end )
   },
 
@@ -87,6 +88,7 @@ var PageTurn = {
       $('.progress_bar').hide();
       $('.progress_bar').show();
       sentence.last_point(book.current);
+      $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
       $('.text_progress').text("Sentence " + book.current + " of " + book.end )
   }
 }
@@ -117,6 +119,7 @@ $(document).ready(function() {
     $('.sentence_wrapper').show();
     sentence.barProgress(book.current, book.end);
     $('.progress_bar').show();
+    $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
     $('.text_progress').text("Sentence " + book.current + " of " + book.end )
   })
 
