@@ -22,7 +22,6 @@
 
 .modal .modal-body {
     max-height: 700px;
-    width: 500px;
     overflow-y: auto;
 }
 
