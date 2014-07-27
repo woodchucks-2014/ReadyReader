@@ -96,8 +96,10 @@ var PageTurn = {
 
 
 $(document).ready(function() {
-  if (localStorage.last_point === "undefined"){
-    var book = new Book(0, new Sentence());
+  if (localStorage.last_point === undefined){
+    start_point = get_cp();
+    console.log(start_point);
+    var book = new Book(start_point, new Sentence());
   } else {
     var start = localStorage.last_point
      var book = new Book(start, new Sentence());

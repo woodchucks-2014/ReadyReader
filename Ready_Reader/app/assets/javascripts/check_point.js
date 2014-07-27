@@ -1,18 +1,21 @@
 function get_cp(){
+  console.log('yaaaaa')
   var ajax2 = $.ajax({
     url : '/check_point',
     method : 'POST',
     data : { last_point: localStorage['last_point'] }
   });
 
-  ajax2.complete(function(response){
+
+  ajax2.success(function(response){
+    console.log(response);
     server_response = (response.responseJSON.farthest_point);
-    if (server_response > localStorage['last_point']){
-      book.current = server_response
-    }
+     console.log(server_response)
+    return server_response;
 
   });
 }
+
 
 // $(document).ready(function(){
 //   console.log('yolo from check point')
