@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   # before_action :require_login - we need to figure out how to redirect if not logged in
-
+  respond_to :json
   def show
     @book = Book.find(params[:id])
     # tokenizer = TactfulTokenizer::Model.new
@@ -33,6 +33,15 @@ class BooksController < ApplicationController
     redirect_to profile_path(@user)
   end
 
+  def check_point
+    @user = User.find(session[:user])
+    @book = Book.find(session[:book]) #Implement nesting to compensate for logging into multiple books.
+    database_val = @book.farthest_point
+    local_val = params["last_point"].to_i
+    @book.farthest_point = local_val if local_val > database_val
+    @book.save!
+    render json: {farthest_point: @book.farthest_point}.to_json
+  end
 
   def create
 

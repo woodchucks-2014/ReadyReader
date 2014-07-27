@@ -6,16 +6,15 @@ var Book = function(current, sentence){
 }
 
 Book.prototype.checkForEnd = function(){
-  //console.log(sentence.currentSentence)
-  if (this.current < this.end) {
+  if (this.current < this.end) { // error message should trigger on ==
         $('.current_sentence').text(this.sentence.currentSentence(this.current));
       } else {$('.current_sentence').text("You've reached the end :-(")}
 }
 
 Book.prototype.checkForBeginning = function(){
-  //console.log(sentence.currentSentence)
-  if (this.current >= 0) {
+  if (this.current >= 0) {  // error message should trigger on ==
           $('.current_sentence').text(this.sentence.currentSentence(this.current));
+          // line 18 should NOT replace .current_sentence
         } else {$('.current_sentence').text("You're just beginning!")}
 }
 
@@ -24,32 +23,26 @@ var Sentence = function(book){
    this.pages = +$('.pages').text();
    this.index = 0;
 
-  // if (localStorage['index'] === undefined) {
-  // this.index = 0;
-  //} else {this.index = +localStorage['index']}
-
-  $(document).ready(function(){
+  $(document).ready(function(){ //look into this tomorrow.
     $('.non_current_sentence').hide();
 
   });
 }
 
 Sentence.prototype.increment = function() {
-   console.log("INCREMENT")
    this.index += 1
    this.book.current = this.index;
-   if (this.index > this.pages) {
+   if (this.index > this.pages) { // should never be outside range
     this.index = this.pages;
     this.book.current = this.pages;
    }
 }
 
 Sentence.prototype.decrement = function() {
-  console.log("DECREMENT")
   this.index -= 1
   this.book.current = this.index;
   if (this.index < 0) {
-    this.index = -1;
+    this.index = -1; // 0 should be lowest it can sink
     this.book.current = -1;
   }
 }
@@ -94,53 +87,54 @@ var PageTurn = {
   }
 }
 
+function get_cp(argument){
+    return $.ajax({
+    url : '/check_point',
+    method : 'POST',
+    data : { last_point: localStorage['last_point'] },
+    success : function(response){
+
+    }
+  });
+};
+
 
 $(document).ready(function() {
-  if (localStorage.last_point === "undefined"){
-    var book = new Book(0, new Sentence());
-  } else {
-    var start = localStorage.last_point
-     var book = new Book(start, new Sentence());
+  $('.sentence_wrapper').hide();
+  var positionUpdate = function(){
+    return get_cp();
   }
 
+ positionUpdate().done(function(result){ //may need slight tweaks.
+    book = new Book(result.farthest_point, new Sentence())
+    sentence = new Sentence(book);
+    console.log(book);
+    $('.current_sentence').text(sentence.currentSentence(book.current));
+    $('.sentence_wrapper').show();
 
-
-
-
-  var sentence = new Sentence(book);
-  var pages = sentence.pages;
-  sentence.barProgress(book.current, book.end);
-
-  $('.current_sentence').text(sentence.currentSentence(book.current));
-  // $(".right").on("click", function() {
-  //     PageTurn.right(sentence, book);
-  //     $('#last_point').html() = book.current
-  //   });
-
+  })
 
   page = document.getElementById('book_wrapper')
 
   var hammer_time = new Hammer(page);
   hammer_time.on('swipeleft', function(){
     swipeleftHandler();
+     get_cp();
   });
   hammer_time.on('swiperight', function(){
     swiperightHandler();
+    get_cp();
   });
 
 
   function swipeleftHandler(){
     PageTurn.left(sentence, book);
+
   }
-
-
 
   function swiperightHandler() {
     PageTurn.right(sentence, book);
   }
-
-  // localStorage["last_point"] = $('last_point').html();
-  // console.log(localStorage);
 
 });
 
