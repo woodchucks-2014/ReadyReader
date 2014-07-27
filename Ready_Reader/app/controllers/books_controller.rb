@@ -38,12 +38,21 @@ class BooksController < ApplicationController
   def check_point
     @user = User.find(session[:user])
     @book = Book.find(session[:book])
-    if params["last_point"].to_i == 0 && @book.farthest_point == 0
-      render json: {farthest_point: @book.farthest_point}.to_json
-    else
-      @book.farthest_point = params["last_point"].to_i
-      @book.save!
-    end
+    p "*" * 100
+    p "THIS IS THE DATABASE VAL PRIOR TO UPDATE"
+    p @book.farthest_point
+
+    database_val = @book.farthest_point
+    local_val = params["last_point"].to_i
+
+    # the comparison and reset occurs on line 49
+    @book.farthest_point = local_val if local_val > database_val
+    @book.save!
+
+    p "*" * 100
+    p "THIS IS THE DATABASE VAL AFTER UPDATE"
+    p @book.farthest_point
+    # end
     render json: {farthest_point: @book.farthest_point}.to_json
   end
 
