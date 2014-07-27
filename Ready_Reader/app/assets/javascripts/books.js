@@ -111,10 +111,12 @@ $(document).ready(function() {
     console.log(book);
     $('.current_sentence').text(sentence.currentSentence(book.current));
     $('.sentence_wrapper').show();
-
+    sentence.barProgress(book.current, book.end);
+    $('.progress_bar').show();
   })
 
   page = document.getElementById('book_wrapper')
+  console.log("WHERE IS THE PROGESS BAR")
 
   // Please note this is temporary until we can include Hammer.js
    $(".right").on("click", function() {
