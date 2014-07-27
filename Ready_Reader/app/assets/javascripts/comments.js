@@ -6,6 +6,12 @@ $(document).ready(function(){
     $('#commentModal').modal();
   })
 
+  $('#comment_view_click').on("click", function(e) {
+    e.preventDefault();
+    console.log("SUSENS SUCKS");
+    $('#commentViewModal').modal();
+  })
+
   $(document).on('submit', '#form_fun', function(e){
     e.preventDefault();
     var ajaxRequest = $.ajax({

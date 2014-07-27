@@ -3,10 +3,12 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    # tokenizer = TactfulTokenizer::Model.new
     @sentences = @book.sentences
     session[:book] = @book.id
     @pages = @book.pages
+
+    @user = User.find(params[:user_id])
+    @comments = Comment.where(book_id: @book.id, user_id: @user.id)
   end
 
   def upload
