@@ -8,20 +8,22 @@ var Book = function(current, sentence){
 Book.prototype.checkForEnd = function(){
   if (this.current < this.end) { // error message should trigger on ==
         $('.current_sentence').text(this.sentence.currentSentence(this.current));
-      } else {$('.current_sentence').text("You've reached the end :-(")}
+        $('.error_reading').text("")
+      } else {$('.error_reading').text("<- End")}
 }
 
 Book.prototype.checkForBeginning = function(){
-  if (this.current >= 0) {  // error message should trigger on ==
+  if (this.current > 0) {  // error message should trigger on ==
           $('.current_sentence').text(this.sentence.currentSentence(this.current));
+          $('.error_reading').text("")
           // line 18 should NOT replace .current_sentence
-        } else {$('.current_sentence').text("You're just beginning!")}
+        } else {$('.error_reading').text("Begin ->")}
 }
 
-var Sentence = function(book){
+var Sentence = function(book, current){
    this.book = book;
    this.pages = +$('.pages').text();
-   this.index = 0;
+   this.index = current;
 
   $(document).ready(function(){ //look into this tomorrow.
     $('.non_current_sentence').hide();
@@ -32,7 +34,7 @@ var Sentence = function(book){
 Sentence.prototype.increment = function() {
    this.index += 1
    this.book.current = this.index;
-   if (this.index > this.pages) { // should never be outside range
+   if (this.index >= this.pages) { // should never be outside range
     this.index = this.pages;
     this.book.current = this.pages;
    }
@@ -41,9 +43,9 @@ Sentence.prototype.increment = function() {
 Sentence.prototype.decrement = function() {
   this.index -= 1
   this.book.current = this.index;
-  if (this.index < 0) {
-    this.index = -1; // 0 should be lowest it can sink
-    this.book.current = -1;
+  if (this.index < 0 && this.index != this.book.end) {
+    this.index = 0; // 0 should be lowest it can sink
+    this.book.current = 0;
   }
 }
 
@@ -113,7 +115,7 @@ $(document).ready(function() {
 
  positionUpdate().done(function(result){ //may need slight tweaks.
     book = new Book(result.farthest_point, new Sentence());
-    sentence = new Sentence(book);
+    sentence = new Sentence(book, book.current);
     console.log(book);
     $('.current_sentence').text(sentence.currentSentence(book.current));
     $('.sentence_wrapper').show();
