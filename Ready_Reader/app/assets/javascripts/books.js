@@ -60,9 +60,12 @@ Sentence.prototype.barProgress = function(current, end){
   });
 }
 
-Sentence.prototype.last_point = function(index){
-  localStorage['last_point'] = this.index
+Sentence.prototype.bookId = function() {
+  localStorage['book_id'] = +$('.book_number').text();
+}
 
+Sentence.prototype.last_point = function(index){
+  localStorage['last_point'] = this.index;
 }
 
 var PageTurn = {
@@ -108,6 +111,7 @@ $(document).ready(function() {
  positionUpdate().done(function(result){ //may need slight tweaks.
     book = new Book(result.farthest_point, new Sentence())
     sentence = new Sentence(book);
+    sentence.bookId();
     console.log(book);
     $('.current_sentence').text(sentence.currentSentence(book.current));
     $('.sentence_wrapper').show();
@@ -115,8 +119,7 @@ $(document).ready(function() {
     $('.progress_bar').show();
   })
 
-  page = document.getElementById('book_wrapper')
-  console.log("WHERE IS THE PROGESS BAR")
+  page = document.getElementById('book_wrapper');
 
   // Please note this is temporary until we can include Hammer.js
    $(".right").on("click", function() {
