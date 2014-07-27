@@ -4,7 +4,8 @@
     <div class="modal-content">
       <div class="modal-body" >
         <div id="comment_view">
-         <% @comments.each do |comment| %>
+        <div id="new_comments"></div>
+         <% @comments.reverse.each do |comment| %>
             <p> Passage: <%= comment.commented_on %> </p>
             <p> <%= comment.created_at %> </p>
             <p> Comment: <%= comment.commentary %> </p>

@@ -17,6 +17,7 @@ $(document).ready(function(){
     var ajaxRequest = $.ajax({
       url : '/comment_on_book',
       data: {commentary: $('#comment_commentary').val(), commented_on: $('.current_sentence').text()},
+      dataType: 'json',
       method: 'POST'
     });
 
@@ -25,6 +26,9 @@ $(document).ready(function(){
         $('#commentModal').modal('hide');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
+        $('#new_comments').append('<p> Passage: '+response.passage+'</p>')
+        $('#new_comments').append('<p> '+response.datetime+'</p>')
+        $('#new_comments').append('<p> Comment: '+response.comment+'</p>')
     });
 
 
