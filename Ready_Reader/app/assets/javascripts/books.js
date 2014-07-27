@@ -63,15 +63,6 @@ Sentence.prototype.barProgress = function(current, end){
 
 var getBookId = function () {return +$('.book_number').text(); }
 
-Sentence.prototype.last_point = function(index){
-  var book_id = +$('.book_number').text();
-  var user_name = $('.user_name').text();
-  var userObject = {userName: user_name, bookId: book_id, currentSentence: this.index};
-  localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
-  console.log(localStorage);
-  console.log(book_id);
-}
-
 var localStorageInit = function(){
   var book_id = +$('.book_number').text();
   var user_name = $('.user_name').text();
@@ -89,17 +80,26 @@ var localStorageUpdate = function(book){
   localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
 }
 
+var Refresh = {
+  hideShow: function(){
+    $('.progress_bar').hide();
+    $('.progress_bar').show();
+  },
+
+  progress: function(book){
+    $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
+    $('.text_progress').text("Sentence " + book.current + " of " + book.end )
+  }
+}
+
 var PageTurn = {
 
   left: function(sentence, book) {
       sentence.increment();
       book.checkForEnd();
       sentence.barProgress(book.current, book.end);
-      $('.progress_bar').hide();
-      $('.progress_bar').show();
-      sentence.last_point(book.current);
-      $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
-      $('.text_progress').text("Sentence " + book.current + " of " + book.end )
+      Refresh.hideShow;
+      Refresh.progress(book)
       localStorageUpdate(book);
   },
 
@@ -107,11 +107,8 @@ var PageTurn = {
       sentence.decrement();
       book.checkForBeginning();
       sentence.barProgress(book.current, book.end);
-      $('.progress_bar').hide();
-      $('.progress_bar').show();
-      sentence.last_point(book.current);
-      $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
-      $('.text_progress').text("Sentence " + book.current + " of " + book.end )
+      Refresh.hideShow();
+      Refresh.progress(book);
       localStorageUpdate(book);
   }
 }
