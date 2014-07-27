@@ -3,19 +3,20 @@
 
     <ul>
       <% if !logged_in? %>
-        <li><%= link_to "Library", root_path %> </li>
-        <li id="signup"> Sign Up </li>
-        <li id="login"> Log In </li>
+        <li class="nav_item" id="left"><%= link_to "Library", root_path %> </li>
+        <li class="nav_item" id="signup"> Sign Up </li>
+        <li class="nav_item" id="login"> Log In </li>
       <% end %>
 
       <% if logged_in? %>
-        <li><%= link_to "Library", root_path %> </li>
-        <li> Logged in as <%=current_user.name%> </li>
+        <li class="nav_item" id="right"><%= link_to "Library", profile_path(current_user) %> </li>
         <li><%= link_to "Sign Out", sign_out_path(current_user), :class => "nav_right"  %></li>
+
 
        <% if session[:user] && session[:book] %>
          <% if current_page?(user_book_path(current_user, session[:book]))%>
-            <li><%= book_title %></li>
+            <li class="nav_item" id="middle" style="margin-left: 19%"><%= book_title %></li>
+            <li class="nav_item" id="add_comment" style="float: right"> Comment </li>
          <%end%>
        <%end%>
 
@@ -23,3 +24,5 @@
     </ul>
   </nav>
 </header>
+
+

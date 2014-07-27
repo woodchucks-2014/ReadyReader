@@ -1,7 +1,8 @@
 <%= flash[:notice_signup] %>
 <%= flash[:notice_login] %>
 
-<div class="pages"> <%= @pages %> </div>
+<div class="pages" style="visibility:hidden"> <%= @pages %> </div>
+
 <div class="book_wrapper">
   <div class="sentence_wrapper">
   <div class="current_sentence"></div>
@@ -11,9 +12,14 @@
   </div>
 </div>
 
-<center>
-<h2 class="right"> RIGHT </h2>
-<h2 class="left"> LEFT </h2>
-</center>
 <div id="progressbar"></div>
+
+<center>
+  <div class="backward"> <h2 class="right"> BACKWARD </h2> </div>
+  <div class="forward"><h2 class="left"> FORWARD </h2> </div>
+</center>
+
+<p> Comments on <%= book_title %> </p>
+
+
 

@@ -1,0 +1,24 @@
+
+<div class="modal fade" id="commentViewModal" tabindex="1" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body" >
+        <div id="comment_view">
+        <button id="close_comment_view"> Close </button>
+        <div id="new_comments"></div>
+         <% @comments.reverse.each do |comment| %>
+            <p id="passage"> <%= comment.commented_on %> </p>
+            <p> <%= current_user.name + " wrote at " + datetime_am_pm(comment.created_at) %> </p>
+            <p> <%= comment.commentary %> </p>
+            <p> -------------------- </p>
+         <% end %>
+          <div class="modal-footer">
+          <br><br>
+          <center>
+          </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
