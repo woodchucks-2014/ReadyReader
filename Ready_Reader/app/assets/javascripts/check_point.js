@@ -6,7 +6,11 @@ function get_cp(){
   });
 
   ajax2.complete(function(response){
-    console.log(response.responseText);
+    server_response = (response.responseJSON.farthest_point);
+    if (server_response > localStorage['last_point']){
+      book.current = server_response
+    }
+
   });
 }
 
