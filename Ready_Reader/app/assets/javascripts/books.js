@@ -77,6 +77,7 @@ var PageTurn = {
       $('.progress_bar').hide();
       $('.progress_bar').show();
       sentence.last_point(book.current);
+      $('.text_progress').text("Sentence " + book.current + " of " + book.end )
   },
 
   right: function(sentence, book) {
@@ -86,6 +87,7 @@ var PageTurn = {
       $('.progress_bar').hide();
       $('.progress_bar').show();
       sentence.last_point(book.current);
+      $('.text_progress').text("Sentence " + book.current + " of " + book.end )
   }
 }
 
@@ -115,6 +117,7 @@ $(document).ready(function() {
     $('.sentence_wrapper').show();
     sentence.barProgress(book.current, book.end);
     $('.progress_bar').show();
+    $('.text_progress').text("Sentence " + book.current + " of " + book.end )
   })
 
   page = document.getElementById('book_wrapper');

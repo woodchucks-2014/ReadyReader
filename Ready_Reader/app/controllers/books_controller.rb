@@ -31,7 +31,8 @@ class BooksController < ApplicationController
       content << page.text
     end
 
-    book = Book.create(title: params[:title], content: content, user_id: @user.id)
+    book = Book.create(title: params[:title], content: content)
+    @user.books << book
     redirect_to profile_path(@user)
   end
 
