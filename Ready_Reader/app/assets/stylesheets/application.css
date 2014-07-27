@@ -214,6 +214,10 @@ nav {
   height: 25%;
 }
 
+#comment_view_click {
+  font-size: 2em;
+}
+
 #left{
 float: left;
 }
@@ -224,8 +228,11 @@ float: left;
 }
 
 #turn_buttons {
-
+  /*TBD*/
 }
+
+
+
 
 /* MEDIA - iPhone */
 
@@ -291,7 +298,7 @@ and (-webkit-min-device-pixel-ratio: 1)  { /* STYLES GO HERE */}
 }
 #reader_nav {
   width: auto;
-  height: 100px;
+  height: 110px;
   padding-bottom: 4px;
 }
 #reader_nav.align-right {
@@ -343,12 +350,12 @@ and (-webkit-min-device-pixel-ratio: 1)  { /* STYLES GO HERE */}
   z-index: 4;
   background: url('images/bg.png');
 }
-#reader_nav ul {
+/*#reader_nav ul {
   height: 59px;
-}
+}*/
 #reader_nav ul li {
   float: left;
-  margin-right: 4px;
+  margin-right: 2%;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   z-index: 5;
