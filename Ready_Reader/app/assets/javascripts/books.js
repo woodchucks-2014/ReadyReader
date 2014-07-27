@@ -65,8 +65,28 @@ var getBookId = function () {return +$('.book_number').text(); }
 
 Sentence.prototype.last_point = function(index){
   var book_id = +$('.book_number').text();
-  localStorage[book_id] = this.index;
-  console.log(book_id)
+  var user_name = $('.user_name').text();
+  var userObject = {userName: user_name, bookId: book_id, currentSentence: this.index};
+  localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
+  console.log(localStorage);
+  console.log(book_id);
+}
+
+var localStorageInit = function(){
+  var book_id = +$('.book_number').text();
+  var user_name = $('.user_name').text();
+  var userObject = {userName: user_name, bookId: book_id, currentSentence: 0};
+
+  if (localStorage[user_name + book_id] === undefined) {
+     localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
+  }
+};
+
+var localStorageUpdate = function(book){
+  var book_id = +$('.book_number').text();
+  var user_name = $('.user_name').text();
+  var userObject = {userName: user_name, bookId: book_id, currentSentence: book.current};
+  localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
 }
 
 var PageTurn = {
@@ -80,6 +100,7 @@ var PageTurn = {
       sentence.last_point(book.current);
       $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
       $('.text_progress').text("Sentence " + book.current + " of " + book.end )
+      localStorageUpdate(book);
   },
 
   right: function(sentence, book) {
@@ -91,6 +112,7 @@ var PageTurn = {
       sentence.last_point(book.current);
       $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
       $('.text_progress').text("Sentence " + book.current + " of " + book.end )
+      localStorageUpdate(book);
   }
 }
 
@@ -102,10 +124,12 @@ var initializeBook = function() {
 
 
 function get_cp(argument){
+  var keyLook = $('.user_name').text() + +$('.book_number').text()
+  console.log(keyLook);
     return $.ajax({
     url : '/check_point',
     method : 'POST',
-    data : { last_point: localStorage[getBookId()] },
+    data : { object: JSON.parse(localStorage[keyLook]) },
     success : function(response){
     }
   });
@@ -113,7 +137,7 @@ function get_cp(argument){
 
 
 $(document).ready(function() {
-
+  localStorageInit();
   initializeBook();
   var positionUpdate = function(){
     return get_cp();
