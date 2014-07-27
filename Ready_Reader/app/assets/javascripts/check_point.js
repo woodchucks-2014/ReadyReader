@@ -1,5 +1,6 @@
-function get_cp(){
-  console.log('yaaaaa')
+function get_cp(point){
+  console.log('yaaaaa');
+
   var ajax2 = $.ajax({
     url : '/check_point',
     method : 'POST',
@@ -8,9 +9,7 @@ function get_cp(){
 
 
   ajax2.success(function(response){
-    console.log(response);
     server_response = response["farthest_point"];
-    console.log(server_response)
     return server_response;
 
   });

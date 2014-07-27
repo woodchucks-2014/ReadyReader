@@ -38,9 +38,12 @@ class BooksController < ApplicationController
   def check_point
     @user = User.find(session[:user])
     @book = Book.find(session[:book])
-    p params
-    @book.farthest_point = params["last_point"].to_i
-    @book.save!
+    if params["last_point"].to_i == 0 && @book.farthest_point == 0
+      render json: {farthest_point: @book.farthest_point}.to_json
+    else
+      @book.farthest_point = params["last_point"].to_i
+      @book.save!
+    end
     render json: {farthest_point: @book.farthest_point}.to_json
   end
 

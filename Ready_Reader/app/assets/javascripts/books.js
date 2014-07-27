@@ -94,15 +94,27 @@ var PageTurn = {
   }
 }
 
-
 $(document).ready(function() {
+  get_cp(function(result){
+
+  });
+  console.log(rsp);
   if (localStorage.last_point === undefined){
+    localStorage.last_point = 0;
     start_point = get_cp();
     console.log(start_point);
     var book = new Book(start_point, new Sentence());
   } else {
-    var start = localStorage.last_point
-     var book = new Book(start, new Sentence());
+    start_point = get_cp();
+    console.log(start_point);
+    if (start_point > localStorage.last_point){
+      var start = localStorage.last_point
+      var book = new Book(start, new Sentence());
+    } else {
+      var book = new Book(localStorage.last_point, new Sentence());
+    }
+
+
   }
 
 
