@@ -140,7 +140,7 @@ nav {
   font-size:30px;
   padding-right: 40px;
   width: 100%;
-  height: 200px;
+  height: 100px;
   background-color: black;
 }
 
@@ -191,7 +191,7 @@ nav {
 }
 #reader_nav {
   width: auto;
-  height: 100px;
+  height: 200px;
   padding-bottom: 4px;
 }
 #reader_nav.align-right {
