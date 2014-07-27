@@ -6,17 +6,17 @@ var Book = function(current, sentence){
 }
 
 Book.prototype.checkForEnd = function(){
-  if (this.current < this.end) { // error message should trigger on ==
+  if (this.current < this.end) {
         $('.current_sentence').text(this.sentence.currentSentence(this.current));
         $('.error_reading').text("")
       } else {$('.error_reading').text("<- End")}
 }
 
 Book.prototype.checkForBeginning = function(){
-  if (this.current > 0) {  // error message should trigger on ==
+  if (this.current > 0) {
           $('.current_sentence').text(this.sentence.currentSentence(this.current));
           $('.error_reading').text("")
-          // line 18 should NOT replace .current_sentence
+
         } else {$('.error_reading').text("Begin ->")}
 }
 
@@ -24,11 +24,10 @@ var Sentence = function(book, current){
    this.book = book;
    this.pages = +$('.pages').text();
    this.index = current;
+}
 
-  $(document).ready(function(){ //look into this tomorrow.
-    $('.non_current_sentence').hide();
-
-  });
+Sentence.prototype.hideNoncurrent = function(){
+    $('non_current_sentence').hide();
 }
 
 Sentence.prototype.increment = function() {
@@ -95,20 +94,27 @@ var PageTurn = {
   }
 }
 
+var initializeBook = function() {
+  $('.non_current_sentence').hide();
+  $('.sentence_wrapper').hide();
+  $('.sentence_wrapper').show();
+}
+
+
 function get_cp(argument){
     return $.ajax({
     url : '/check_point',
     method : 'POST',
     data : { last_point: localStorage[getBookId()] },
     success : function(response){
-
     }
   });
 };
 
 
 $(document).ready(function() {
-  $('.sentence_wrapper').hide();
+
+  initializeBook();
   var positionUpdate = function(){
     return get_cp();
   }
@@ -117,15 +123,13 @@ $(document).ready(function() {
     book = new Book(result.farthest_point, new Sentence());
     sentence = new Sentence(book, book.current);
     console.log(book);
-    $('.current_sentence').text(sentence.currentSentence(book.current));
-    $('.sentence_wrapper').show();
     sentence.barProgress(book.current, book.end);
+    $('.current_sentence').text(sentence.currentSentence(book.current));
     $('.progress_bar').show();
     $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
     $('.text_progress').text("Sentence " + book.current + " of " + book.end )
   })
 
-  page = document.getElementById('book_wrapper');
 
   // Please note this is temporary until we can include Hammer.js
    $(".right").on("click", function() {
@@ -137,6 +141,8 @@ $(document).ready(function() {
     });
   // end of temporary code
 
+  // Once asset pipeline issues are resolved, here's the code:
+  // page = document.getElementById('book_wrapper');
   // var hammer_time = new Hammer(page);
   // hammer_time.on('swipeleft', function(){
   //   swipeleftHandler();
