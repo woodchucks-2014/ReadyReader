@@ -17,6 +17,70 @@
  *= require_self
  */
 
+
+/*MEDIA QUERY*/
+@media only screen and (max-width : 640px) {
+
+    header {
+      position: absolute;
+    }
+
+    #menu-icon {
+      display:inline-block;
+    }
+
+    nav ul, nav:active ul {
+      display: none;
+      position: absolute;
+      padding: 20px;
+      background: #fff;
+      border: 5px solid #444;
+      right: 20px;
+      top: 60px;
+      width: 50%;
+      border-radius: 4px 0 4px 4px;
+    }
+
+    nav li {
+      text-align: center;
+      width: 100%;
+      padding: 100px 0;
+      margin: 0;
+    }
+
+    nav:hover ul {
+      display: block;
+    }
+
+    .nav_item ul,li, a {
+      padding: 24px 30px 20px 30px;
+      margin-bottom: 4px;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      color: #eeeeee;
+      font-size: 45px;
+      text-decoration: none;
+     }
+
+      #left{
+        float: left;
+      }
+
+      #middle{
+        margin-left: 30%;
+      }
+}
+
+.forward{
+  margin-top: 100px;
+  float: right;
+}
+
+.backward{
+  margin-top: 100px;
+  float: left;
+}
+
 body{
   overflow: hidden;
 }
@@ -37,7 +101,7 @@ body{
   font-size: 60px;
 }
 
-@media (max-width: 480px) {
+/*@media (max-width: 480px) {
     .modal {
         position: fixed;
         top: 3%;
@@ -54,7 +118,7 @@ body{
         -webkit-overflow-scrolling: touch;
      }
 }
-
+*/
 .bottom_bar{
   margin-top: 250px;
 }
@@ -91,13 +155,20 @@ nav {
   margin-left: 50%;
 }
 
-.progress_bar div {
+#progressbar{
+  margin-top: 200px;
+  padding: 0;
+}
+
+.progressbar {
   font: 10px sans-serif;
   background-color: #99CCFF;
   text-align: right;
   padding: 3px;
   margin: 1px;
   color: white;
+  width: 100%;
+  margin-top: 450px;
 }
 
 .pro{
@@ -181,16 +252,29 @@ nav {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   z-index: 5;
+  margin-top: 25px;
 }
-#reader_nav ul li a {
+
+.nav_item ul,li, a {
   padding: 24px 30px 20px 30px;
   margin-bottom: 4px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   color: #eeeeee;
-  font-size: 15px;
+  font-size: 45px;
   text-decoration: none;
+
 }
+
+#left{
+float: left;
+}
+
+#middle{
+  margin-left: 30%;
+}
+
+
 #reader_nav ul li:first-child,
 #reader_nav ul li:first-child > a {
   border-bottom-left-radius: 3px;
