@@ -7,10 +7,11 @@ $(document).ready(function(){
       data : { last_point: localStorage['last_point'] }
     });
 
-    // ajax2.complete(function(response){
-    //   repeat(function(){get_cp();}, 2000);
-    //   console.log('yolo repeat')
-    // });
+    ajax2.complete(function(response){
+      console.log(response);
+      repeat(function(){get_cp();}, 2000);
+      console.log('yolo repeat')
+    });
   }
   // setInterval(function(){get_cp();}, 400);
 });

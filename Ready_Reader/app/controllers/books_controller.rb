@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   # before_action :require_login - we need to figure out how to redirect if not logged in
-
+  respond_to :json
   def show
     @book = Book.find(params[:id])
     # tokenizer = TactfulTokenizer::Model.new
@@ -36,12 +36,10 @@ class BooksController < ApplicationController
   end
 
   def check_point
-    p "*" * 100
-    p session[:book]
     @user = User.find(session[:user])
     @book = Book.find(session[:book])
     @book.farthest_point = params["last_point"]
-    p params
+    render json: {farthest_point => @book.farthest_point}.to_json
     redirect_to user_book_path(@user, session[:book])
   end
 
