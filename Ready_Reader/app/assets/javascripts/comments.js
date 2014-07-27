@@ -1,11 +1,8 @@
 $(document).ready(function(){
 
   $('#add_comment').on("click", function(e) {
-    $('#form-fun').show();
     e.preventDefault();
-    console.log("FUCK YOU HAMMER");
-    console.log($('.current_sentence').text());
-
+    $('#form-fun').show();
     $('#commentModal').modal();
   })
 
@@ -18,12 +15,10 @@ $(document).ready(function(){
     });
 
     ajaxRequest.success(function(response){
-      console.log("yolo");
-      $('#commentModal').modal('hide');
-      $('body').removeClass('modal-open');
-      $('.modal-backdrop').remove();
-      // $('#new_comment').show();
-
+        // necessary to make modal disappear post click
+        $('#commentModal').modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
     });
 
 
