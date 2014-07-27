@@ -126,11 +126,13 @@ $(document).ready(function() {
   });
   hammer_time.on('swiperight', function(){
     swiperightHandler();
+    get_cp();
   });
 
 
   function swipeleftHandler(){
     PageTurn.left(sentence, book);
+    get_cp();
   }
 
 

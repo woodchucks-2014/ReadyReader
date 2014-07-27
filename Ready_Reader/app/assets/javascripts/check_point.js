@@ -12,5 +12,5 @@ $(document).ready(function(){
     //   console.log('yolo repeat')
     // });
   }
-  setInterval(function(){get_cp();}, 400);
+  // setInterval(function(){get_cp();}, 400);
 });
