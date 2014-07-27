@@ -39,8 +39,7 @@ class BooksController < ApplicationController
     @user = User.find(session[:user])
     @book = Book.find(session[:book])
     @book.farthest_point = params["last_point"]
-    render json: {farthest_point => @book.farthest_point}.to_json
-    redirect_to user_book_path(@user, session[:book])
+    render json: {farthest_point: @book.farthest_point}.to_json
   end
 
   def create
