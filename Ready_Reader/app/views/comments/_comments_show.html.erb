@@ -4,12 +4,13 @@
     <div class="modal-content">
       <div class="modal-body" >
         <div id="comment_view">
-        <div id="new_comments"></div>
         <button id="close_comment_view"> Close </button>
+        <div id="new_comments"></div>
          <% @comments.reverse.each do |comment| %>
-            <p> Passage: <%= comment.commented_on %> </p>
-            <p> <%= datetime_am_pm(comment.created_at) %> </p>
-            <p> Comment: <%= comment.commentary %> </p>
+            <p id="passage"> <%= comment.commented_on %> </p>
+            <p> <%= current_user.name + " wrote at " + datetime_am_pm(comment.created_at) %> </p>
+            <p> <%= comment.commentary %> </p>
+            <p> -------------------- </p>
          <% end %>
           <div class="modal-footer">
           <br><br>

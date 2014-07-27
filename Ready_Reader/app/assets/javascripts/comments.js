@@ -34,9 +34,9 @@ $(document).ready(function(){
         $('#commentModal').modal('hide');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();
-        $('#new_comments').append('<p> Passage: '+response.passage+'</p>')
-        $('#new_comments').append('<p> '+response.datetime+'</p>')
-        $('#new_comments').append('<p> Comment: '+response.comment+'</p>')
+        $('#new_comments').append('<p> '+response.passage+'</p>')
+        $('#new_comments').append('<p> '+response.author+' wrote at '+response.datetime+'</p>')
+        $('#new_comments').append('<p> '+response.comment+'</p>')
         $('#new_comments').append('<p> ************************</p>')
     });
 

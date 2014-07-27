@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @book = Book.find(session[:book])
     @comment = Comment.create(user_id: @user.id, book_id: @book.id, commentary: params["commentary"], commented_on: params["commented_on"])
     p "NEARING JSON REQUEST"
-    render json: {passage: @comment.commented_on, comment: @comment.commentary, datetime: datetime_am_pm(@comment.created_at)}.to_json
+    render json: {passage: @comment.commented_on, comment: @comment.commentary, datetime: datetime_am_pm(@comment.created_at), author: @user.name}.to_json
   end
 
 

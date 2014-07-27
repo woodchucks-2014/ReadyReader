@@ -18,8 +18,10 @@
  */
 
 
-/*MEDIA QUERY*/
 
+
+
+/*MEDIA QUERY*/
 .modal .modal-body {
     max-height: 700px;
     overflow-y: auto;
@@ -75,6 +77,20 @@
       #middle{
         margin-left: 30%;
       }
+}
+
+/*UNIVERSAL*/
+
+#passage{
+  background-color: #FFEBCD;
+  font-family: 'Georgia';
+  border-radius: 5px;
+}
+
+.passage{
+  background-color: #FFEBCD;
+  font-family: 'Georgia';
+  border-radius: 5px;
 }
 
 .forward{
