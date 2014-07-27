@@ -19,6 +19,13 @@
 
 
 /*MEDIA QUERY*/
+
+.modal .modal-body {
+    max-height: 700px;
+    width: 500px;
+    overflow-y: auto;
+}
+
 @media only screen and (max-width : 640px) {
 
     header {
