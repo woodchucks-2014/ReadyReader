@@ -5,6 +5,7 @@
       <div class="modal-body" >
         <div id="comment_view">
         <div id="new_comments"></div>
+        <button id="close_comment_view"> Close </button>
          <% @comments.reverse.each do |comment| %>
             <p> Passage: <%= comment.commented_on %> </p>
             <p> <%= datetime_am_pm(comment.created_at) %> </p>
@@ -13,7 +14,6 @@
           <div class="modal-footer">
           <br><br>
           <center>
-          <button class="close_comment_view"> Close </button>
           </center>
           </div>
         </div>
