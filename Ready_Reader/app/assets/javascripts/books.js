@@ -147,8 +147,7 @@ $(document).ready(function() {
     sentence.barProgress(book.current, book.end);
     $('.current_sentence').text(sentence.currentSentence(book.current));
     $('.progress_bar').show();
-    $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
-    $('.text_progress').text("Sentence " + book.current + " of " + book.end )
+    Refresh.progress(book)
   })
 
 
