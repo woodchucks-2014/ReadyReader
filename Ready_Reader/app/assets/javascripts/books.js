@@ -116,15 +116,15 @@ $(document).ready(function() {
 
   page = document.getElementById('book_wrapper')
 
-  var hammer_time = new Hammer(page);
-  hammer_time.on('swipeleft', function(){
-    swipeleftHandler();
-     get_cp();
-  });
-  hammer_time.on('swiperight', function(){
-    swiperightHandler();
-    get_cp();
-  });
+  // var hammer_time = new Hammer(page);
+  // hammer_time.on('swipeleft', function(){
+  //   swipeleftHandler();
+  //    get_cp();
+  // });
+  // hammer_time.on('swiperight', function(){
+  //   swiperightHandler();
+  //   get_cp();
+  // });
 
 
   function swipeleftHandler(){

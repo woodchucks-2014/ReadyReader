@@ -1,6 +1,7 @@
 
-<div class="pages"> <%= @pages %> </div>
-<div id="book_wrapper">
+<div class="pages" style="visibility:hidden"> <%= @pages %> </div>
+<div class="book_wrapper">
+
 
   <div class="sentence_wrapper">
     <div class="current_sentence"></div>
@@ -11,8 +12,8 @@
 </div>
 
 <center>
-  <h2 class="right"> RIGHT </h2>
-  <h2 class="left"> LEFT </h2>
+  <div class="forward"> <h2 class="left"> FORWARD </h2> </div>
+  <div class="backward"><h2 class="right"> BACKWARD </h2> </div>
 </center>
 
 
@@ -21,8 +22,13 @@
 </div>
 
 
-<div class="comment_box">
-  <%=link_to "Add Comment", new_user_comment_path, id: "new_comment", remote: true%>
-</div>
+
 
 <div id="last_point"></div>
+<br>
+<br>
+
+<center>
+  <p id="comment_view_click"> Comments on <%= book_title %> </p>
+    <center id='comment-view-modal' style="display: none z-index: 10"><%= render 'comments/comments_show' %></center>
+</center>
