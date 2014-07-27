@@ -31,18 +31,27 @@ class BooksController < ApplicationController
       content << page.text
     end
 
-    book = Book.create(title: params[:title], content: content, user_id: @user.id)
+    book = Book.create(title: params[:title], content: content)
+    @user.books << book
     redirect_to profile_path(@user)
   end
 
   def check_point
-    @user = User.find(session[:user])
+    p "*" * 100
+    p "TEST"
+    @user = User.find(session[:user]) # need to create guest user
     @book = Book.find(session[:book]) #Implement nesting to compensate for logging into multiple books.
-    database_val = @book.farthest_point
+    @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id)
+    database_val = @user_book.farthest_point #defaults to 0
+
     local_val = params["last_point"].to_i
-    @book.farthest_point = local_val if local_val > database_val
-    @book.save!
-    render json: {farthest_point: @book.farthest_point}.to_json
+
+    @user_book.farthest_point = local_val if local_val > database_val
+    @user_book.save!
+    p "*" * 100
+    p "TEST"
+    p @user_book.farthest_point
+    render json: {farthest_point: @user_book.farthest_point}.to_json
   end
 
   def create

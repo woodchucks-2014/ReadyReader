@@ -60,9 +60,12 @@ Sentence.prototype.barProgress = function(current, end){
   });
 }
 
-Sentence.prototype.last_point = function(index){
-  localStorage['last_point'] = this.index
+var getBookId = function () {return +$('.book_number').text(); }
 
+Sentence.prototype.last_point = function(index){
+  var book_id = +$('.book_number').text();
+  localStorage[book_id] = this.index;
+  console.log(book_id)
 }
 
 var PageTurn = {
@@ -74,7 +77,8 @@ var PageTurn = {
       $('.progress_bar').hide();
       $('.progress_bar').show();
       sentence.last_point(book.current);
-      console.log(localStorage)
+      $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
+      $('.text_progress').text("Sentence " + book.current + " of " + book.end )
   },
 
   right: function(sentence, book) {
@@ -84,6 +88,8 @@ var PageTurn = {
       $('.progress_bar').hide();
       $('.progress_bar').show();
       sentence.last_point(book.current);
+      $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
+      $('.text_progress').text("Sentence " + book.current + " of " + book.end )
   }
 }
 
@@ -91,7 +97,7 @@ function get_cp(argument){
     return $.ajax({
     url : '/check_point',
     method : 'POST',
-    data : { last_point: localStorage['last_point'] },
+    data : { last_point: localStorage[getBookId()] },
     success : function(response){
 
     }
@@ -106,15 +112,28 @@ $(document).ready(function() {
   }
 
  positionUpdate().done(function(result){ //may need slight tweaks.
-    book = new Book(result.farthest_point, new Sentence())
+    book = new Book(result.farthest_point, new Sentence());
     sentence = new Sentence(book);
     console.log(book);
     $('.current_sentence').text(sentence.currentSentence(book.current));
     $('.sentence_wrapper').show();
-
+    sentence.barProgress(book.current, book.end);
+    $('.progress_bar').show();
+    $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
+    $('.text_progress').text("Sentence " + book.current + " of " + book.end )
   })
 
-  page = document.getElementById('book_wrapper')
+  page = document.getElementById('book_wrapper');
+
+  // Please note this is temporary until we can include Hammer.js
+   $(".right").on("click", function() {
+      PageTurn.right(sentence, book);
+    });
+
+    $(".left").on("click", function() {
+      PageTurn.left(sentence, book);
+    });
+  // end of temporary code
 
   // var hammer_time = new Hammer(page);
   // hammer_time.on('swipeleft', function(){
@@ -125,7 +144,6 @@ $(document).ready(function() {
   //   swiperightHandler();
   //   get_cp();
   // });
-
 
   function swipeleftHandler(){
     PageTurn.left(sentence, book);
