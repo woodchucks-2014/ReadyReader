@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     session[:user] = User.first.id #sets promo user
     @book = Book.first
 
-    @sentences = initialize_tt(@book.content) #gets into sentences
+    @sentences = tokenize(@book.content) #gets into sentences
     @sentences = @sentences.long_parse #takes out long sentences
 
     @pages = @sentences.size

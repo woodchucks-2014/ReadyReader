@@ -1,8 +1,9 @@
 module Tact_Token
 
- def initialize_tt(content)
+ def tokenize(content)
     tt ||= TactfulTokenizer::Model.new
-    tt.tokenize_text(content)
+    sentence_array = tt.tokenize_text(content)
+    sentence_array.long_parse
  end
 
 end

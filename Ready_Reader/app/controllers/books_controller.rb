@@ -14,7 +14,12 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @sentences = initialize_tt(@book.content) #gets into sentences
+    @sentences = tokenize(@book.content) #gets into sentences
+    p "WE ARE IN THE SHOW CONTROLLER"
+    p "*" * 100
+    p @sentences
+    p "*" * 100
+
     @sentences = @sentences.long_parse #takes array, splits long sentences
 
     @pages = @sentences.size
