@@ -1,15 +1,12 @@
 class Book < ActiveRecord::Base
   belongs_to :user
   has_many :comments, dependent: :destroy
-  before_save :sentence_parse
-  before_save :long_parse
 
   has_many :user_books
   has_many :users, through: :user_books
 
   def sentence_parse #detrimental to perf. time
-    tokenizer = TactfulTokenizer::Model.new
-    self.sentences = tokenizer.tokenize_text(self.content) #uncommenting results in test failure
+    self.sentences = tokenizer.tokenize_text(self.content) #initialize TT via initializer
   end
 
   def long_parse
