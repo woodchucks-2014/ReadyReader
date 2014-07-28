@@ -64,20 +64,13 @@ class BooksController < ApplicationController
 
 
     local_val = params["object"]["currentSentence"].to_i
-    p "*" * 100
-    p local_val
-
     # to prevent guest user from being incremented in database
     @user_book.farthest_point = local_val if local_val > database_val
 
     save_point = @user_book.farthest_point if session[:user] != 1
     save_point = local_val if session[:user] == 1
-
     @user_book.save!
 
-    p "*" * 100
-    p "TEST"
-    p @user_book.farthest_point
     render json: {farthest_point: save_point}.to_json
   end
 
