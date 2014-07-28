@@ -68,10 +68,11 @@ var sliderProgress = function(current, pages){
     max: pages,
     step: 1,
     slide: function( event, ui ) {
+            $( "#amount" ).val( ui.value );
             $(this).find('.ui-slider-handle').text(ui.value);
         },
         create: function(event, ui) {
-            var v=$(this).slider('value');
+            var v= $(this).slider('value');
             $(this).find('.ui-slider-handle').text(v);
     }
   });
@@ -144,6 +145,8 @@ var initializeBook = function() {
   $('.non_current_sentence').hide();
   $('.sentence_wrapper').hide();
   $('.sentence_wrapper').show();
+  $('.ui-slider-handle').hide();
+  $('.ui-slider-handle').show();
 }
 
 // timeOutId = 0;
