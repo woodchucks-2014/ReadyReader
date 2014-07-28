@@ -99,12 +99,14 @@
 }
 
 .forward{
-  margin-top: 100px;
+  margin-right: 2%;
+  margin-top: 5%;
   float: right;
 }
 
-.backward{
-  margin-top: 100px;
+.backward {
+  margin-left: 2%;
+  margin-top: 5%;
   float: left;
 }
 
@@ -129,7 +131,8 @@ body{
   color: #36AECC;
   font-family: 'Georgia';
   font-size: 30px;
-  height: 35%
+  height: 35%;
+  position: absolute;
 }
 
 .sentence_wrapper {
@@ -156,7 +159,7 @@ body{
 }
 */
 .bottom_bar{
-  margin-top: 250px;
+  margin-top: 35%;
 }
 
 .signup-form, .login-form {
@@ -216,7 +219,74 @@ nav {
   height: 25%;
 }
 
+#comment_view_click {
+  font-size: 2em;
+}
 
+#left{
+float: left;
+}
+
+#middle{
+  margin-left: 25%;
+  font-size: 45px;
+}
+
+#turn_buttons {
+  /*TBD*/
+}
+
+
+
+
+/* MEDIA - iPhone */
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+
+  #middle {
+    font-size: 1.500em;
+  }
+  .nav_right {
+    font-size: .750em;
+  }
+
+  .bottom_bar {
+    margin-top: 90%;
+  }
+
+  .book_wrapper {
+    height: 25%;
+  }
+
+  .sentence_wrapper {
+    font-size: 1.50em;
+  }
+
+  .forward{
+    margin-right: 2%;
+    margin-top: 5%;
+    float: right;
+  }
+
+  .backward {
+    margin-left: 2%;
+    margin-top: 5%;
+    float: left;
+  }
+
+
+}
+
+/* MEDIA - iPad mini */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (-webkit-min-device-pixel-ratio: 1)  { /* STYLES GO HERE */}
+
+
+/* BOOTSTRAP */
 
 #reader_nav,
 #reader_nav ul,
@@ -233,7 +303,7 @@ nav {
 }
 #reader_nav {
   width: auto;
-  height: 200px;
+  height: 110px;
   padding-bottom: 4px;
 }
 #reader_nav.align-right {
@@ -285,12 +355,12 @@ nav {
   z-index: 4;
   background: url('images/bg.png');
 }
-#reader_nav ul {
+/*#reader_nav ul {
   height: 59px;
-}
+}*/
 #reader_nav ul li {
   float: left;
-  margin-right: 4px;
+  margin-right: 2%;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   z-index: 5;
@@ -308,13 +378,7 @@ nav {
 
 }
 
-#left{
-float: left;
-}
 
-#middle{
-  margin-left: 30%;
-}
 
 
 #reader_nav ul li:first-child,
@@ -336,6 +400,8 @@ float: left;
   background: url('images/bg.png');
   color: #ffffff;
 }
+
+
 
 
 
