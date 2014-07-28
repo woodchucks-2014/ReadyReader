@@ -61,7 +61,7 @@ Sentence.prototype.barProgress = function(current, end){
 
 var sliderProgress = function(current, pages){
 
-  $('.ui-slider-handle').text( current );
+  $('.ui-slider-handle').text( current )
 
   console.log("SLIDER INITIATED");
   $("#slider_bar").slider({
@@ -126,6 +126,7 @@ var PageTurn = {
   left: function(sentence, book) {
       sentence.increment();
       book.checkForEnd();
+
       sentence.barProgress(book.current, book.end);
       sliderProgress(book.current, book.end);
 
@@ -202,7 +203,9 @@ $(document).ready(function() {
     console.log("JUMPING");
     $('.current_sentence').text(sentence.currentSentence(executeJump()));
 
+    sentence.index = executeJump();
     book.current = executeJump();
+
     console.log("SUSENS SUCKS");
     console.log(book);
 
