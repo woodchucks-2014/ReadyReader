@@ -129,15 +129,13 @@
   border-radius: 5px;
 }
 
-.forward{
+.forward, .backward {
   margin-right: 2%;
-  margin-top: 5%;
+  margin-top: 10%;
   float: right;
 }
 
 .backward {
-  margin-left: 2%;
-  margin-top: 5%;
   float: left;
 }
 
@@ -183,7 +181,7 @@ body{
 
 .sentence_wrapper {
   color: black;
-  font-size: 60px;
+  font-size: 1.440em;
 }
 
 /*@media (max-width: 480px) {
@@ -277,18 +275,23 @@ float: left;
   font-size: 45px;
 }
 
-#turn_buttons {
-  /*TBD*/
+
+
+
+/* iPhone 5 landscape */
+@media only screen
+and (max-device-width : 568px) and (orientation: landscape) {
+
+  body{
+    background-color: red;
+  }
+
 }
-
-
-
-
-/* MEDIA - iPhone */
+/* MEDIA - iPhone Portrait */
 
 @media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px) {
+and (min-device-width : 320px) {
+
 
   .modal {
       position: fixed;
@@ -329,6 +332,10 @@ and (max-device-width : 568px) {
     width: 500px;
   }
 
+  #progressbar{
+    visibility: hidden;
+  }
+
   .percentage, .text_progress{
     padding: 10px;
     font-size: 35px;
@@ -359,25 +366,34 @@ and (max-device-width : 568px) {
     font-size: 1.50em;
   }
 
-  .forward{
+  .forward {
     margin-right: 2%;
-    margin-top: 5%;
+    margin-top: 90%;
     float: right;
   }
 
   .backward {
     margin-left: 2%;
-    margin-top: 5%;
+    margin-top: 90%;
     float: left;
   }
 
 }
 
+
 /* MEDIA - iPad mini */
 @media only screen
 and (min-device-width : 768px)
 and (max-device-width : 1024px)
-and (-webkit-min-device-pixel-ratio: 1)  { /* STYLES GO HERE */}
+and (-webkit-min-device-pixel-ratio: 1)  {
+
+  body{
+    background-color: red;
+  }
+
+
+
+}
 
 
 /* BOOTSTRAP */
