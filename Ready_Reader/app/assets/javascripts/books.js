@@ -59,13 +59,10 @@ Sentence.prototype.barProgress = function(current, end){
   });
 }
 
-var updateSliderLeft = function(value) {
-   $('.slider_color_left').css('width', value + 'px')
-}
-
 var sliderProgress = function(current, pages){
   console.log("SLIDER INITIATED");
   $("#slider_bar").slider({
+    range: "min",
     value: current,
     min: 0,
     max: pages,
