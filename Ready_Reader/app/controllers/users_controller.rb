@@ -1,13 +1,24 @@
 class UsersController < ApplicationController
   before_filter :check_for_mobile
   before_filter :prepare_for_mobile
+
+  def initialize_tt(content)
+    tt ||= TactfulTokenizer::Model.new
+    tt.tokenize_text(content)
+  end
+
   def index
     session[:user] = User.first.id #sets promo user
+    @book = Book.first
 
-    @book = Book.first #assume the promo book is always first in DB
-    @sentences = @book.sentences
+    @sentences = initialize_tt(@book.content) #gets into sentences
+    @sentences = @sentences.long_parse #takes out long sentences
+
+    @pages = @sentences.size
     session[:book] = @book.id
-    @pages = @book.pages
+
+    @user = User.find(1)
+    @comments = Comment.where(book_id: @book.id, user_id: @user.id)
   end
 
   def profile

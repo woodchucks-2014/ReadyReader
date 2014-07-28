@@ -6,12 +6,13 @@ class BooksController < ApplicationController
 
   def initialize_tt
     tt ||= TactfulTokenizer::Model.new
+    tt.tokenize_text(content)
   end
 
   def show
     @book = Book.find(params[:id])
-    @sentences = @book.content.initialize_tt #gets into sentences
-    @sentences = @sentences.long_parse #takes out long sentences
+    @sentences = initialize_tt(@book.content) #gets into sentences
+    @sentences = @sentences.long_parse #takes array, splits long sentences
 
     @pages = @sentences.size
     session[:book] = @book.id
