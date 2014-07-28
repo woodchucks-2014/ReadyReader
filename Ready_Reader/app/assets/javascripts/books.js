@@ -1,4 +1,4 @@
-
+// Books
 var Book = function(current, sentence){
   this.current = current;
   this.end = +$('.pages').text();
@@ -19,6 +19,7 @@ Book.prototype.checkForBeginning = function(){
   $('.current_sentence').text(this.sentence.currentSentence(this.current));
 }
 
+// Sentences
 var Sentence = function(book, current){
    this.book = book;
    this.pages = +$('.pages').text();
@@ -59,11 +60,13 @@ Sentence.prototype.barProgress = function(current, end){
   });
 }
 
+Sentence.prototype.currentSentence = function(index) {
+  return $('.sentence' + index).text();
+}
+
+// Slider
 var sliderProgress = function(current, pages){
 
-  $('.ui-slider-handle').text( current )
-
-  console.log("SLIDER INITIATED");
   $("#slider_bar").slider({
     range: "min",
     value: current,
@@ -83,10 +86,7 @@ var sliderProgress = function(current, pages){
   });
 }
 
-Sentence.prototype.currentSentence = function(index) {
-  return $('.sentence' + index).text();
-}
-
+// localStorage
 var getBookId = function () {return +$('.book_number').text(); }
 
 var localStorageInit = function(){
@@ -106,18 +106,7 @@ var localStorageUpdate = function(book){
   localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
 }
 
-var Refresh = {
-  hideShow: function(){
-    $('.slider_bar').hide();
-    $('.slider_bar').show();
-  },
-
-  progress: function(book){
-    $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
-    $('.text_progress').text("Sentence " + book.current + " of " + book.end )
-  }
-}
-
+// PageTurn module
 var PageTurn = {
 
   left: function(sentence, book) {
@@ -144,6 +133,20 @@ var PageTurn = {
   }
 }
 
+// Refresh module
+var Refresh = {
+  hideShow: function(){
+    $('.slider_bar').hide();
+    $('.slider_bar').show();
+  },
+
+  progress: function(book){
+    $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
+    $('.text_progress').text("Sentence " + book.current + " of " + book.end )
+  }
+}
+
+// class refreshes
 var initializeBook = function() {
   $('.non_current_sentence').hide();
   $('.sentence_wrapper').hide();
@@ -152,7 +155,7 @@ var initializeBook = function() {
   $('.ui-slider-handle').show();
 }
 
-// timeOutId = 0;
+// AJAX callback setup
 var get_cp = function(argument){
   console.log("EXECUTION");
   var keyLook = $('.user_name').text() + +$('.book_number').text()
@@ -236,13 +239,11 @@ $(document).ready(function() {
 
   function swipeleftHandler(){
     PageTurn.left(sentence, book);
-
   }
 
   function swiperightHandler() {
     PageTurn.right(sentence, book);
   }
-
 });
 
 
