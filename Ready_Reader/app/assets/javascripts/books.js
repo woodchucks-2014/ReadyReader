@@ -59,6 +59,10 @@ Sentence.prototype.barProgress = function(current, end){
   });
 }
 
+var updateSliderLeft = function(value) {
+   $('.slider_color_left').css('width', value + 'px')
+}
+
 var sliderProgress = function(current, pages){
   console.log("SLIDER INITIATED");
   $("#slider_bar").slider({
@@ -92,6 +96,8 @@ var Refresh = {
   hideShow: function(){
     $('.progress_bar').hide();
     $('.progress_bar').show();
+    $('.slider_bar').hide();
+    $('.slider_bar').show();
   },
 
   progress: function(book){
@@ -106,6 +112,8 @@ var PageTurn = {
       sentence.increment();
       book.checkForEnd();
       sentence.barProgress(book.current, book.end);
+      sliderProgress(book.current, book.end);
+
       Refresh.hideShow;
       Refresh.progress(book)
       localStorageUpdate(book);
@@ -115,6 +123,8 @@ var PageTurn = {
       sentence.decrement();
       book.checkForBeginning();
       sentence.barProgress(book.current, book.end);
+      sliderProgress(book.current, book.end);
+
       Refresh.hideShow();
       Refresh.progress(book);
       localStorageUpdate(book);

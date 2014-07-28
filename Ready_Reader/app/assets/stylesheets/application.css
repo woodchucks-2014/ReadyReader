@@ -22,6 +22,14 @@
 
 
 /*MEDIA QUERY*/
+.slider_color_left {
+  color: #99CCFF;
+}
+
+
+
+
+
 .error_reading{
   color: red;
 }
