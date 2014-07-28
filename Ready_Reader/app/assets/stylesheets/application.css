@@ -247,7 +247,7 @@ float: left;
 
 
 
-
+/* iPhone 5 landscape */
 @media only screen
 and (max-device-width : 568px) and (orientation: landscape) {
 
