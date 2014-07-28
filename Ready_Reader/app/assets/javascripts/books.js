@@ -59,6 +59,16 @@ Sentence.prototype.barProgress = function(current, end){
   });
 }
 
+var sliderProgress = function(current, pages){
+  console.log("SLIDER INITIATED");
+  $("#slider_bar").slider({
+    value: current,
+    min: 0,
+    max: pages,
+    step: 1
+  });
+}
+
 var getBookId = function () {return +$('.book_number').text(); }
 
 var localStorageInit = function(){
@@ -150,6 +160,7 @@ $(document).ready(function() {
     book = new Book(result.farthest_point, new Sentence());
     sentence = new Sentence(book, book.current);
     console.log(book);
+    sliderProgress(book.current, book.end);
     sentence.barProgress(book.current, book.end);
     $('.current_sentence').text(sentence.currentSentence(book.current));
     $('.progress_bar').show();
