@@ -1,0 +1,407 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require progress-bar
+ *= require bootstrap
+
+ *= require_self
+ */
+
+
+
+
+
+/*MEDIA QUERY*/
+.error_reading{
+  color: red;
+}
+
+
+.modal .modal-body {
+    max-height: 700px;
+    overflow-y: auto;
+}
+
+@media only screen and (max-width : 640px) {
+
+    header {
+      position: absolute;
+    }
+
+    #menu-icon {
+      display:inline-block;
+    }
+
+    nav ul, nav:active ul {
+      display: none;
+      position: absolute;
+      padding: 20px;
+      background: #fff;
+      border: 5px solid #444;
+      right: 20px;
+      top: 60px;
+      width: 50%;
+      border-radius: 4px 0 4px 4px;
+    }
+
+    nav li {
+      text-align: center;
+      width: 100%;
+      padding: 100px 0;
+      margin: 0;
+    }
+
+    nav:hover ul {
+      display: block;
+    }
+
+    .nav_item ul,li, a {
+      padding: 24px 30px 20px 30px;
+      margin-bottom: 4px;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      color: #eeeeee;
+      font-size: 45px;
+      text-decoration: none;
+     }
+
+      #left{
+        float: left;
+      }
+
+      #middle{
+        margin-left: 30%;
+      }
+}
+
+/*UNIVERSAL*/
+
+#passage{
+  background-color: #FFEBCD;
+  font-family: 'Georgia';
+  border-radius: 5px;
+}
+
+.passage{
+  background-color: #FFEBCD;
+  font-family: 'Georgia';
+  border-radius: 5px;
+}
+
+.forward{
+  margin-right: 2%;
+  margin-top: 5%;
+  float: right;
+}
+
+.backward {
+  margin-left: 2%;
+  margin-top: 5%;
+  float: left;
+}
+
+body{
+  overflow: hidden;
+}
+body{
+  overflow: hidden;
+}
+#test{
+  width: 400px;
+  height: 400px;
+  background: green;
+}
+
+.book_wrapper {
+  text-align: center;
+  margin-top: 5%;
+  margin-left: 17%;
+  height: 300px;
+  width: 60%;
+  color: #36AECC;
+  font-family: 'Georgia';
+  font-size: 30px;
+  height: 35%;
+  position: absolute;
+}
+
+.sentence_wrapper {
+  color: black;
+  font-size: 60px;
+}
+
+/*@media (max-width: 480px) {
+    .modal {
+        position: fixed;
+        top: 3%;
+        right: 3%;
+        left: 3%;
+        bottom: 3%;
+        width: auto;
+        margin: 0;
+    }
+    .modal-body {
+        max-height: 350px;
+        padding: 15px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+     }
+}
+*/
+.bottom_bar{
+  margin-top: 35%;
+}
+
+.signup-form, .login-form {
+  font-size: 23px;
+  font-family: 'Georgia';
+  text-align: center;
+}
+
+#comment_commentary{
+  font-size: 23px;
+  font-family: 'Georgia';
+  height: 300px;
+  width: 250px;
+}
+
+nav {
+  font-size:30px;
+  padding-right: 40px;
+  width: 100%;
+  height: 100px;
+  background-color: black;
+}
+
+.nav_right {
+  color: green;
+  text-decoration: none;
+  margin-right: 20%;
+  float: top;
+}
+
+.sign_up{
+  margin-left: 50%;
+}
+
+#progressbar{
+  margin-top: 200px;
+  padding: 0;
+}
+
+.progressbar {
+  font: 10px sans-serif;
+  background-color: #99CCFF;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+  width: 100%;
+  margin-top: 450px;
+}
+
+.pro{
+  background: #36AECC;
+}
+
+.comment_box{
+  margin-left: 46%;
+  height: 25%;
+}
+
+#comment_view_click {
+  font-size: 2em;
+}
+
+#left{
+float: left;
+}
+
+#middle{
+  margin-left: 25%;
+  font-size: 45px;
+}
+
+#turn_buttons {
+  /*TBD*/
+}
+
+
+
+
+/* MEDIA - iPhone */
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+
+  #middle {
+    font-size: 1.500em;
+  }
+  .nav_right {
+    font-size: .750em;
+  }
+
+  .bottom_bar {
+    margin-top: 90%;
+  }
+
+  .book_wrapper {
+    height: 25%;
+  }
+
+  .sentence_wrapper {
+    font-size: 1.50em;
+  }
+
+  .forward{
+    margin-right: 2%;
+    margin-top: 5%;
+    float: right;
+  }
+
+  .backward {
+    margin-left: 2%;
+    margin-top: 5%;
+    float: left;
+  }
+
+
+}
+
+/* MEDIA - iPad mini */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (-webkit-min-device-pixel-ratio: 1)  { /* STYLES GO HERE */}
+
+
+/* BOOTSTRAP */
+
+#reader_nav,
+#reader_nav ul,
+#reader_nav ul li,
+#reader_nav ul li a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  list-style: none;
+  line-height: 1;
+  display: block;
+  position: relative;
+  font-family: 'Georgia';
+}
+#reader_nav {
+  width: auto;
+  height: 110px;
+  padding-bottom: 4px;
+}
+#reader_nav.align-right {
+  float: right;
+}
+#reader_nav.align-right ul li {
+  float: right;
+  margin-right: 0;
+  margin-left: 4px;
+}
+#reader_nav.align-right ul li:first-child,
+#reader_nav.align-right ul li:first-child > a {
+  border-bottom-right-radius: 3px;
+}
+#reader_nav #bg-one,
+#reader_nav #bg-two,
+#reader_nav #bg-three,
+#reader_nav #bg-four {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+#reader_nav #bg-one {
+  height: 10px;
+  background: #0f71ba;
+}
+#reader_nav #bg-two {
+  height: 59px;
+  z-index: 2;
+  background: url('images/bg.png');
+}
+#reader_nav #bg-three {
+  bottom: 4px;
+  height: 55px;
+  z-index: 3;
+  background: #222222;
+  background: -moz-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #555555), color-stop(100%, #222222));
+  background: -webkit-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -o-linear-gradient(top, #555555 0%, #222222 100%);
+  background: -ms-linear-gradient(top, #555555 0%, #222222 100%);
+  background: linear-gradient(to bottom, #555555 0%, #222222 100%);
+}
+#reader_nav #bg-four {
+  bottom: 4px;
+  height: 55px;
+  z-index: 4;
+  background: url('images/bg.png');
+}
+/*#reader_nav ul {
+  height: 59px;
+}*/
+#reader_nav ul li {
+  float: left;
+  margin-right: 2%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  z-index: 5;
+  margin-top: 25px;
+}
+
+.nav_item ul,li, a {
+  padding: 24px 30px 20px 30px;
+  margin-bottom: 4px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #eeeeee;
+  font-size: 45px;
+  text-decoration: none;
+
+}
+
+
+
+
+#reader_nav ul li:first-child,
+#reader_nav ul li:first-child > a {
+  border-bottom-left-radius: 3px;
+}
+#reader_nav ul li:hover,
+#reader_nav ul li.active {
+  background: #0f71ba;
+  background: -moz-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3fa4f0), color-stop(100%, #0f71ba));
+  background: -webkit-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: -o-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: -ms-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
+  background: linear-gradient(to bottom, #3fa4f0 0%, #0f71ba 100%);
+}
+#reader_nav ul li a:hover,
+#reader_nav ul li.active > a {
+  background: url('images/bg.png');
+  color: #ffffff;
+}
+
+
+
+
+

@@ -1,0 +1,13 @@
+  <div class="sentence_wrapper">
+  <div class="current_sentence"></div>
+  <% @sentences.each_with_index do |sentence, index| %>
+  <span class="non_current_sentence"><p class ="sentence<%=index%>"><%= sentence %></span>
+  <% end %>
+  </div>
+</div>
+
+<center>
+<h2 class="right"> RIGHT </h2>
+<h2 class="left"> LEFT </h2>
+</center>
+<div id="progressbar"></div>

@@ -1,0 +1,25 @@
+
+<div class="modal fade" id="commentModal" tabindex="1" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body" >
+        <div id="form_fun">
+          <%= form_for :comment, id: "comment_form" do |f| %>
+          <%= f.label :commentary%>
+          <br>
+          <%= f.text_area :commentary %>
+          <%= f.hidden_field :book_id, :value => session[:book]  %>
+          <%= f.hidden_field :user_id, :value => session[:user] %>
+          <%= f.hidden_field :commented_on, :class => "comment_passage" %>
+          <div class="modal-footer">
+          <br><br>
+          <center>
+          <%= f.submit %>
+          <% end %>
+          </center>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

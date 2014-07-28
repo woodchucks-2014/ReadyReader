@@ -1,0 +1,26 @@
+<h3> Your Books </h3>
+
+<% @books.each do |book| %>
+  <%= link_to book.title, user_book_path(@this_user, book) %>
+  <br>
+<% end %>
+
+<h3> Your Comments </h3>
+<ul>
+<% @comments.each do |comment| %>
+  <li> Book: <%= Book.find(comment.book_id).title %> </li>
+  <li> Passage: <%= comment.commented_on %> </li>
+  <li> Commentary: <%= comment.commentary %> </li>
+<% end %>
+</ul>
+
+<h3> Upload a Book </h3>
+
+<%= form_tag( user_books_upload_path(@this_user), :html => { :'data-ajax' => false }, method: "post", multipart: true) do %>
+  <%= file_field_tag :book %>
+  <%= text_field_tag :title %>
+  <%= submit_tag('Upload') %>
+<% end %>
+
+
+

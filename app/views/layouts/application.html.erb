@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ReadyReader</title>
+  <%= csrf_meta_tag %>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application'%>
+  <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+  <%= csrf_meta_tags %>
+
+
+
+</head>
+<body>
+
+<%= render 'layouts/nav_bar' %>
+
+<center id='comment-modal' style="display: none z-index: 10"><%= render 'comments/comment_form'%></center>
+
+<% if !logged_in? %>
+  <center id='login-modal' style="display: none z-index: 10"><%= render 'users/login' %></center>
+  <center id='signup-modal' style="display: none z-index: 10"><%= render 'users/new' %></center>
+
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

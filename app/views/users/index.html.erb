@@ -1,0 +1,25 @@
+<%= flash[:notice_signup] %>
+<%= flash[:notice_login] %>
+
+<div class="pages" style="visibility:hidden"> <%= @pages %> </div>
+
+<div class="book_wrapper">
+  <div class="sentence_wrapper">
+  <div class="current_sentence"></div>
+  <% @sentences.each_with_index do |sentence, index| %>
+  <span class="non_current_sentence"><p class ="sentence<%=index%>"><%= sentence %></span>
+  <% end %>
+  </div>
+</div>
+
+<div id="progressbar"></div>
+
+<center>
+  <div class="backward"> <h2 class="right"> BACKWARD </h2> </div>
+  <div class="forward"><h2 class="left"> FORWARD </h2> </div>
+</center>
+
+<p> Comments on <%= book_title %> </p>
+
+
+
