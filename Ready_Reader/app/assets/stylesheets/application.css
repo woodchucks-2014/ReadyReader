@@ -22,6 +22,11 @@
 
 
 /*MEDIA QUERY*/
+.error_reading{
+  color: red;
+}
+
+
 .modal .modal-body {
     max-height: 700px;
     overflow-y: auto;

@@ -44,7 +44,9 @@ class BooksController < ApplicationController
     @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id)
     database_val = @user_book.farthest_point #defaults to 0
 
-    local_val = params["last_point"].to_i
+    local_val = params["object"]["currentSentence"].to_i
+    p "*" * 100
+    p local_val
 
     @user_book.farthest_point = local_val if local_val > database_val
     @user_book.save!

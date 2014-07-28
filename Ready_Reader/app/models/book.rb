@@ -26,7 +26,7 @@ class Book < ActiveRecord::Base
   end
 
   def pages
-    self.sentences.size
+    self.sentences.size - 1
   end
 
 end
