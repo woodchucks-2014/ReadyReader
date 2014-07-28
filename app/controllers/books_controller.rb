@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
   # before_action :require_login - we need to figure out how to redirect if not logged in
+  before_filter :check_for_mobile
+  before_filter :prepare_for_mobile
   respond_to :json
   def show
     @book = Book.find(params[:id])
@@ -44,16 +46,23 @@ class BooksController < ApplicationController
     @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id)
     database_val = @user_book.farthest_point #defaults to 0
 
+
     local_val = params["object"]["currentSentence"].to_i
     p "*" * 100
     p local_val
 
+    # to prevent guest user from being incremented in database
     @user_book.farthest_point = local_val if local_val > database_val
+
+    save_point = @user_book.farthest_point if session[:user] != 1
+    save_point = local_val if session[:user] == 1
+
     @user_book.save!
+
     p "*" * 100
     p "TEST"
     p @user_book.farthest_point
-    render json: {farthest_point: @user_book.farthest_point}.to_json
+    render json: {farthest_point: save_point}.to_json
   end
 
   def create

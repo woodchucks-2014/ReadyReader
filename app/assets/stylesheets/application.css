@@ -26,11 +26,10 @@
   color: red;
 }
 
-
-.modal .modal-body {
-    max-height: 700px;
-    overflow-y: auto;
-}
+/*  .modal .modal-body {
+    height: 600px;
+    font: green;
+  }*/
 
 @media only screen and (max-width : 640px) {
 
@@ -86,6 +85,7 @@
 
 /*UNIVERSAL*/
 
+
 #passage{
   background-color: #FFEBCD;
   font-family: 'Georgia';
@@ -110,19 +110,26 @@
   float: left;
 }
 
+.percentage, .text_progress{
+  padding: 10px;
+  font-size: 25px;
+  text-align: center;
+  font-style: 'Arial'
+}
+
 body{
   overflow: hidden;
 }
-body{
-  overflow: hidden;
-}
+
+
+
 #test{
   width: 400px;
   height: 400px;
   background: green;
 }
 
-.book_wrapper {
+.book_wrapper, .library_wrapper {
   text-align: center;
   margin-top: 5%;
   margin-left: 17%;
@@ -133,6 +140,14 @@ body{
   font-size: 30px;
   height: 35%;
   position: absolute;
+}
+
+.user_library{
+  color: black: ;
+}
+
+.sentence_wrapper:a {
+  color: black;
 }
 
 .sentence_wrapper {
@@ -163,7 +178,7 @@ body{
 }
 
 .signup-form, .login-form {
-  font-size: 23px;
+  font-size: 25px;
   font-family: 'Georgia';
   text-align: center;
 }
@@ -184,7 +199,6 @@ nav {
 }
 
 .nav_right {
-  color: green;
   text-decoration: none;
   margin-right: 20%;
   float: top;
@@ -199,7 +213,7 @@ nav {
   padding: 0;
 }
 
-.progressbar {
+.progressbar, .progress_bar_profile {
   font: 10px sans-serif;
   background-color: #99CCFF;
   text-align: right;
@@ -245,11 +259,61 @@ float: left;
 and (min-device-width : 320px)
 and (max-device-width : 568px) {
 
+  .modal {
+      position: fixed;
+      top: 3%;
+      right: 3%;
+      left: 3%;
+      width: auto;
+      margin: 0;
+  }
+
+  .modal-body {
+      height: 60%;
+  }
+
+  #signupModal, #loginModal, #commentModal, #commentViewModal {
+    margin-left: -400px;
+  }
+
+  .signup-form, .login-form, #form_fun {
+    font-size: 40px;
+    font-family: 'Georgia';
+    text-align: center;
+  }
+
+  #date_time {
+    font-style: italic;
+    font-size: 30px;
+  }
+
+  #new_comments, #old_comments {
+    font-size: 35px;
+  }
+
+  #passage{
+    font-size: 35px;
+  }
+  #comment_commentary{
+    width: 500px;
+  }
+
+  .percentage, .text_progress{
+    padding: 10px;
+    font-size: 35px;
+    text-align: center;
+    font-style: 'Arial'
+  }
+
+
+  .modal-content{
+    height: auto;
+    width: 700px;
+  }
+
+
   #middle {
     font-size: 1.500em;
-  }
-  .nav_right {
-    font-size: .750em;
   }
 
   .bottom_bar {
@@ -275,7 +339,6 @@ and (max-device-width : 568px) {
     margin-top: 5%;
     float: left;
   }
-
 
 }
 
@@ -367,6 +430,9 @@ and (-webkit-min-device-pixel-ratio: 1)  { /* STYLES GO HERE */}
   margin-top: 25px;
 }
 
+/* {
+  nav_item with user profile page
+}*/
 .nav_item ul,li, a {
   padding: 24px 30px 20px 30px;
   margin-bottom: 4px;

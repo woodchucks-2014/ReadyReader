@@ -5,10 +5,10 @@ module BooksHelper
   end
 
   def title_parse(title)
-    if title.length < 12
+    if title.length < 9
       return title
     else
-      return title[0..12] + "..."
+      return title[0..9] + "..."
     end
   end
 

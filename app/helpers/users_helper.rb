@@ -5,6 +5,7 @@ module UsersHelper
   end
 
   def logged_in?
+    return false if session[:user] == 1
     current_user
   end
 
