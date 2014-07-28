@@ -5,8 +5,8 @@
 <% @books.each_with_index do |book, index| %>
   <% save_point = UserBook.find_by(book_id: book.id, user_id: current_user.id).farthest_point %>
   <p id="user_library"><%= link_to book.title, user_book_path(@this_user, book), style: "color:black"%></p>
-   <div class="progress_bar_index"></div>
-   <div id="bar<%=index%>"><%= (save_point.to_f / book.pages.to_f).to_f * 100 %>(%></div>
+   <div class="progress_bar_index<%=index%>"></div>
+   <div id="bar<%=index%>"><%= ((save_point.to_f / book.pages.to_f).to_f * 100).to_i %></div>
   <br>
 <% end %>
 </div>
