@@ -60,6 +60,9 @@ Sentence.prototype.barProgress = function(current, end){
 }
 
 var sliderProgress = function(current, pages){
+
+  $('.ui-slider-handle').text( current );
+
   console.log("SLIDER INITIATED");
   $("#slider_bar").slider({
     range: "min",
