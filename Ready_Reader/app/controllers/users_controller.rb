@@ -2,10 +2,7 @@ class UsersController < ApplicationController
   before_filter :check_for_mobile
   before_filter :prepare_for_mobile
 
-  def initialize_tt(content)
-    tt ||= TactfulTokenizer::Model.new
-    tt.tokenize_text(content)
-  end
+  include Tact_Token
 
   def index
     session[:user] = User.first.id #sets promo user

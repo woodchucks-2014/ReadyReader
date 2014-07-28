@@ -1,13 +1,16 @@
 class BooksController < ApplicationController
+
+  include Tact_Token
+
   # before_action :require_login - we need to figure out how to redirect if not logged in
   before_filter :check_for_mobile
   before_filter :prepare_for_mobile
   respond_to :json
 
-  def initialize_tt(content)
-    tt ||= TactfulTokenizer::Model.new
-    tt.tokenize_text(content)
-  end
+  # def initialize_tt(content)
+  #   tt ||= TactfulTokenizer::Model.new
+  #   tt.tokenize_text(content)
+  # end
 
   def show
     @book = Book.find(params[:id])
