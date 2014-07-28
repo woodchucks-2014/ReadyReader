@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
   # before_action :require_login - we need to figure out how to redirect if not logged in
+  before_filter :check_for_mobile
+  before_filter :prepare_for_mobile
   respond_to :json
   def show
     @book = Book.find(params[:id])

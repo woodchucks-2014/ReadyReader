@@ -6,18 +6,17 @@ var Book = function(current, sentence){
 }
 
 Book.prototype.checkForEnd = function(){
-  if (this.current < this.end) {
-        $('.current_sentence').text(this.sentence.currentSentence(this.current));
-        $('.error_reading').text("")
-      } else {$('.error_reading').text("<- End")}
+  if (this.current === this.end) {
+   $('.error_reading').text("<- End")
+  } else {$('.error_reading').text("")};
+    $('.current_sentence').text(this.sentence.currentSentence(this.current));
 }
 
 Book.prototype.checkForBeginning = function(){
-  if (this.current > 0) {
-          $('.current_sentence').text(this.sentence.currentSentence(this.current));
-          $('.error_reading').text("")
-
-        } else {$('.error_reading').text("Begin ->")}
+  if (this.current === 0) {
+    $('.error_reading').text("Begin ->");
+  } else {$('.error_reading').text("")}
+  $('.current_sentence').text(this.sentence.currentSentence(this.current));
 }
 
 var Sentence = function(book, current){
@@ -25,11 +24,11 @@ var Sentence = function(book, current){
    this.pages = +$('.pages').text();
    this.index = current;
 }
-
+//Hide all noncurrent sentence - elements on the DOM
 Sentence.prototype.hideNoncurrent = function(){
     $('non_current_sentence').hide();
 }
-
+//Increment Function
 Sentence.prototype.increment = function() {
    this.index += 1
    this.book.current = this.index;
@@ -38,12 +37,12 @@ Sentence.prototype.increment = function() {
     this.book.current = this.pages;
    }
 }
-
+//Decriment function.
 Sentence.prototype.decrement = function() {
   this.index -= 1
   this.book.current = this.index;
   if (this.index < 0 && this.index != this.book.end) {
-    this.index = 0; // 0 should be lowest it can sink
+    this.index = 0;
     this.book.current = 0;
   }
 }
@@ -56,7 +55,6 @@ Sentence.prototype.barProgress = function(current, end){
    $(function() {
     $( "#progressbar" ).progressbar({
       value: (current / end) * 100,
-      check: console.log(this.value)
     });
   });
 }
@@ -119,8 +117,9 @@ var initializeBook = function() {
   $('.sentence_wrapper').show();
 }
 
-
-function get_cp(argument){
+// timeOutId = 0;
+var get_cp = function(argument){
+  console.log("EXECUTION");
   var keyLook = $('.user_name').text() + +$('.book_number').text()
   console.log(keyLook);
     return $.ajax({
@@ -128,14 +127,21 @@ function get_cp(argument){
     method : 'POST',
     data : { object: JSON.parse(localStorage[keyLook]) },
     success : function(response){
+      //setTimeout(function(){get_cp();}, 400);
     }
   });
 };
 
+// function ajaxInterval(request){
+//   timeOutId = setTimeout(request, 1000);
+// }
 
 $(document).ready(function() {
+  // setTimeout = (get_cp, 400);
   localStorageInit();
   initializeBook();
+  //ajaxInterval(get_cp());
+
   var positionUpdate = function(){
     return get_cp();
   }
