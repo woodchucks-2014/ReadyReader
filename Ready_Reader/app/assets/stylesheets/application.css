@@ -22,6 +22,37 @@
 
 
 /*MEDIA QUERY*/
+#slider_bar {
+  height: 50px;
+}
+
+.slider_color_left {
+  color: #99CCFF;
+}
+
+.ui-slider .ui-slider-handle {
+  width: 125px;
+  height: 125px;
+  border-radius: 75px;
+  left:-.6em;
+  text-decoration:none;
+  text-align:center;
+  margin-top: -25px;
+}
+
+/*body, button, input, textarea, select {
+  text-rendering: optimizeLegibility;
+  font-size: 100%;
+}*/
+
+.ui-slider-handle .ui-state-default .ui-corner-all .ui-state-hover {
+  font-size: 30px;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  border: none;
+}
+
 .error_reading{
   color: red;
 }
