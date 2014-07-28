@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_filter :check_for_mobile
   before_filter :prepare_for_mobile
   def index
+    session[:user] = User.first.id #sets promo user
+
     @book = Book.first #assume the promo book is always first in DB
     @sentences = @book.sentences
     session[:book] = @book.id

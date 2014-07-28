@@ -127,7 +127,7 @@ var get_cp = function(argument){
     method : 'POST',
     data : { object: JSON.parse(localStorage[keyLook]) },
     success : function(response){
-      //setTimeout(function(){get_cp();}, 400);
+    //setTimeout(function(){get_cp();}, 400);
     }
   });
 };
