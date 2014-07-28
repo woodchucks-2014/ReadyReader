@@ -150,7 +150,7 @@ body{
 
 .sentence_wrapper {
   color: black;
-  font-size: 60px;
+  font-size: 1.440em;
 }
 
 /*@media (max-width: 480px) {
@@ -293,6 +293,10 @@ and (max-device-width : 568px) {
     width: 500px;
   }
 
+  #progressbar{
+    visibility: hidden;
+  }
+
   .percentage, .text_progress{
     padding: 10px;
     font-size: 35px;
@@ -325,13 +329,13 @@ and (max-device-width : 568px) {
 
   .forward {
     margin-right: 2%;
-    margin-top: 5%;
+    margin-top: 90%;
     float: right;
   }
 
   .backward {
     margin-left: 2%;
-    margin-top: 5%;
+    margin-top: 90%;
     float: left;
   }
 
