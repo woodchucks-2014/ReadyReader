@@ -1,13 +1,29 @@
 class BooksController < ApplicationController
+
+  include Tact_Token
+
   # before_action :require_login - we need to figure out how to redirect if not logged in
   before_filter :check_for_mobile
   before_filter :prepare_for_mobile
   respond_to :json
+
+  # def initialize_tt(content)
+  #   tt ||= TactfulTokenizer::Model.new
+  #   tt.tokenize_text(content)
+  # end
+
   def show
     @book = Book.find(params[:id])
-    @sentences = @book.sentences
+    @sentences = tokenize(@book.content) #gets into sentences
+    p "WE ARE IN THE SHOW CONTROLLER"
+    p "*" * 100
+    p @sentences
+    p "*" * 100
+
+    @sentences = @sentences.long_parse #takes array, splits long sentences
+
+    @pages = @sentences.size
     session[:book] = @book.id
-    @pages = @book.pages
 
     @user = User.find(params[:user_id])
     @comments = Comment.where(book_id: @book.id, user_id: @user.id)
@@ -48,20 +64,13 @@ class BooksController < ApplicationController
 
 
     local_val = params["object"]["currentSentence"].to_i
-    p "*" * 100
-    p local_val
-
     # to prevent guest user from being incremented in database
     @user_book.farthest_point = local_val if local_val > database_val
 
     save_point = @user_book.farthest_point if session[:user] != 1
     save_point = local_val if session[:user] == 1
-
     @user_book.save!
 
-    p "*" * 100
-    p "TEST"
-    p @user_book.farthest_point
     render json: {farthest_point: save_point}.to_json
   end
 

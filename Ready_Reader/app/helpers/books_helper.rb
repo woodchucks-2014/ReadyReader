@@ -1,5 +1,7 @@
 module BooksHelper
 
+  include Tact_Token
+
   def book_title
     Book.find(session[:book]).title if session[:book]
   end
