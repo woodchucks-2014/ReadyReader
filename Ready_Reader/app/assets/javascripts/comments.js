@@ -8,13 +8,11 @@ $(document).ready(function(){
 
   $('#comment_view_click').on("click", function(e) {
     e.preventDefault();
-    console.log("SUSENS SUCKS");
     $('#commentViewModal').modal();
   })
 
   $('#close_comment_view').on("click", function(e) {
     e.preventDefault();
-    console.log("SUSENS SUCKS");
     $('#commentViewModal').modal('hide');
     $('body').removeClass('modal-open');
     $('.modal-backdrop').remove();
@@ -30,6 +28,7 @@ $(document).ready(function(){
     });
 
     ajaxRequest.success(function(response){
+      console.log("HI FRIENDS");
         // necessary to make modal disappear post click
         $('#commentModal').modal('hide');
         $('body').removeClass('modal-open');
