@@ -11,13 +11,6 @@ $(document).ready(function(){
     $('#commentViewModal').modal();
   })
 
-  $('#close_comment_view').on("click", function(e) {
-    e.preventDefault();
-    $('#commentViewModal').modal('hide');
-    $('body').removeClass('modal-open');
-    $('.modal-backdrop').remove();
-  })
-
   $(document).on('submit', '#form_fun', function(e){
     e.preventDefault();
     var ajaxRequest = $.ajax({

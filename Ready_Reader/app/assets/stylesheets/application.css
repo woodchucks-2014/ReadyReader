@@ -26,10 +26,10 @@
   color: red;
 }
 
-  .modal .modal-body {
+/*  .modal .modal-body {
     height: 600px;
     font: green;
-  }
+  }*/
 
 @media only screen and (max-width : 640px) {
 
@@ -162,7 +162,7 @@ body{
 }
 
 .signup-form, .login-form {
-  font-size: 40px;
+  font-size: 25px;
   font-family: 'Georgia';
   text-align: center;
 }
@@ -252,16 +252,39 @@ and (max-device-width : 568px) {
       width: auto;
       margin: 0;
   }
+
   .modal-body {
       height: 60%;
   }
 
-  #signupModal {
+  #signupModal, #loginModal, #commentModal, #commentViewModal {
     margin-left: -400px;
   }
 
+  .signup-form, .login-form, #form_fun {
+    font-size: 40px;
+    font-family: 'Georgia';
+    text-align: center;
+  }
+
+  #date_time {
+    font-style: italic;
+    font-size: 30px;
+  }
+
+  #new_comments, #old_comments {
+    font-size: 35px;
+  }
+
+  #passage{
+    font-size: 35px;
+  }
+  #comment_commentary{
+    width: 500px;
+  }
+
   .modal-content{
-    height: 950px;
+    height: auto;
     width: 700px;
   }
 
