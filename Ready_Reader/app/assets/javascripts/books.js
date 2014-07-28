@@ -72,23 +72,20 @@ var sliderProgress = function(current, pages){
     step: 1,
     slide: function( event, ui ) {
             $( "#amount" ).val( ui.value );
-            $(this).find('.ui-slider-handle').text(ui.value);
+            $('.text_progress').text("Sentence " + ui.value + " of " + pages );
+            $('.percentage').text(parseInt((ui.value / pages) * 100) + '%'  )
         },
         create: function(event, ui) {
             var v= $(this).slider('value');
-            $(this).find('.ui-slider-handle').text(v);
-    }
+            $('.text_progress').text("Sentence " + v + " of " + book.end );
+            $('.percentage').text(parseInt((v / book.end) * 100) + '%'  )
+      }
   });
 }
 
 Sentence.prototype.currentSentence = function(index) {
   return $('.sentence' + index).text();
 }
-
-var executeJump = function() {
-    var newPlace = +$('.ui-slider-handle').text()
-    return newPlace
-};
 
 var getBookId = function () {return +$('.book_number').text(); }
 
@@ -200,11 +197,12 @@ $(document).ready(function() {
 
   // fast forward and rewind
   $('#slider_bar').mouseup(function() {
-    console.log("JUMPING");
-    $('.current_sentence').text(sentence.currentSentence(executeJump()));
+    var newPoint = $(this).slider('value');
 
-    sentence.index = executeJump();
-    book.current = executeJump();
+    $('.current_sentence').text(sentence.currentSentence(newPoint));
+
+    sentence.index = newPoint;
+    book.current = newPoint;
 
     console.log("SUSENS SUCKS");
     console.log(book);
