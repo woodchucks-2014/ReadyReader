@@ -1,12 +1,23 @@
 <h3> Your Books </h3>
 
-<% @books.each do |book| %>
-  <%= link_to book.title, user_book_path(@this_user, book) %>
+<p class="book_count_user"><%= @books.count %></p>
+<div class="library_wrapper">
+<% @books.each_with_index do |book, index| %>
+  <p id="user_library"><%= link_to book.title, user_book_path(@this_user, book), style: "color:black"%></p>
+   <div class="progress_bar_a"></div>
+
+
+  </script>
+
+  </script>
+
+
   <br>
 <% end %>
+</div>
+
 <%unless mobile_device? %>
   <h3> Upload a Book </h3>
-
   <%= form_tag( user_books_upload_path(@this_user), :html => { :'data-ajax' => false }, method: "post", multipart: true) do %>
     <%= file_field_tag :book %>
     <%= text_field_tag :title %>

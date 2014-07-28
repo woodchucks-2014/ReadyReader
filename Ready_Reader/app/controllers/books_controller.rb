@@ -51,7 +51,7 @@ class BooksController < ApplicationController
     p "*" * 100
     p local_val
 
-    # to prevent guest user from being incremented
+    # to prevent guest user from being incremented in database
     @user_book.farthest_point = local_val if local_val > database_val
 
     save_point = @user_book.farthest_point if session[:user] != 1

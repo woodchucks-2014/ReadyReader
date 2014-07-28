@@ -129,7 +129,7 @@ body{
   background: green;
 }
 
-.book_wrapper {
+.book_wrapper, .library_wrapper {
   text-align: center;
   margin-top: 5%;
   margin-left: 17%;
@@ -140,6 +140,14 @@ body{
   font-size: 30px;
   height: 35%;
   position: absolute;
+}
+
+.user_library{
+  color: black: ;
+}
+
+.sentence_wrapper:a {
+  color: black;
 }
 
 .sentence_wrapper {
@@ -205,7 +213,7 @@ nav {
   padding: 0;
 }
 
-.progressbar {
+.progressbar, .progress_bar_a {
   font: 10px sans-serif;
   background-color: #99CCFF;
   text-align: right;
@@ -422,6 +430,9 @@ and (-webkit-min-device-pixel-ratio: 1)  { /* STYLES GO HERE */}
   margin-top: 25px;
 }
 
+/* {
+  nav_item with user profile page
+}*/
 .nav_item ul,li, a {
   padding: 24px 30px 20px 30px;
   margin-bottom: 4px;
