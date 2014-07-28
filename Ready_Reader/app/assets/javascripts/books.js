@@ -81,12 +81,14 @@ var sliderProgress = function(current, pages){
   });
 }
 
-var jumpToPlace = function() {
-
-
-
-
+Sentence.prototype.currentSentence = function(index) {
+  return $('.sentence' + index).text();
 }
+
+var executeJump = function() {
+    var newPlace = +$('.ui-slider-handle').text()
+    return newPlace
+};
 
 var getBookId = function () {return +$('.book_number').text(); }
 
@@ -172,6 +174,7 @@ var get_cp = function(argument){
 // }
 
 $(document).ready(function() {
+
   // setTimeout = (get_cp, 400);
   localStorageInit();
   initializeBook();
@@ -190,8 +193,16 @@ $(document).ready(function() {
     $('.current_sentence').text(sentence.currentSentence(book.current));
     $('.progress_bar').show();
     Refresh.progress(book)
+    localStorageUpdate(book);
   })
 
+  // fast forward and rewind
+  $('#slider_bar').mouseleave(function() {
+    console.log("JUMPING");
+    $('.current_sentence').text(sentence.currentSentence(executeJump()));
+    Refresh.progress(book)
+    localStorageUpdate(book);
+  });
 
   // Please note this is temporary until we can include Hammer.js
    $(".right").on("click", function() {
