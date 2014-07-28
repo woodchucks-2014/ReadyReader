@@ -66,8 +66,22 @@ var sliderProgress = function(current, pages){
     value: current,
     min: 0,
     max: pages,
-    step: 1
+    step: 1,
+    slide: function( event, ui ) {
+            $(this).find('.ui-slider-handle').text(ui.value);
+        },
+        create: function(event, ui) {
+            var v=$(this).slider('value');
+            $(this).find('.ui-slider-handle').text(v);
+    }
   });
+}
+
+var jumpToPlace = function() {
+
+
+
+
 }
 
 var getBookId = function () {return +$('.book_number').text(); }
@@ -91,8 +105,6 @@ var localStorageUpdate = function(book){
 
 var Refresh = {
   hideShow: function(){
-    $('.progress_bar').hide();
-    $('.progress_bar').show();
     $('.slider_bar').hide();
     $('.slider_bar').show();
   },
