@@ -190,6 +190,7 @@ $(document).ready(function() {
     console.log(book);
     sliderProgress(book.current, book.end);
     sentence.barProgress(book.current, book.end);
+
     $('.current_sentence').text(sentence.currentSentence(book.current));
     $('.progress_bar').show();
     Refresh.progress(book)
@@ -197,10 +198,16 @@ $(document).ready(function() {
   })
 
   // fast forward and rewind
-  $('#slider_bar').mouseleave(function() {
+  $('#slider_bar').mouseup(function() {
     console.log("JUMPING");
     $('.current_sentence').text(sentence.currentSentence(executeJump()));
-    Refresh.progress(book)
+
+    book.current = executeJump();
+    console.log("SUSENS SUCKS");
+    console.log(book);
+
+    Refresh.hideShow();
+    Refresh.progress(book);
     localStorageUpdate(book);
   });
 
