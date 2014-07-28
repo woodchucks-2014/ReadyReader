@@ -23,10 +23,16 @@
 
 /*MEDIA QUERY*/
 #slider_bar {
+  height: 50px;
 }
 
 .slider_color_left {
   color: #99CCFF;
+}
+
+.ui-slider-handle{
+  height: 51px;
+  width: 20px;
 }
 
 
