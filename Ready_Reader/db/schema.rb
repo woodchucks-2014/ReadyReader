@@ -55,10 +55,4 @@ ActiveRecord::Schema.define(version: 20140727184803) do
     t.datetime "updated_at"
   end
 
-  create_table "words", force: true do |t|
-    t.string   "word"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
 end

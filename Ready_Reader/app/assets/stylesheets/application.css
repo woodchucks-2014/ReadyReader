@@ -85,6 +85,7 @@
 
 /*UNIVERSAL*/
 
+
 #passage{
   background-color: #FFEBCD;
   font-family: 'Georgia';
@@ -109,12 +110,19 @@
   float: left;
 }
 
+.percentage, .text_progress{
+  padding: 10px;
+  font-size: 25px;
+  text-align: center;
+  font-style: 'Arial'
+}
+
 body{
   overflow: hidden;
 }
-body{
-  overflow: hidden;
-}
+
+
+
 #test{
   width: 400px;
   height: 400px;
@@ -183,7 +191,6 @@ nav {
 }
 
 .nav_right {
-  color: green;
   text-decoration: none;
   margin-right: 20%;
   float: top;
@@ -283,6 +290,14 @@ and (max-device-width : 568px) {
     width: 500px;
   }
 
+  .percentage, .text_progress{
+    padding: 10px;
+    font-size: 35px;
+    text-align: center;
+    font-style: 'Arial'
+  }
+
+
   .modal-content{
     height: auto;
     width: 700px;
@@ -291,10 +306,6 @@ and (max-device-width : 568px) {
 
   #middle {
     font-size: 1.500em;
-  }
-
-  .nav_right {
-    font-size: .750em;
   }
 
   .bottom_bar {
