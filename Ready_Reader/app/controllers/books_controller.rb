@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   before_filter :prepare_for_mobile
   respond_to :json
 
-  def initialize_tt
+  def initialize_tt(content)
     tt ||= TactfulTokenizer::Model.new
     tt.tokenize_text(content)
   end
