@@ -26,11 +26,10 @@
   color: red;
 }
 
-
-.modal .modal-body {
-    max-height: 700px;
-    overflow-y: auto;
-}
+  .modal .modal-body {
+    height: 600px;
+    font: green;
+  }
 
 @media only screen and (max-width : 640px) {
 
@@ -163,7 +162,7 @@ body{
 }
 
 .signup-form, .login-form {
-  font-size: 23px;
+  font-size: 40px;
   font-family: 'Georgia';
   text-align: center;
 }
@@ -245,9 +244,32 @@ float: left;
 and (min-device-width : 320px)
 and (max-device-width : 568px) {
 
+  .modal {
+      position: fixed;
+      top: 3%;
+      right: 3%;
+      left: 3%;
+      width: auto;
+      margin: 0;
+  }
+  .modal-body {
+      height: 60%;
+  }
+
+  #signupModal {
+    margin-left: -400px;
+  }
+
+  .modal-content{
+    height: 950px;
+    width: 700px;
+  }
+
+
   #middle {
     font-size: 1.500em;
   }
+
   .nav_right {
     font-size: .750em;
   }
@@ -275,7 +297,6 @@ and (max-device-width : 568px) {
     margin-top: 5%;
     float: left;
   }
-
 
 }
 
