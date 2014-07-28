@@ -248,11 +248,19 @@ float: left;
 
 
 
-/* MEDIA - iPhone */
+@media only screen
+and (max-device-width : 568px) and (orientation: landscape) {
+
+  body{
+    background-color: red;
+  }
+
+}
+/* MEDIA - iPhone Portrait */
 
 @media only screen
-and (min-device-width : 320px)
-and (max-device-width : 568px) {
+and (min-device-width : 320px) {
+
 
   .modal {
       position: fixed;
@@ -340,6 +348,7 @@ and (max-device-width : 568px) {
   }
 
 }
+
 
 /* MEDIA - iPad mini */
 @media only screen
