@@ -5,9 +5,9 @@ class Book < ActiveRecord::Base
   has_many :user_books
   has_many :users, through: :user_books
 
-  def sentence_parse #detrimental to perf. time
-    self.sentences = tokenizer.tokenize_text(self.content) #initialize TT via initializer
-  end
+  # def sentence_parse #detrimental to perf. time
+  #   self.sentences = tokenizer.tokenize_text(self.content) #initialize TT via initializer
+  # end
 
   def long_parse
     self.sentences.each_with_index do |sentence, index|
@@ -20,10 +20,6 @@ class Book < ActiveRecord::Base
       end
       self.sentences = self.sentences.flatten
     end
-  end
-
-  def pages
-    self.sentences.size - 1
   end
 
 end

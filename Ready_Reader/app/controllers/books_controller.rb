@@ -4,11 +4,17 @@ class BooksController < ApplicationController
   before_filter :prepare_for_mobile
   respond_to :json
 
+  def initialize_tt
+    tt ||= TactfulTokenizer::Model.new
+  end
+
   def show
     @book = Book.find(params[:id])
-    @sentences = @book.sentences
+    @sentences = @book.content.initialize_tt #gets into sentences
+    @sentences = @sentences.long_parse #takes out long sentences
+
+    @pages = @sentences.size
     session[:book] = @book.id
-    @pages = @book.pages
 
     @user = User.find(params[:user_id])
     @comments = Comment.where(book_id: @book.id, user_id: @user.id)
