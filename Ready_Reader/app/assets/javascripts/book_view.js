@@ -1,8 +1,6 @@
 var BookView = function () {}
 
 BookView.prototype.getCurrentText = function(index) {
-  console.log("************");
-  console.log($('.sentence' + index).text());
   return $('.sentence' + index).text();
 }
 

@@ -3,7 +3,7 @@ var Read = function() {
   bookview = new BookView();
   bookview.initializeBook();
 
-  var positionUpdate = function (){ // use a callback to get the current page
+  var positionUpdate = function (){
     return getCurrentPage(bookview.reader() + bookview.bookId());
   };
 

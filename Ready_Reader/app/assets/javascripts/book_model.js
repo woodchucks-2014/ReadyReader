@@ -1,7 +1,7 @@
-var Book = function(current, pages){//, current) {
+var Book = function(current, pages){
   this.start = 0;
-  this.current = current; // reliant on AJAX request
-  this.end = pages; // hidden in DOM, reliant on view
+  this.current = current;
+  this.end = pages;
 };
 
 Book.prototype.checkForEnd = function() {
