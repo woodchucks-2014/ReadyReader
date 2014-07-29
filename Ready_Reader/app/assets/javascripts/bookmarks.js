@@ -1,6 +1,13 @@
 var TickMarkView = {
   view: function(tickMark) {
     $('.custom_ticks').append('<div class="ui-slider-tick" style="left: '+tickMark+'"></div>')
+  },
+
+  stringify: function(mark, total) {
+    var val = (mark/total) * 100
+    val.toString();
+    tickMark = val + "%"
+    return tickMark
   }
 
 }
@@ -8,9 +15,7 @@ var TickMarkView = {
 function initializeBookMarks(bookmarks, pages) {
   total = pages
   $.each(bookmarks, function( index, mark ) {
-    var val = (mark/total) * 100
-    val.toString();
-    tickMark = val + "%"
+    tickMark = TickMarkView.stringify(mark, total);
     TickMarkView.view(tickMark);
   });
 };
@@ -24,9 +29,7 @@ var setBookmark = function(value, pages){
 
       success : function(response){
         $.each(response.bookmarks, function( index, mark ) {
-          var val = (mark/total) * 100
-          val.toString();
-          tickMark = val + "%"
+          tickMark = TickMarkView.stringify(mark, total);
           TickMarkView.view(tickMark);
         });
     }

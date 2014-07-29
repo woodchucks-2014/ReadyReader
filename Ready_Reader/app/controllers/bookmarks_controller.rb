@@ -8,17 +8,16 @@ class BookmarksController < ApplicationController
     Bookmark.create(position_begin: marker, position_end: marker, 
                     book_id: session[:book], user_id: session[:user])
 
+
     bookmark_holder = []
+
     user_bookmarks = User.find(session[:user]).bookmarks
     user_bookmarks.each do |bookmark|
-      if bookmark.book_id = session[:book]
-       bookmark_holder << bookmark.position_begin
+      if bookmark.book_id == session[:book]
+        bookmark_holder << bookmark.position_begin
       end
     end
     
-    # bookmark_array = []
-    # bookmarks.each {|bookmark| bookmark_array << bookmark.position_begin }
-    # p bookmark_array
     render json: { bookmarks: bookmark_holder.uniq  }.to_json
   end
 
