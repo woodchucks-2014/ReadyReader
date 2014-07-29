@@ -1,3 +1,8 @@
+function drawRectangle() {
+  // bookmark drawing function
+
+};
+
 var setBookmark = function(value){
     return $.ajax({
       url : '/bookmarks/mark',
