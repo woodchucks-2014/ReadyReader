@@ -37,15 +37,20 @@ var BookController = function() { // eventually want a current argument too
   var turnPageRight = function() {
     book.turnPageRight();
     book.checkForBeginning();
+
     text = bookview.getCurrentText(book.current);
     bookview.showCurrentSentence(text);
+    LocalStorage.update(book, bookview);
   }
 
   var turnPageLeft = function() {
     book.turnPageLeft();
     book.checkForEnd();
+
     text = bookview.getCurrentText(book.current);
     bookview.showCurrentSentence(text);
+    LocalStorage.update(book, bookview);
+
   }
 
 
