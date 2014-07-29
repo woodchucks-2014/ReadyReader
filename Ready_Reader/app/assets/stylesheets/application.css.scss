@@ -13,7 +13,7 @@
  *= require progress-bar
  *= require bootstrap
  *= require_tree .
- *= require_self
+
  */
 
 
@@ -239,10 +239,10 @@ float: left;
 @media screen
 and (max-device-width : 568px) and (orientation: landscape) {
 
-  body {
+  /*body {
     background-color: red;
   }
-
+*/
 }
 
 

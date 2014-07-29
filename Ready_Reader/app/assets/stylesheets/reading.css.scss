@@ -2,8 +2,98 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/*This worked on the reading page 7/28/14 with </div id="MY_TEST"></div>*/
-#MY_TEST {
-  font-size: 4.000em;
+
+
+
+/* iPhone 5 Portrait */
+@media only screen
+and (min-device-width : 320px) and (orientation: portrait) {
+
+
+  .modal {
+      position: fixed;
+      top: 3%;
+      right: 3%;
+      left: 3%;
+      width: auto;
+      margin: 0;
+  }
+
+  .modal-body {
+      height: 60%;
+  }
+
+  #signupModal, #loginModal, #commentModal, #commentViewModal {
+    margin-left: -400px;
+  }
+
+  .signup-form, .login-form, #form_fun {
+    font-size: 40px;
+    font-family: 'Georgia';
+    text-align: center;
+  }
+
+  #date_time {
+    font-style: italic;
+    font-size: 30px;
+  }
+
+  #new_comments, #old_comments {
+    font-size: 35px;
+  }
+
+  #passage{
+    font-size: 35px;
+  }
+  #comment_commentary{
+    width: 500px;
+  }
+
+  #progressbar{
+    visibility: hidden;
+  }
+
+  .percentage, .text_progress{
+    padding: 10px;
+    font-size: 35px;
+    text-align: center;
+    font-style: 'Arial'
+  }
+
+
+  .modal-content{
+    height: auto;
+    width: 700px;
+  }
+
+
+  #middle {
+    font-size: 1.500em;
+  }
+
+  .bottom_bar {
+    margin-top: 90%;
+  }
+
+  .book_wrapper {
+    height: 25%;
+  }
+
+  .sentence_wrapper {
+    font-size: 1.50em;
+  }
+
+  .forward {
+    margin-right: 2%;
+    margin-top: 90%;
+    float: right;
+  }
+
+  .backward {
+    margin-left: 2%;
+    margin-top: 90%;
+    float: left;
+  }
+
 }
 
