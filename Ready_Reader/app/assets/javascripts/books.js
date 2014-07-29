@@ -225,7 +225,8 @@ $(document).ready(function() {
     });
 
     $(".bookmark").on("click", function() {
-      console.log("BACKERY");
+      console.log("WRO");
+      setBookmark(book.current);
     });
   // end of temporary code
 
