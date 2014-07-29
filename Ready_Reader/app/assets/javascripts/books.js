@@ -156,7 +156,7 @@ var initializeBook = function() {
 }
 
 // AJAX callback setup
-var get_cp = function(argument){
+var get_cp = function(argument) {
   console.log("EXECUTION");
   var keyLook = $('.user_name').text() + +$('.book_number').text()
   console.log(keyLook);
@@ -174,10 +174,42 @@ var get_cp = function(argument){
 //   timeOutId = setTimeout(request, 1000);
 // }
 
+var BookView = function() {
+  var book = new Book();
+};
+
+BookView.prototype.showCurrentSentence = function() {
+  $('.non_current_sentence').hide();
+  $('.current_sentence').text();
+}
+
+BookView.prototype.bookId = function() {
+  return +$('.book_number').text();
+}
+
+BookView.prototype.userName = function() {
+  return $('.user_name').text();
+}
+
+var lS = function (){
+  this.initialize = function (bookview) {
+    var book_id = bookview.bookId;
+    var user_name = bookview.userName;
+    var userObject = {userName: user_name, bookId: book_id, currentSentence: 0};
+    return localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
+  }
+}
+
+
 $(document).ready(function() {
+  bookView = new BookView();
+  lS = new lS();
+  lS.initialize(bookView);
+  console.log(lS);
+  console.log(localStorage);
 
   // setTimeout = (get_cp, 400);
-  localStorageInit();
+  // localStorageInit();
   initializeBook();
   //ajaxInterval(get_cp());
 
