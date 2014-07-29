@@ -42,9 +42,9 @@
 
 
 /* Commenting this out for now just to have easier access to elements 7/29/14 */
-/*body{
+body{
   overflow: hidden;
-}*/
+}
 
 .sentence_wrapper:a {
   color: black;
@@ -53,7 +53,7 @@
 
 
 #center_sentence {
-  color: black;
+  color: #000;
   font-size: 1.500em;
   position: fixed;
   font-family: 'Georgia';
@@ -112,7 +112,7 @@ nav {
 }
 
 #comment_view_click {
-  font-size: 2em;
+  font-size: 1.500em;
 }
 
 #left{
@@ -153,7 +153,7 @@ and (max-device-width : 320px) and (orientation: portrait) {
   }
 
   #center_sentence {
-    font-size: 1.100em;
+    font-size: 1.150em;
     margin-top: 0%;
 
   }
