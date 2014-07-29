@@ -10,8 +10,9 @@ var setBookmark = function(value){
       data : { marker:  value},
 
       success : function(response){
+          var x = "75%"
           console.log(response);
-        // draw a bookmark
+          $('.custom_ticks').append('<div class="ui-slider-tick" style="left: '+x+'"></div>')
 
     }
   });
