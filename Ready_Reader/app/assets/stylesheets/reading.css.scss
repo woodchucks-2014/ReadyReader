@@ -2,37 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* SLIDER */
 
-#slider_bar {
-  height: 50px;
-}
-
-.slider_color_left {
-  color: #99CCFF;
-}
-
-.ui-slider .ui-slider-handle {
-  width: 125px;
-  height: 125px;
-  border-radius: 75px;
-  left:-.6em;
-  text-decoration:none;
-  text-align:center;
-  margin-top: -25px;
-}
-
-.ui-slider-handle .ui-state-default .ui-corner-all .ui-state-hover {
-  font-size: 30px;
-}
-
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-  border: none;
-}
-
-.error_reading{
-  color: red;
-}
 
 
 /*UNIVERSAL*/
@@ -80,13 +50,23 @@
   color: black;
 }
 
-.sentence_wrapper {
+
+
+#center_sentence {
   color: black;
-  font-size: 1.440em;
+  font-size: 1.500em;
+  position: fixed;
+  font-family: 'Georgia';
+  margin-left: 14%;
+  text-align: center;
+  width: 70%;
+  margin-top: 5%;
+
+
 }
 
 .bottom_bar{
-  margin-top: 35%;
+  margin-top: -5%;
 }
 
 .signup-form, .login-form {
@@ -150,19 +130,16 @@ float: left;
 @media only screen
 and (max-device-width : 320px) and (orientation: portrait) {
 
-  // body {
-  //   background-color: red;
-  // }
 
    .forward {
     margin-right: 2%;
-    margin-top: 90%;
+    margin-top: 95%;
     float: right;
   }
 
   .backward {
     margin-left: 2%;
-    margin-top: 90%;
+    margin-top: 95%;
     float: left;
   }
 
@@ -173,6 +150,12 @@ and (max-device-width : 320px) and (orientation: portrait) {
       left: 3%;
       width: auto;
       margin: 0;
+  }
+
+  #center_sentence {
+    font-size: 1.100em;
+    margin-top: 0%;
+
   }
 
   .modal-body {
@@ -236,8 +219,31 @@ and (max-device-width : 320px) and (orientation: portrait) {
   }
 
   .sentence_wrapper {
-    font-size: 1.50em;
+    font-size: 2.50em;
+
   }
+
+
+}
+
+/*THIS WORKS - 7/29/14*/
+/* iPhone 5 landscape */
+@media screen
+and (max-device-width : 568px) and (orientation: landscape) {
+
+  /*body {
+    background-color: red;
+  }
+*/
+}
+
+
+/* MEDIA - iPad mini landscape */
+
+@media only screen and (max-device-width : 1024px)
+and (orientation : landscape)
+and (-webkit-min-device-pixel-ratio: 1)  {
+
 
 
 }

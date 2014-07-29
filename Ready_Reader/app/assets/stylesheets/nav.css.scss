@@ -16,6 +16,13 @@
   }
 }
 
+#center_notes {
+  float: right;
+  @media screen and (orientation: portrait) {
+    margin-right: 25%;
+  }
+}
+
 /* BOOTSTRAP NAV BAR*/
 
 .nav_item ul,li, a {

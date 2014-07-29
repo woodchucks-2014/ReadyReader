@@ -8,8 +8,10 @@
 
 
   <div class="sentence_wrapper">
+    <div id="center_sentence">
     <div class="error_reading"></div>
     <div class="current_sentence"></div>
+    </div>
     <% @sentences.each_with_index do |sentence, index| %>
     <span class="non_current_sentence"><p class ="sentence<%=index%>"><%= sentence %></span>
     <% end %>
@@ -26,8 +28,6 @@
   <div class="text_progress"> </div>
 </div>
 
-
-  <!-- Would very much like to rename the h2 class names and fonts (defaults to h2 size font) below for semantic purposes. Will hold off due to JS ramifications -->
 
 
 <div id="last_point"></div>
