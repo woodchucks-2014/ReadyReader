@@ -97,9 +97,6 @@
       text-decoration: none;
      }
 
-      #left{
-        float: left;
-      }
 
       #middle{
         margin-left: 30%;
@@ -145,8 +142,16 @@ body{
   overflow: hidden;
 }
 
+.profile_title {
+  margin-left: 3%;
+}
+
 #upload {
   margin-top: 30%;
+  /*margin-left: 3%;*/
+}
+
+#upload_box {
   margin-left: 3%;
 }
 
@@ -392,9 +397,36 @@ and (-webkit-min-device-pixel-ratio: 1)  {
 }
 
 
+/* {
+  nav_item with user profile page
+}*/
+.nav_item ul,li, a {
+  padding: 24px 30px 20px 30px;
+  margin-bottom: 4px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #A89A9A;;
+  font-size: 0.750em;
+  text-decoration: none;
+}
+
+#profile_library_left {
+  float: left;
+  padding: 2%;
+}
+
+#profile_logout_right {
+  float: right;
+  padding: 2%;
+}
+
+/*#nav_buttons {
+  padding: 2%;
+}*/
 
 
-/* BOOTSTRAP */
+
+/* BOOTSTRAP NAV BAR*/
 
 #reader_nav,
 #reader_nav ul,
@@ -410,6 +442,7 @@ and (-webkit-min-device-pixel-ratio: 1)  {
   font-family: 'Georgia';
 }
 #reader_nav {
+  font-size: 3.5em;
   width: auto;
   height: 110px;
   padding-bottom: 4px;
@@ -466,30 +499,14 @@ and (-webkit-min-device-pixel-ratio: 1)  {
 /*#reader_nav ul {
   height: 59px;
 }*/
-#reader_nav ul li {
+/*#reader_nav ul li {
   float: left;
   margin-right: 2%;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   z-index: 5;
   margin-top: 25px;
-}
-
-/* {
-  nav_item with user profile page
 }*/
-.nav_item ul,li, a {
-  padding: 24px 30px 20px 30px;
-  margin-bottom: 4px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  color: #A89A9A;;
-  font-size: 0.750em;
-  text-decoration: none;
-
-}
-
-
 
 
 #reader_nav ul li:first-child,
