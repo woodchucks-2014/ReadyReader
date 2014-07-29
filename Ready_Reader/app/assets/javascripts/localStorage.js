@@ -1,6 +1,6 @@
 LocalStorage = {
 
-  initialize : function (bookview) {
+  initialize : function () {
 
     var book_id = bookview.bookId();
     var user_name = bookview.reader();
@@ -9,6 +9,7 @@ LocalStorage = {
     if (localStorage[user_name + book_id] === undefined) {
       localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
     }
+    console.log(localStorage)
   },
 
   update : function(book, bookview) {

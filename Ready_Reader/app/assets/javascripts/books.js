@@ -231,13 +231,31 @@
 
 $(document).ready(function() {
 
- //  var positionUpdate = function(){
- //    return get_cp();
- //  }
+  bookview = new BookView();
+  LocalStorage.initialize(bookview);
+
+  Read();
+
+
+
+  // var positionUpdate = function (){ // use a callback to get the current page
+  //   console.log("HI");
+  //   console.log(keyLook());
+  //   return getCurrentPage(bookview.reader() + bookview.bookId());
+  // }
+
+  // positionUpdate().done(function(result){
+  //   book = new Book(result.farthest_point, bookview.getPages());
+  //   bookController = new BookController();
+  //   bookController.initialize(book);
+  // });
+
+
+  // var positionUpdate = function(){
+  //   return get_cp();
+  // }
 
  // positionUpdate().done(function(result){ //may need slight tweaks.
-      bookController = new BookController();
-      bookController.initialize();
       //setTimeout = (bookController.getCurrentPage(), 400);
  //    book = new Book(result.farthest_point, new Sentence());
  //    sentence = new Sentence(book, book.current);

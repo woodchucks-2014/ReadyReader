@@ -1,10 +1,9 @@
 // BOOK MODEL
 
-var Book = function(pages){//, current) {
+var Book = function(current, pages){//, current) {
   this.start = 0;
-  this.current = 0;//current; //look into better (smarter) implementation for current.
+  this.current = current; // reliant on AJAX request
   this.end = pages; // hidden in DOM, reliant on view
-  console.log(this.end);
 };
 
 Book.prototype.checkForEnd = function() {
@@ -27,12 +26,58 @@ Book.prototype.turnPageRight = function() {
   this.current -= 1
 }
 
+// TEMP
+var keyLook = function () {
+  var userName = $('.user_name').text();
+  var bookNumber = $('.book_number').text();
+  return userName + bookNumber;
+}
+
+var getCurrentPage = function(keyLook){
+    console.log("***************");
+    console.log(localStorage[keyLook]);
+    return $.ajax({
+      url : '/check_point',
+      method : 'POST',
+      data : { object: JSON.parse(localStorage[keyLook]) },
+      success : function(response){
+        console.log(response);
+        console.log(response.farthest_point);
+        console.log("SUCCESS");
+      }
+    });
+  }
+
+// AJAX HANDING
+
+var Read = function() {
+
+  bookview = new BookView();
+
+  var positionUpdate = function (){ // use a callback to get the current page
+    return getCurrentPage(bookview.reader() + bookview.bookId());
+  };
+
+  positionUpdate().done(function(result){
+    book = new Book(result.farthest_point, bookview.getPages());
+    bookcontroller = new BookController(book);
+    bookcontroller.initialize();
+  });
+
+}
+
+
 // BOOK CONTROLLER
 
-var BookController = function() { // eventually want a current argument too
+
+var BookController = function(book) { // eventually want a current argument too
 
   var bookview = new BookView();
-  var book = new Book(bookview.getPages()); // book.current will update on AJAX request
+
+
+  // initialize the book based on the AJAX call
+
+  // var book = new Book(bookview.getPages()); // book.current will update on AJAX request
 
   var turnPageRight = function() {
     book.turnPageRight();
@@ -53,9 +98,10 @@ var BookController = function() { // eventually want a current argument too
 
   }
 
-
-
   this.initialize = function () {
+
+    // initialize correct book
+
 
     // PREPARE BOOK
     bookview.hideNonCurrent();
@@ -74,15 +120,6 @@ var BookController = function() { // eventually want a current argument too
   }
 };
 
-  // var getCurrentPage = function(argument){
-  //   console.log(keyLook);
-  //   return $.ajax({
-  //   url : '/check_point',
-  //   method : 'POST',
-  //   data : { object: JSON.parse(localStorage[keyLook]) },
-  //   success : function(response){
-  //   }
-  // }
 
 // BOOK VIEW
 
