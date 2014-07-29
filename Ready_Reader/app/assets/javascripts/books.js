@@ -189,6 +189,9 @@ $(document).ready(function() {
     book = new Book(result.farthest_point, new Sentence());
     sentence = new Sentence(book, book.current);
     console.log(book);
+
+    initializeBookMarks(result.bookmarks, book.end);
+
     sliderProgress(book.current, book.end);
     sentence.barProgress(book.current, book.end);
 
@@ -223,6 +226,11 @@ $(document).ready(function() {
     $(".left").on("click", function() {
       PageTurn.left(sentence, book);
     });
+
+    $(".bookmark").on("click", function() {
+      console.log("WRO");
+      setBookmark(book.current, book.end);
+    });
   // end of temporary code
 
   // Once asset pipeline issues are resolved, here's the code:
@@ -236,6 +244,7 @@ $(document).ready(function() {
   //   swiperightHandler();
   //   get_cp();
   // });
+
 
   function swipeleftHandler(){
     PageTurn.left(sentence, book);

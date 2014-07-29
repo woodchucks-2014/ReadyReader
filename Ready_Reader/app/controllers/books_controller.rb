@@ -7,10 +7,6 @@ class BooksController < ApplicationController
   before_filter :prepare_for_mobile
   respond_to :json
 
-  # def initialize_tt(content)
-  #   tt ||= TactfulTokenizer::Model.new
-  #   tt.tokenize_text(content)
-  # end
 
   def show
     @book = Book.find(params[:id])
@@ -71,7 +67,12 @@ class BooksController < ApplicationController
     save_point = local_val if session[:user] == 1
     @user_book.save!
 
-    render json: {farthest_point: save_point}.to_json
+    bookmarks = []
+    @user.bookmarks.each do |bookmark|
+      bookmarks << bookmark.position_begin if bookmark.book_id == @book.id
+    end
+
+    render json: {farthest_point: save_point, bookmarks: bookmarks}.to_json
   end
 
   def create
