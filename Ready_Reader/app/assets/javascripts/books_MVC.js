@@ -87,6 +87,8 @@ var BookController = function(book) { // eventually want a current argument too
     text = bookview.getCurrentText(book.current);
     bookview.showCurrentSentence(text);
     LocalStorage.update(book, bookview);
+
+    Slider.sliderProgress(book.current, book.end);
   }
 
   var turnPageLeft = function() {
@@ -97,6 +99,7 @@ var BookController = function(book) { // eventually want a current argument too
     bookview.showCurrentSentence(text);
     LocalStorage.update(book, bookview);
 
+    Slider.sliderProgress(book.current, book.end);
   }
 
   this.initialize = function () {
