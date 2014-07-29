@@ -231,9 +231,7 @@
 
 $(document).ready(function() {
 
-  bookview = new BookView();
-  LocalStorage.initialize(bookview);
-
+  LocalStorage.initialize();
   Read();
 
 

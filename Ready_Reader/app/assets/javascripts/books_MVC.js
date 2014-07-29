@@ -100,9 +100,6 @@ var BookController = function(book) { // eventually want a current argument too
 
   this.initialize = function () {
 
-    // initialize correct book
-
-
     // PREPARE BOOK
     bookview.hideNonCurrent();
     text = bookview.getCurrentText(book.current);

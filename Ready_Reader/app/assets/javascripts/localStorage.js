@@ -2,6 +2,8 @@ LocalStorage = {
 
   initialize : function () {
 
+    bookview = new BookView();
+
     var book_id = bookview.bookId();
     var user_name = bookview.reader();
     var userObject = {userName: user_name, bookId: book_id, currentSentence: 0};
