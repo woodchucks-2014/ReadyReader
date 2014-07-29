@@ -226,7 +226,7 @@ $(document).ready(function() {
 
     $(".bookmark").on("click", function() {
       console.log("WRO");
-      setBookmark(book.current);
+      setBookmark(book.current, book.end);
     });
   // end of temporary code
 
