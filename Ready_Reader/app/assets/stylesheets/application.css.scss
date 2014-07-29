@@ -52,55 +52,6 @@
   color: red;
 }
 
-/*
-@media only screen and (max-width : 640px) {
-
-    header {
-      position: absolute;
-    }
-
-    #menu-icon {
-      display:inline-block;
-    }
-
-    nav ul, nav:active ul {
-      display: none;
-      position: absolute;
-      padding: 20px;
-      background: #fff;
-      border: 5px solid #444;
-      right: 20px;
-      top: 60px;
-      width: 50%;
-      border-radius: 4px 0 4px 4px;
-    }
-
-    nav li {
-      text-align: center;
-      width: 100%;
-      padding: 100px 0;
-      margin: 0;
-    }
-
-    nav:hover ul {
-      display: block;
-    }
-
-    .nav_item ul,li, a {
-      padding: 24px 30px 20px 30px;
-      margin-bottom: 4px;
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-      color: #eeeeee;
-      font-size: 45px;
-      text-decoration: none;
-     }
-
-
-      #middle{
-        margin-left: 30%;
-      }
-}*/
 
 /*UNIVERSAL*/
 
@@ -137,34 +88,11 @@
   font-style: 'Arial'
 }
 
-body{
+
+/* Commenting this out for now just to have easier access to elements 7/29/14 */
+/*body{
   overflow: hidden;
-}
-
-
-
-
-
-.book_wrapper, .library_wrapper {
-  text-align: left;
-  /*margin-top: -2%;*/
-  margin-left: 3%;
-  /*height: 300px;*/
-  width: 126%;
-  color: #36AECC;
-  font-family: 'Georgia';
-  font-size: 1.5em;
-  height: 35%;
-  position: absolute;
-}
-
-.book_count_user {
-  visibility: hidden;
-}
-
-#user_library{
-  margin-right: 80%;
-}
+}*/
 
 .sentence_wrapper:a {
   color: black;
@@ -249,7 +177,7 @@ and (max-device-width : 568px) and (orientation: landscape) {
 
 /* MEDIA - iPhone Portrait */
 
-@media only screen
+/*@media only screen
 and (min-device-width : 320px) and (orientation: portrait) {
 
 
@@ -338,7 +266,7 @@ and (min-device-width : 320px) and (orientation: portrait) {
     float: left;
   }
 
-}
+}*/
 
 /* MEDIA - iPad mini landscape */
 

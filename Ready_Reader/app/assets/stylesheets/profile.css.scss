@@ -1,26 +1,31 @@
-#upload {
-  margin-top: 30%;
+
+
+/* This is for jQuery purposes */
+.book_count_user {
+  visibility: hidden;
 }
 
-#upload_box {
+
+
+
+
+
+/* Custom Styles */
+
+.library_wrapper {
+  text-align: left;
+  margin-top: -4%;
   margin-left: 3%;
+  width: 100%;
+  color: #36AECC;
+  font-family: 'Georgia';
+  font-size: 1.5em;
+  height: 35%;
+  position: absolute;
 }
-
-
-/* NAV BAR FOR PROFILE PAGE - SOME OF THIS CAN BE ABSTRACTED OUT */
-.nav_item ul,li, a {
-  /*padding: 24px 30px 20px 30px;*/
-  margin-bottom: 4px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  color: #A89A9A;;
-  font-size: 0.750em;
-  text-decoration: none;
-}
-
-
 
 .profile_title {
+  font-size: 1.500em;
   margin-left: 3%;
 }
 
@@ -31,6 +36,119 @@
 /*#nav_buttons {
   padding: 2%;
 }*/
+
+#upload {
+  margin-top: 53%;
+}
+
+#upload_box {
+  margin-left: 3%;
+}
+
+#upload_title {
+  font-size: 1em;
+  margin-left: 3%;
+}
+
+#user_library {
+
+  margin-bottom: -1%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #FFF;
+  font-size: 1em;
+  text-decoration: none;
+
+  list-style: none;
+  // margin-bottom: -1%;
+}
+
+#user_library a {
+  margin-left: -3%;
+
+}
+
+/* MEDIA - iPhone Portrait */
+
+@media only screen
+and (max-device-width : 320px) and (orientation: portrait) {
+
+ .profile_title {
+    font-size: 3em;
+  }
+
+
+
+  #user_library {
+    font-size: 2em;
+    list-style: none;
+    font-color: #FFF;
+  }
+
+
+
+}
+
+
+
+/*THIS DOES NOT WORK - 7/29/14*/
+/* iPhone 5 landscape */
+@media screen
+and (max-device-width : 568px) and (orientation: landscape) {
+
+
+
+  #user_library {
+    font-size: 2em;
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+/* MEDIA - iPad mini portrait */
+
+// @media screen and (max-device-width : 768px) and (orientation : portrait) {
+
+//   // body {
+//   //   background-color: red;
+//   // }
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*Not sure the two following satyles do anything*/
 #progressbar{
@@ -47,62 +165,3 @@
   width: 100%;
   margin-top: 450px;
 }
-
-
-/* MEDIA - iPad mini portrait */
-
-@media screen and (max-device-width : 768px) and (orientation : portrait) {
-
-  // body {
-  //   background-color: red;
-  // }
-
-}
-
-/*THIS DOES NOT WORK - 7/29/14*/
-/* iPhone 5 landscape */
-@media screen
-and (max-device-width : 568px) and (orientation: landscape) {
-
-  body {
-    background-color: red;
-  }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

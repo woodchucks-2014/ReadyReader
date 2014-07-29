@@ -1,6 +1,4 @@
-// #profile_library_left {
-//   padding: 1%;
-// }
+
 
 #profile_library_left {
   float: left;
@@ -18,9 +16,17 @@
   }
 }
 
-
-
 /* BOOTSTRAP NAV BAR*/
+
+.nav_item ul,li, a {
+  /*padding: 24px 30px 20px 30px;*/
+  margin-bottom: 4px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #A89A9A;;
+  font-size: 0.750em;
+  text-decoration: none;
+}
 
 #reader_nav,
 #reader_nav ul,
