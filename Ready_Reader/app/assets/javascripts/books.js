@@ -87,7 +87,13 @@ var sliderProgress = function(current, pages){
 }
 
 // localStorage
+var checkForBookID = function () {
+
+
+}
+
 var getBookId = function () {return +$('.book_number').text(); }
+
 
 var localStorageInit = function(){
   var book_id = +$('.book_number').text();
@@ -185,18 +191,19 @@ $(document).ready(function() {
     return get_cp();
   }
 
- positionUpdate().done(function(result){ //may need slight tweaks.
-    book = new Book(result.farthest_point, new Sentence());
-    sentence = new Sentence(book, book.current);
-    console.log(book);
-    sliderProgress(book.current, book.end);
-    sentence.barProgress(book.current, book.end);
+  // make the ajax request dependent on actually being on a page where you can read
+   positionUpdate().done(function(result){ //may need slight tweaks.
+      book = new Book(result.farthest_point, new Sentence());
+      sentence = new Sentence(book, book.current);
+      console.log(book);
+      sliderProgress(book.current, book.end);
+      sentence.barProgress(book.current, book.end);
 
-    $('.current_sentence').text(sentence.currentSentence(book.current));
-    $('.progress_bar').show();
-    Refresh.progress(book)
-    localStorageUpdate(book);
-  })
+      $('.current_sentence').text(sentence.currentSentence(book.current));
+      $('.progress_bar').show();
+      Refresh.progress(book)
+      localStorageUpdate(book);
+    });
 
   // fast forward and rewind
   $('#slider_bar').mouseup(function() {

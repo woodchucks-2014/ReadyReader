@@ -84,14 +84,82 @@ and (max-device-width : 568px) {
   }
 
 */
-/* MEDIA - iPad mini */
+/* MEDIA - iPad mini portrait */
+
+
 @media only screen
 and (min-device-width : 768px)
-and (max-device-width : 1024px)
+and (orientation : portrait){
+
+  body {
+    background-color: red;
+  }
+
+}
+
+
+/* MEDIA - iPad mini landscape
+/*
+@media only screen and (max-device-width : 1024px)
+and (orientation : landscape)
 and (-webkit-min-device-pixel-ratio: 1)  {
 
 
 
-
-
 }
+
+*/
+
+/*
+@media only screen and (max-width : 640px) {
+
+    header {
+      position: absolute;
+    }
+
+    #menu-icon {
+      display:inline-block;
+    }
+
+    nav ul, nav:active ul {
+      display: none;
+      position: absolute;
+      padding: 20px;
+      background: #fff;
+      border: 5px solid #444;
+      right: 20px;
+      top: 60px;
+      width: 50%;
+      border-radius: 4px 0 4px 4px;
+    }
+
+    nav li {
+      text-align: center;
+      width: 100%;
+      padding: 100px 0;
+      margin: 0;
+    }
+
+    nav:hover ul {
+      display: block;
+    }
+
+    .nav_item ul,li, a {
+      padding: 24px 30px 20px 30px;
+      margin-bottom: 4px;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      color: #eeeeee;
+      font-size: 45px;
+      text-decoration: none;
+     }
+
+      #left{
+        float: left;
+      }
+
+      #middle{
+        margin-left: 30%;
+      }
+}
+*/

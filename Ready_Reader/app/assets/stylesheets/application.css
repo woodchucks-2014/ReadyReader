@@ -21,7 +21,8 @@
 
 
 
-/*MEDIA QUERY*/
+/* SLIDER */
+
 #slider_bar {
   height: 50px;
 }
@@ -40,11 +41,6 @@
   margin-top: -25px;
 }
 
-/*body, button, input, textarea, select {
-  text-rendering: optimizeLegibility;
-  font-size: 100%;
-}*/
-
 .ui-slider-handle .ui-state-default .ui-corner-all .ui-state-hover {
   font-size: 30px;
 }
@@ -57,11 +53,7 @@
   color: red;
 }
 
-/*  .modal .modal-body {
-    height: 600px;
-    font: green;
-  }*/
-
+/*
 @media only screen and (max-width : 640px) {
 
     header {
@@ -112,10 +104,9 @@
       #middle{
         margin-left: 30%;
       }
-}
+}*/
 
 /*UNIVERSAL*/
-
 
 #passage{
   background-color: #FFEBCD;
@@ -139,6 +130,10 @@
   float: left;
 }
 
+.bar_percentage {
+  margin-right: 80%;
+}
+
 .percentage, .text_progress{
   padding: 10px;
   font-size: 25px;
@@ -150,6 +145,10 @@ body{
   overflow: hidden;
 }
 
+#upload {
+  margin-top: 30%;
+  margin-left: 3%;
+}
 
 
 #test{
@@ -159,20 +158,24 @@ body{
 }
 
 .book_wrapper, .library_wrapper {
-  text-align: center;
-  margin-top: 5%;
-  margin-left: 17%;
-  height: 300px;
-  width: 60%;
+  text-align: left;
+  /*margin-top: -2%;*/
+  margin-left: 3%;
+  /*height: 300px;*/
+  width: 126%;
   color: #36AECC;
   font-family: 'Georgia';
-  font-size: 30px;
+  font-size: 1.5em;
   height: 35%;
   position: absolute;
 }
 
-.user_library{
-  color: black: ;
+.book_count_user {
+  visibility: hidden;
+}
+
+#user_library{
+  margin-right: 80%;
 }
 
 .sentence_wrapper:a {
@@ -184,24 +187,6 @@ body{
   font-size: 1.440em;
 }
 
-/*@media (max-width: 480px) {
-    .modal {
-        position: fixed;
-        top: 3%;
-        right: 3%;
-        left: 3%;
-        bottom: 3%;
-        width: auto;
-        margin: 0;
-    }
-    .modal-body {
-        max-height: 350px;
-        padding: 15px;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-     }
-}
-*/
 .bottom_bar{
   margin-top: 35%;
 }
@@ -275,6 +260,10 @@ float: left;
   font-size: 45px;
 }
 
+.progress_bar_wrapper {
+
+}
+
 
 
 
@@ -282,9 +271,7 @@ float: left;
 @media only screen
 and (max-device-width : 568px) and (orientation: landscape) {
 
-  body{
-    background-color: red;
-  }
+
 
 }
 /* MEDIA - iPhone Portrait */
@@ -381,19 +368,30 @@ and (min-device-width : 320px) and (orientation: portrait) {
 }
 
 
-/* MEDIA - iPad mini */
+/* MEDIA - iPad mini portrait */
+
 @media only screen
 and (min-device-width : 768px)
-and (max-device-width : 1024px)
-and (-webkit-min-device-pixel-ratio: 1)  {
+and (orientation : portrait){
 
-  body{
+  /*body {
     background-color: red;
-  }
+  }*/
+
+}
+
+
+/* MEDIA - iPad mini landscape */
+
+@media only screen and (max-device-width : 1024px)
+and (orientation : landscape)
+and (-webkit-min-device-pixel-ratio: 1)  {
 
 
 
 }
+
+
 
 
 /* BOOTSTRAP */
@@ -485,8 +483,8 @@ and (-webkit-min-device-pixel-ratio: 1)  {
   margin-bottom: 4px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  color: #eeeeee;
-  font-size: 45px;
+  color: #A89A9A;;
+  font-size: 0.750em;
   text-decoration: none;
 
 }
