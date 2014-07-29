@@ -26,8 +26,8 @@
 
 .ui-slider-tick {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 40px;
   z-index: -1;
   background: rgb(170, 170, 170)
 }
