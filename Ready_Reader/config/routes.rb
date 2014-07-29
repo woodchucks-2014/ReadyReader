@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   end
 
   post '/comment_on_book', to: 'comments#comment_on_book'
-
   post '/check_point', to: 'books#check_point'
-
+  post '/bookmarks/mark', to: 'bookmarks#mark'
 end

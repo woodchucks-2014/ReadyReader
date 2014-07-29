@@ -223,6 +223,10 @@ $(document).ready(function() {
     $(".left").on("click", function() {
       PageTurn.left(sentence, book);
     });
+
+    $(".bookmark").on("click", function() {
+      console.log("BACKERY");
+    });
   // end of temporary code
 
   // Once asset pipeline issues are resolved, here's the code:
@@ -236,6 +240,7 @@ $(document).ready(function() {
   //   swiperightHandler();
   //   get_cp();
   // });
+
 
   function swipeleftHandler(){
     PageTurn.left(sentence, book);
