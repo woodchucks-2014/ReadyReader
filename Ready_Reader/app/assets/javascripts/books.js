@@ -230,25 +230,15 @@
 
 
 $(document).ready(function() {
-  bookController = new BookController();
-  bookController.initialize();
-  // bookView = new BookView();
-  // bookView.initialize();
-  // lS = new lS();
-  // lS.initialize(bookView);
-  // console.log(localStorage);
-  // bookView.showCurrentSentence();
-
-  // setTimeout = (get_cp, 400);
-  // localStorageInit();
-
-  //ajaxInterval(get_cp());
 
  //  var positionUpdate = function(){
  //    return get_cp();
  //  }
 
  // positionUpdate().done(function(result){ //may need slight tweaks.
+      bookController = new BookController();
+      bookController.initialize();
+      //setTimeout = (bookController.getCurrentPage(), 400);
  //    book = new Book(result.farthest_point, new Sentence());
  //    sentence = new Sentence(book, book.current);
  //    console.log(book);

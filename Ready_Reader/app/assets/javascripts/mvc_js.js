@@ -1,8 +1,8 @@
 // BOOK MODEL
 
-var Book = function(pages) {
+var Book = function(pages){//, current) {
   this.start = 0;
-  this.current = 0; //look into better (smarter) implementation for current.
+  this.current = 0;//current; //look into better (smarter) implementation for current.
   this.end = pages; // hidden in DOM, reliant on view
   console.log(this.end);
 };
@@ -29,44 +29,67 @@ Book.prototype.turnPageRight = function() {
 
 // BOOK CONTROLLER
 
-var BookController = function() {
+var BookController = function() { // eventually want a current argument too
+
   var bookview = new BookView();
   var book = new Book(bookview.getPages()); // book.current will update on AJAX request
 
   var turnPageRight = function() {
     book.turnPageRight();
     book.checkForBeginning();
-
-    bookview.showCurrentSentence(book.current);
-
+    text = bookview.getCurrentText(book.current);
+    bookview.showCurrentSentence(text);
   }
 
   var turnPageLeft = function() {
     book.turnPageLeft();
     book.checkForEnd();
-
-    bookview.showCurrentSentence(book.current);
+    text = bookview.getCurrentText(book.current);
+    bookview.showCurrentSentence(text);
   }
+
+
 
   this.initialize = function () {
-    bookview.hideNonCurrent();
-    bookview.showCurrentSentence(book.current);
 
+    // PREPARE BOOK
+    bookview.hideNonCurrent();
+    text = bookview.getCurrentText(book.current);
+    bookview.showCurrentSentence(text);
+
+    // PREPARE SLIDER
+
+    // PREPARE BOOKMARKS
+
+
+    // PREPARE BINDINGS
     bookview.getPage().on("click", ".right", turnPageRight)
     bookview.getPage().on("click", ".left", turnPageLeft)
+
   }
 };
+
+  // var getCurrentPage = function(argument){
+  //   console.log(keyLook);
+  //   return $.ajax({
+  //   url : '/check_point',
+  //   method : 'POST',
+  //   data : { object: JSON.parse(localStorage[keyLook]) },
+  //   success : function(response){
+  //   }
+  // }
 
 // BOOK VIEW
 
 var BookView = function () {}
 
 BookView.prototype.getCurrentText = function(index) {
+  console.log("************");
+  console.log($('.sentence' + index).text());
   return $('.sentence' + index).text();
 }
 
-BookView.prototype.showCurrentSentence = function(index) {
-  text = this.getCurrentText(index);
+BookView.prototype.showCurrentSentence = function(text) {
   $('.current_sentence').text(text);
 }
 
