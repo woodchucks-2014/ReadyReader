@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   post '/users/login', to: 'users#login'
   get '/users/:id/profile', to: 'users#profile', as: :profile
 
-  resources :users, only: [:new, :create, :destroy, :update, :edit] do
-    resources :books, only: [:show, :delete, :new]
+  resources :users, except: :index do
+    resources :books#, only: [:show, :delete, :new]
     post 'books/upload', to: 'books#upload'
     resources :comments
   end

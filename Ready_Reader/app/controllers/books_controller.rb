@@ -15,10 +15,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @sentences = tokenize(@book.content) #gets into sentences
-    p "WE ARE IN THE SHOW CONTROLLER"
-    p "*" * 100
     p @sentences
-    p "*" * 100
 
     @sentences = @sentences.long_parse #takes array, splits long sentences
 
@@ -55,8 +52,6 @@ class BooksController < ApplicationController
   end
 
   def check_point
-    p "*" * 100
-    p "TEST"
     @user = User.find(session[:user]) # need to create guest user
     @book = Book.find(session[:book]) #Implement nesting to compensate for logging into multiple books.
     @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id)
@@ -79,7 +74,10 @@ class BooksController < ApplicationController
   end
 
   def delete
-
+    @user = User.find(session[:user])
+    @book = Book.find(session[:book])
+    @book.destroy
+    redirect_to profile_path(@user)
   end
 
   private
