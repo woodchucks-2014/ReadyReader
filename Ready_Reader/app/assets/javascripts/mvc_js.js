@@ -4,11 +4,12 @@ var Book = function(pages) {
   this.start = 0;
   this.current = 0; //look into better (smarter) implementation for current.
   this.end = pages; // hidden in DOM, reliant on view
+  console.log(this.end);
 };
 
 Book.prototype.checkForEnd = function() {
   if (this.current >= this.end) {
-    this.current = this.end
+    this.current = this.end - 1;
   }
 }
 
@@ -34,7 +35,7 @@ var BookController = function() {
 
   var turnPageRight = function() {
     book.turnPageRight();
-    book.checkForEnd();
+    book.checkForBeginning();
 
     bookview.showCurrentSentence(book.current);
 
@@ -42,7 +43,7 @@ var BookController = function() {
 
   var turnPageLeft = function() {
     book.turnPageLeft();
-    book.checkForBeginning();
+    book.checkForEnd();
 
     bookview.showCurrentSentence(book.current);
   }
@@ -65,10 +66,7 @@ BookView.prototype.getCurrentText = function(index) {
 }
 
 BookView.prototype.showCurrentSentence = function(index) {
-  console.log("*************")
-  console.log(index)
   text = this.getCurrentText(index);
-  console.log(text)
   $('.current_sentence').text(text);
 }
 
