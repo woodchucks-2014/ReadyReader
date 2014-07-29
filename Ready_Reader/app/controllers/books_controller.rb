@@ -58,7 +58,12 @@ class BooksController < ApplicationController
     save_point = local_val if session[:user] == 1
     @user_book.save!
 
-    render json: {farthest_point: save_point}.to_json
+    bookmarks = []
+    @user.bookmarks.each do |bookmark|
+      bookmarks << bookmark.position_begin if bookmark.book_id == @book.id
+    end
+
+    render json: {farthest_point: save_point, bookmarks: bookmarks}.to_json
   end
 
   def create
