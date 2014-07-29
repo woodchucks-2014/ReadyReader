@@ -1,16 +1,18 @@
 var Slider = {
 
+  updateText: function(book, bookview) {
+    $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
+    $('.text_progress').text("Sentence " + book.current + " of " + book.end )
+    LocalStorage.update(book, bookview);
+  },
+
   hideShow: function() {
     $('.slider_bar').hide();
     $('.slider_bar').show();
   },
 
-  progress: function(book) {
-    $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
-    $('.text_progress').text("Sentence " + book.current + " of " + book.end )
-  },
-
-  sliderProgress: function(current, pages) {
+  sliderProgress: function(book, current, pages) {
+    bookview = new BookView();
      $("#slider_bar").slider({
         range: "min",
         value: current,
@@ -24,9 +26,8 @@ var Slider = {
         },
 
         create: function(event, ui) {
-            var v= $(this).slider('value');
-            $('.text_progress').text("Sentence " + v + " of " + book.end );
-            $('.percentage').text(parseInt((v / book.end) * 100) + '%'  )
+          var v= $(this).slider('value');
+          Slider.updateText(book, bookview);
       }
     });
   }

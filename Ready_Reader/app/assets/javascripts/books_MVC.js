@@ -53,6 +53,7 @@ var getCurrentPage = function(keyLook){
 var Read = function() {
 
   bookview = new BookView();
+  bookview.initializeBook();
 
   var positionUpdate = function (){ // use a callback to get the current page
     return getCurrentPage(bookview.reader() + bookview.bookId());
@@ -64,6 +65,7 @@ var Read = function() {
     bookcontroller.initialize();
     LocalStorage.update(book, bookview)
   });
+
 
 }
 
@@ -110,11 +112,24 @@ var BookController = function(book) { // eventually want a current argument too
     bookview.showCurrentSentence(text);
 
     // PREPARE SLIDER
+    Slider.sliderProgress(book, book.current, book.end);
+
+    // GET SLIDER ON MOUSE UP
+    $('#slider_bar').mouseup(function() {
+      var newPoint = +$(this).slider('value');
+
+      text = bookview.getCurrentText(newPoint);
+      bookview.showCurrentSentence(text);
+      book.current = newPoint;
+
+      Slider.updateText(book, bookview);
+    });
 
     // PREPARE BOOKMARKS
 
 
     // PREPARE BINDINGS
+    //bookview.getPage().on("mouseup", "#slider_bar", Slider.sliderProgress(book, newPoint, book.end))
     bookview.getPage().on("click", ".right", turnPageRight)
     bookview.getPage().on("click", ".left", turnPageLeft)
 
@@ -156,11 +171,15 @@ BookView.prototype.getPage = function(){
   return $(document);
 }
 
-// var lS = function (){
-//   function initialize(bookview) {
-//     var book_id = bookview.bookId;
-//     var user_name = bookview.userName;
-//     var userObject = {userName: user_name, bookId: book_id, currentSentence: 0};
-//     localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
-//   }
-// }
+BookView.prototype.initializeBook = function() {
+  $('.non_current_sentence').hide();
+  $('.sentence_wrapper').hide();
+  $('.sentence_wrapper').show();
+  $('.ui-slider-handle').hide();
+  $('.ui-slider-handle').show();
+}
+
+
+
+
+
