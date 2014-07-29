@@ -412,13 +412,16 @@ and (-webkit-min-device-pixel-ratio: 1)  {
 
 #profile_library_left {
   float: left;
-  padding: 2%;
+  /*padding: 2%;*/
 }
 
 #profile_logout_right {
   float: right;
-  padding: 2%;
 }
+
+/*#reader_nav ul li a {
+  padding: 2%;
+}*/
 
 /*#nav_buttons {
   padding: 2%;
@@ -433,7 +436,7 @@ and (-webkit-min-device-pixel-ratio: 1)  {
 #reader_nav ul li,
 #reader_nav ul li a {
   margin: 0;
-  padding: 0;
+  /*padding: 0;*/
   border: 0;
   list-style: none;
   line-height: 1;
@@ -442,8 +445,8 @@ and (-webkit-min-device-pixel-ratio: 1)  {
   font-family: 'Georgia';
 }
 #reader_nav {
-  font-size: 3.5em;
-  width: auto;
+  font-size: 3.000em;
+  /*width: auto;*/
   height: 110px;
   padding-bottom: 4px;
 }
