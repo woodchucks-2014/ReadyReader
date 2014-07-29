@@ -7,11 +7,13 @@
     <ul>
       <li id="user_library"><%= link_to book.title, user_book_path(@this_user, book)%></li>
     </ul>
-    <div class="progress_bar_wrapper">
-    <div class="progress_bar_index<%=index%>"></div>
-    <div class="bar_percentage" id="bar<%=index%>"><%= ((save_point.to_f / tokenize(book.content).size ).to_f * 100).to_i %></div>
+    <div class="">
+      <div class="progress_bar_wrapper">
+      <div class="progress_bar_index<%=index%>"></div>
+      <div class="bar_percentage" id="bar<%=index%>"><%= ((save_point.to_f / tokenize(book.content).size ).to_f * 100).to_i %></div>
+      </div>
+      <% end %>
     </div>
-    <% end %>
 </div>
 
 <div id="upload">
