@@ -189,6 +189,9 @@ $(document).ready(function() {
     book = new Book(result.farthest_point, new Sentence());
     sentence = new Sentence(book, book.current);
     console.log(book);
+
+    initializeBookMarks(result.bookmarks, book.end);
+
     sliderProgress(book.current, book.end);
     sentence.barProgress(book.current, book.end);
 

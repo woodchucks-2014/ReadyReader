@@ -1,6 +1,11 @@
-function drawRectangle() {
-  // bookmark drawing function
-
+function initializeBookMarks(bookmarks, pages) {
+   total = pages
+  $.each(bookmarks, function( index, mark ) {
+    var val = (mark/total) * 100
+    val.toString();
+    tickMark = val + "%"
+    $('.custom_ticks').append('<div class="ui-slider-tick" style="left: '+tickMark+'"></div>')
+  });
 };
 
 var setBookmark = function(value, pages){
@@ -15,7 +20,6 @@ var setBookmark = function(value, pages){
           var val = (mark/total) * 100
           val.toString();
           tickMark = val + "%"
-
           $('.custom_ticks').append('<div class="ui-slider-tick" style="left: '+tickMark+'"></div>')
         });
     }
