@@ -34,8 +34,12 @@ var BookController = function(book) {
       Slider.updateText(book, bookview);
     });
 
+    var bookmark = function(){
+      setBookmark(book.current, book.end);
+    }
+
     bookview.getPage().on("click", ".right", turnPageRight)
     bookview.getPage().on("click", ".left", turnPageLeft)
-
+    bookview.getPage().on("click", ".bookmark", bookmark);
   }
 };

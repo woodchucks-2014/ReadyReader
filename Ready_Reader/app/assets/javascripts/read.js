@@ -11,6 +11,9 @@ var Read = function() {
     book = new Book(result.farthest_point, bookview.getPages());
     bookcontroller = new BookController(book);
     bookcontroller.initialize();
+
+    initializeBookMarks(result.bookmarks, book.end);
+
     LocalStorage.update(book, bookview)
   });
 }
