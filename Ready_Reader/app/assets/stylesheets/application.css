@@ -21,7 +21,17 @@
 
 
 
+
 /*MEDIA QUERY*/
+
+.ui-slider-tick {
+  position: absolute;
+  width: 10px;
+  height: 40px;
+  z-index: -1;
+  background: rgb(170, 170, 170)
+}
+
 #slider_bar {
   height: 50px;
 }
