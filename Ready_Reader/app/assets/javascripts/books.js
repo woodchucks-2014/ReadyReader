@@ -89,22 +89,22 @@ var sliderProgress = function(current, pages){
 // localStorage
 var getBookId = function () {return +$('.book_number').text(); }
 
-var localStorageInit = function(){
-  var book_id = +$('.book_number').text();
-  var user_name = $('.user_name').text();
-  var userObject = {userName: user_name, bookId: book_id, currentSentence: 0};
+// var localStorageInit = function(){
+//   var book_id = +$('.book_number').text();
+//   var user_name = $('.user_name').text();
+//   var userObject = {userName: user_name, bookId: book_id, currentSentence: 0};
 
-  if (localStorage[user_name + book_id] === undefined) {
-     localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
-  }
-};
+//   if (localStorage[user_name + book_id] === undefined) {
+//      localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
+//   }
+// };
 
-var localStorageUpdate = function(book){
-  var book_id = +$('.book_number').text();
-  var user_name = $('.user_name').text();
-  var userObject = {userName: user_name, bookId: book_id, currentSentence: book.current};
-  localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
-}
+// var localStorageUpdate = function(book){
+//   var book_id = +$('.book_number').text();
+//   var user_name = $('.user_name').text();
+//   var userObject = {userName: user_name, bookId: book_id, currentSentence: book.current};
+//   localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
+// }
 
 // PageTurn module
 var PageTurn = {
@@ -196,7 +196,18 @@ var lS = function (){
     var book_id = bookview.bookId;
     var user_name = bookview.userName;
     var userObject = {userName: user_name, bookId: book_id, currentSentence: 0};
-    return localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
+    localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
+    if (localStorage[user_name + book_id] === undefined) {
+     localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
+    }
+  },
+
+  this.update = function(book, bookview) {
+    var book_id = bookview.bookId;
+    var user_name = bookview.userName;
+    var userObject = {userName: user_name, bookId: book_id, book.current};
+    localStorage.setItem(user_name + book_id, JSON.stringify(userObject));
+
   }
 }
 
@@ -205,7 +216,6 @@ $(document).ready(function() {
   bookView = new BookView();
   lS = new lS();
   lS.initialize(bookView);
-  console.log(lS);
   console.log(localStorage);
 
   // setTimeout = (get_cp, 400);
@@ -227,7 +237,7 @@ $(document).ready(function() {
     $('.current_sentence').text(sentence.currentSentence(book.current));
     $('.progress_bar').show();
     Refresh.progress(book)
-    localStorageUpdate(book);
+    ls.update(book);
   })
 
   // fast forward and rewind
