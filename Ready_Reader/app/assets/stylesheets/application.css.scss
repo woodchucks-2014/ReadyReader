@@ -10,10 +10,9 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require progress-bar
  *= require bootstrap
-
+ *= require_tree .
  *= require_self
  */
 
@@ -240,9 +239,9 @@ float: left;
 @media screen
 and (max-device-width : 568px) and (orientation: landscape) {
 
-  /*body {
+  body {
     background-color: red;
-  }*/
+  }
 
 }
 

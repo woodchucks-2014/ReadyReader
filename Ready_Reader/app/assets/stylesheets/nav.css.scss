@@ -1,5 +1,21 @@
+// #profile_library_left {
+//   padding: 1%;
+// }
+
 #profile_library_left {
+  float: left;
   padding: 1%;
+  @media screen and (orientation: portrait) {
+    padding: 3%;
+  }
+}
+
+#profile_logout_right {
+  float: right;
+  padding: 1%;
+  @media screen and (orientation: portrait) {
+    padding: 3%;
+  }
 }
 
 
