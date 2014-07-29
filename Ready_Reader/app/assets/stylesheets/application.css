@@ -142,25 +142,9 @@ body{
   overflow: hidden;
 }
 
-.profile_title {
-  margin-left: 3%;
-}
-
-#upload {
-  margin-top: 30%;
-  /*margin-left: 3%;*/
-}
-
-#upload_box {
-  margin-left: 3%;
-}
 
 
-#test{
-  width: 400px;
-  height: 400px;
-  background: green;
-}
+
 
 .book_wrapper, .library_wrapper {
   text-align: left;
@@ -227,21 +211,7 @@ nav {
   margin-left: 50%;
 }
 
-#progressbar{
-  margin-top: 200px;
-  padding: 0;
-}
 
-.progressbar, .progress_bar_profile {
-  font: 10px sans-serif;
-  background-color: #99CCFF;
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  color: white;
-  width: 100%;
-  margin-top: 450px;
-}
 
 .pro{
   background: #36AECC;
@@ -265,20 +235,19 @@ float: left;
   font-size: 45px;
 }
 
-.progress_bar_wrapper {
-
-}
-
-
-
-
+/*THIS WORKS - 7/29/14*/
 /* iPhone 5 landscape */
-@media only screen
+@media screen
 and (max-device-width : 568px) and (orientation: landscape) {
 
-
+  /*body {
+    background-color: red;
+  }*/
 
 }
+
+
+
 /* MEDIA - iPhone Portrait */
 
 @media only screen
@@ -372,20 +341,6 @@ and (min-device-width : 320px) and (orientation: portrait) {
 
 }
 
-
-/* MEDIA - iPad mini portrait */
-
-@media only screen
-and (min-device-width : 768px)
-and (orientation : portrait){
-
-  /*body {
-    background-color: red;
-  }*/
-
-}
-
-
 /* MEDIA - iPad mini landscape */
 
 @media only screen and (max-device-width : 1024px)
@@ -395,144 +350,4 @@ and (-webkit-min-device-pixel-ratio: 1)  {
 
 
 }
-
-
-/* {
-  nav_item with user profile page
-}*/
-.nav_item ul,li, a {
-  padding: 24px 30px 20px 30px;
-  margin-bottom: 4px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  color: #A89A9A;;
-  font-size: 0.750em;
-  text-decoration: none;
-}
-
-#profile_library_left {
-  float: left;
-  /*padding: 2%;*/
-}
-
-#profile_logout_right {
-  float: right;
-}
-
-/*#reader_nav ul li a {
-  padding: 2%;
-}*/
-
-/*#nav_buttons {
-  padding: 2%;
-}*/
-
-
-
-/* BOOTSTRAP NAV BAR*/
-
-#reader_nav,
-#reader_nav ul,
-#reader_nav ul li,
-#reader_nav ul li a {
-  margin: 0;
-  /*padding: 0;*/
-  border: 0;
-  list-style: none;
-  line-height: 1;
-  display: block;
-  position: relative;
-  font-family: 'Georgia';
-}
-#reader_nav {
-  font-size: 3.000em;
-  /*width: auto;*/
-  height: 110px;
-  padding-bottom: 4px;
-}
-#reader_nav.align-right {
-  float: right;
-}
-#reader_nav.align-right ul li {
-  float: right;
-  margin-right: 0;
-  margin-left: 4px;
-}
-#reader_nav.align-right ul li:first-child,
-#reader_nav.align-right ul li:first-child > a {
-  border-bottom-right-radius: 3px;
-}
-#reader_nav #bg-one,
-#reader_nav #bg-two,
-#reader_nav #bg-three,
-#reader_nav #bg-four {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-#reader_nav #bg-one {
-  height: 10px;
-  background: #0f71ba;
-}
-#reader_nav #bg-two {
-  height: 59px;
-  z-index: 2;
-  background: url('images/bg.png');
-}
-#reader_nav #bg-three {
-  bottom: 4px;
-  height: 55px;
-  z-index: 3;
-  background: #222222;
-  background: -moz-linear-gradient(top, #555555 0%, #222222 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #555555), color-stop(100%, #222222));
-  background: -webkit-linear-gradient(top, #555555 0%, #222222 100%);
-  background: -o-linear-gradient(top, #555555 0%, #222222 100%);
-  background: -ms-linear-gradient(top, #555555 0%, #222222 100%);
-  background: linear-gradient(to bottom, #555555 0%, #222222 100%);
-}
-#reader_nav #bg-four {
-  bottom: 4px;
-  height: 55px;
-  z-index: 4;
-  background: url('images/bg.png');
-}
-/*#reader_nav ul {
-  height: 59px;
-}*/
-/*#reader_nav ul li {
-  float: left;
-  margin-right: 2%;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  z-index: 5;
-  margin-top: 25px;
-}*/
-
-
-#reader_nav ul li:first-child,
-#reader_nav ul li:first-child > a {
-  border-bottom-left-radius: 3px;
-}
-#reader_nav ul li:hover,
-#reader_nav ul li.active {
-  background: #0f71ba;
-  background: -moz-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3fa4f0), color-stop(100%, #0f71ba));
-  background: -webkit-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
-  background: -o-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
-  background: -ms-linear-gradient(top, #3fa4f0 0%, #0f71ba 100%);
-  background: linear-gradient(to bottom, #3fa4f0 0%, #0f71ba 100%);
-}
-#reader_nav ul li a:hover,
-#reader_nav ul li.active > a {
-  background: url('images/bg.png');
-  color: #ffffff;
-}
-
-
-
-
 
