@@ -71,7 +71,16 @@ var Read = function() {
 
 
 // BOOK CONTROLLER
+UpdatePage = {
+    page : function(book, bookview) {
+    text = bookview.getCurrentText(book.current);
+    bookview.showCurrentSentence(text);
+    LocalStorage.update(book, bookview);
 
+    Slider.sliderProgress(book, book.current, book.end);
+    Slider.updateText(book, bookview);
+    }
+}
 
 var BookController = function(book) { // eventually want a current argument too
 
@@ -82,26 +91,19 @@ var BookController = function(book) { // eventually want a current argument too
 
   // var book = new Book(bookview.getPages()); // book.current will update on AJAX request
 
+
   var turnPageRight = function() {
     book.turnPageRight();
     book.checkForBeginning();
 
-    text = bookview.getCurrentText(book.current);
-    bookview.showCurrentSentence(text);
-    LocalStorage.update(book, bookview);
-
-    Slider.sliderProgress(book.current, book.end);
+   UpdatePage.page(book, bookview);
   }
 
   var turnPageLeft = function() {
     book.turnPageLeft();
     book.checkForEnd();
 
-    text = bookview.getCurrentText(book.current);
-    bookview.showCurrentSentence(text);
-    LocalStorage.update(book, bookview);
-
-    Slider.sliderProgress(book.current, book.end);
+    UpdatePage.page(book, bookview);
   }
 
   this.initialize = function () {

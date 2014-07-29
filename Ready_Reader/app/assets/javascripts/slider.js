@@ -26,7 +26,8 @@ var Slider = {
         },
 
         create: function(event, ui) {
-          var v= $(this).slider('value');
+          $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
+          $('.text_progress').text("Sentence " + book.current + " of " + book.end )
           Slider.updateText(book, bookview);
       }
     });
