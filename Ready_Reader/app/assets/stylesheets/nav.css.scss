@@ -1,4 +1,4 @@
-$link-color:#E8F2F5;
+$link-color:#B2BABC;
 
 
 .nav_quad_1, .nav_quad_2 {
@@ -164,3 +164,29 @@ $link-color:#E8F2F5;
   color: #000;
   text-decoration: none;
 }
+
+@media screen
+and (max-device-width : 568px) and (orientation: landscape) {
+
+.nav_quad_1, .nav_quad_2 {
+  float: left;
+  font-size: 0.750em;
+}
+
+.nav_quad_3, .nav_quad_4 {
+  float: right;
+  color: $link-color;
+  font-size: 0.750em;
+}
+
+
+}
+
+
+
+
+
+
+
+
+

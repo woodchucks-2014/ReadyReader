@@ -38,7 +38,7 @@
 }*/
 
 #upload {
-  margin-top: 10%;
+  margin-top: 30%;
 }
 
 #upload_box {
@@ -46,13 +46,14 @@
 }
 
 #upload_title {
-  font-size: 1em;
+  font-size: 1.200em;
   margin-left: 3%;
+  margin-bottom: 2%
 }
 
 #user_library {
 
-  margin-bottom: -1%;
+  margin-bottom: 1%;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   color: #FFF;
@@ -91,15 +92,14 @@ and (max-device-width : 320px) and (orientation: portrait) {
 
 
 
-/*THIS DOES NOT WORK - 7/29/14*/
-/* iPhone 5 landscape */
+
 @media screen
 and (max-device-width : 568px) and (orientation: landscape) {
 
 
 
   #user_library {
-    font-size: 2em;
+    font-size: 0.750em;
   }
 
 

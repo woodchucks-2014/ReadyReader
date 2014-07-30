@@ -104,6 +104,7 @@ nav {
 
 #comment_view_click {
   font-size: 1.500em;
+  width: 25%;
 }
 
 #left{
@@ -222,11 +223,11 @@ and (max-device-width : 320px) and (orientation: portrait) {
 and (max-device-width : 568px) and (orientation: landscape) {
 
   #center_sentence {
-    margin-top: -10%;
+    margin-top: -14%;
   }
 
   .forward, .backward {
-    margin-top: -10%;
+    margin-top: -13%;
   }
 
  .bottom_bar {
