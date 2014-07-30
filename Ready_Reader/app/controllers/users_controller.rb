@@ -19,6 +19,15 @@ class UsersController < ApplicationController
 
   def profile
     @this_user = User.find(params[:id])
+
+    # give each user a sample library
+    Book.all.each do |book|
+      if book.universal == true
+        @this_user.books << book
+      if
+      end
+    end
+
     @books = @this_user.books
     @comments = @this_user.comments
   end

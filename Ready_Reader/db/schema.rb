@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140730015447) do
     t.string   "title"
     t.text     "content"
     t.integer  "user_id"
+    t.boolean  "universal",  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

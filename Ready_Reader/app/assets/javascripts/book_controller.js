@@ -28,6 +28,8 @@ var BookController = function(book) {
     Slider.sliderProgress(book, book.current, book.end);
 
     // consider refactoring (event binding link on 42-44)
+    $('#slider_bar').draggable();
+
     $('#slider_bar').mouseup(function() {
       var newPoint = +$(this).slider('value');
       book.current = newPoint;
