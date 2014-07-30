@@ -28,6 +28,8 @@ var BookController = function(book) {
     Slider.sliderProgress(book, book.current, book.end);
 
     // consider refactoring (event binding link on 42-44)
+    $('#slider_bar').draggable();
+
     $('#slider_bar').mouseup(function() {
       var newPoint = +$(this).slider('value');
       book.current = newPoint;
@@ -42,6 +44,6 @@ var BookController = function(book) {
 
     bookview.getPage().on("click", ".right", turnPageRight)
     bookview.getPage().on("click", ".left", turnPageLeft)
-    bookview.getPage().on("click", ".bookmark", bookmark);
+    bookview.getPage().on("click", ".nav_quad_3", bookmark);
   }
 };

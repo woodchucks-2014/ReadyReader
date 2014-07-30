@@ -6,6 +6,8 @@
 
 
 /*UNIVERSAL*/
+$link-color:#B2BABC;
+
 
 #passage{
   background-color: #FFEBCD;
@@ -30,7 +32,7 @@
 }
 
 .bar_percentage {
-  margin-right: 80%;
+  // margin-right: 80%;
 }
 
 body{
@@ -48,7 +50,7 @@ body{
   font-size: 1.500em;
   position: fixed;
   font-family: 'Georgia';
-  margin-left: 14%;
+  margin-left: 15%;
   text-align: center;
   width: 70%;
   margin-top: 5%;
@@ -104,6 +106,7 @@ nav {
 
 #comment_view_click {
   font-size: 1.500em;
+  width: 25%;
 }
 
 #left{
@@ -124,13 +127,13 @@ and (max-device-width : 320px) and (orientation: portrait) {
 
   .forward {
     margin-right: 2%;
-    margin-top: 95%;
+    margin-top: 97%;
     float: right;
   }
 
   .backward {
     margin-left: 2%;
-    margin-top: 95%;
+    margin-top: 97%;
     float: left;
   }
 
@@ -146,7 +149,7 @@ and (max-device-width : 320px) and (orientation: portrait) {
   #center_sentence {
     font-size: 1.150em;
     margin-top: 0%;
-
+    margin-left: 15%
   }
 
   .modal-body {
@@ -184,10 +187,9 @@ and (max-device-width : 320px) and (orientation: portrait) {
   }
 
   .percentage, .text_progress{
-    padding: 10px;
     font-size: 35px;
     text-align: center;
-    font-style: 'Arial'
+    font-style: 'Arial';
   }
 
 
@@ -222,12 +224,24 @@ and (max-device-width : 320px) and (orientation: portrait) {
 @media screen
 and (max-device-width : 568px) and (orientation: landscape) {
 
+  .nav_quad_1, .nav_quad_3 {
+    float: left;
+    font-size: 0.750em;
+  }
+
+  .nav_quad_2, .nav_quad_4 {
+    float: right;
+    color: $link-color;
+    font-size: 0.750em;
+  }
+
   #center_sentence {
-    margin-top: -10%;
+    margin-top: -14%;
+    margin-left: 15%;
   }
 
   .forward, .backward {
-    margin-top: -10%;
+    margin-top: -13%;
   }
 
  .bottom_bar {
@@ -237,6 +251,7 @@ and (max-device-width : 568px) and (orientation: landscape) {
   #center_notes {
     margin-right: 30%;
   }
+}
 
 // TODO - fix modals for landscape mode
   // .modal {
@@ -258,7 +273,7 @@ and (max-device-width : 568px) and (orientation: landscape) {
   // }
 
 
-}
+
 
 
 /* MEDIA - iPad mini landscape */

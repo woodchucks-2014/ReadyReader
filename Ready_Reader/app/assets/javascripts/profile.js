@@ -1,6 +1,4 @@
 var barProfileProgress = function(progress, i){
-    console.log("NOW DEBUGGING");
-    console.log(progress);
     $(function() {
       $( ".progress_bar_index" + i ).progressbar({
         value: progress

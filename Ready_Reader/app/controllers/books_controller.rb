@@ -20,7 +20,19 @@ class BooksController < ApplicationController
   def upload
     @user = User.find(params[:user_id])
     uploaded_io = params[:book]
+
+    p "**********************"
+    p uploaded_io
+    p uploaded_io.class
+    p "**********************"
+
     filename = Rails.root.join('public', 'uploads', uploaded_io.original_filename)
+
+    p "**********************"
+    p filename
+    p filename.class
+    p "**********************"
+
     File.open(filename, 'wb') do |file|
       file.write(uploaded_io.read)
     end

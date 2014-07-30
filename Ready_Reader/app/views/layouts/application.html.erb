@@ -6,6 +6,7 @@
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application'%>
   <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
   <%= csrf_meta_tags %>
 
 
@@ -14,6 +15,9 @@
 <body>
 
 <%= render 'layouts/nav_bar' %>
+<center>
+<button class="nav_quad_3" style="color:white; background-color:white; border: white">ABCDEFGTEST</button>
+</center>
 
 <center id='comment-modal' style="display: none z-index: 10"><%= render 'comments/comment_form'%></center>
 

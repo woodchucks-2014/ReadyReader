@@ -6,7 +6,7 @@ var Book = function(current, pages){
 
 Book.prototype.checkForEnd = function() {
   if (this.current >= this.end) {
-    this.current = this.end - 1;
+    this.current = this.end;
   }
 }
 
