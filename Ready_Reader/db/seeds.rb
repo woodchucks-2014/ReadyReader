@@ -16,7 +16,7 @@ ben = User.create(name: "Ben", email: "ben@ben.com", password: "test", password_
 greg = User.create(name: "Greg", email: "greg@greg.com", password: "test", password_confirmation: "test")
 
 promo_user.books << promo
-ben.books << [hp, infinite_jest]
+ben.books << [hp, infinite_jest, promo]
 greg.books << sound_fury
 
 

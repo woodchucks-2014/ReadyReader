@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  include Tact_Token
+  extend Tact_Token
 
   before_filter :check_for_mobile
   before_filter :prepare_for_mobile
@@ -8,11 +8,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @sentences = tokenize(@book.content) #gets into sentences
-    p @sentences
-
+    @sentences = self.class.tokenize(@book.content) #gets into sentences
     @sentences = @sentences.long_parse
-     #takes array, splits long sentences
 
     @pages = @sentences.size
     session[:book] = @book.id
@@ -44,14 +41,17 @@ class BooksController < ApplicationController
   end
 
   def check_point
+
     @user = User.find(session[:user]) # need to create guest user
     @book = Book.find(session[:book]) #Implement nesting to compensate for logging into multiple books.
 
-    @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id)
+    @user_book = UserBook.where(user_id: @user.id, book_id: @book.id).first_or_create
     database_val = @user_book.farthest_point #defaults to 0
+    p "*"*100
+    p params
+    p "*"*100
 
     local_val = params["object"]["currentSentence"].to_i
-    # to prevent guest user from being incremented in database
 
     save_point = @user_book.local_storage_comp(@user.id, local_val)
 

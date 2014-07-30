@@ -10,7 +10,7 @@ var Read = function() {
   positionUpdate().done(function(result){
     book = new Book(result.farthest_point, bookview.getPages());
     bookcontroller = new BookController(book);
-    bookcontroller.initialize();
+    bookcontroller.initialize(bookview);
 
     initializeBookMarks(result.bookmarks, book.end);
 
