@@ -184,10 +184,9 @@ and (max-device-width : 320px) and (orientation: portrait) {
   }
 
   .percentage, .text_progress{
-    padding: 10px;
     font-size: 35px;
     text-align: center;
-    font-style: 'Arial'
+    font-style: 'Arial';
   }
 
 
@@ -202,7 +201,7 @@ and (max-device-width : 320px) and (orientation: portrait) {
   }
 
   .bottom_bar {
-    margin-top: 90%;
+    margin-top: 70%;
   }
 
   .book_wrapper {

@@ -19,6 +19,14 @@
   margin-top: -10px;
 }
 
+.ui-slider-tick {
+  position: absolute;
+  width: 10px;
+  height: 40px;
+  z-index: -1;
+  background: rgb(170, 170, 170)
+}
+
 .ui-slider-handle .ui-state-default .ui-corner-all .ui-state-hover {
   font-size: 30px;
 }
@@ -31,11 +39,15 @@
   color: red;
 }
 
+.progress_summary {
+  margin-top: 225px;
+}
+
 .percentage, .text_progress{
   padding: 10px;
   font-size: 25px;
   text-align: center;
-  font-style: 'Arial'
+  font-style: 'Arial';
 }
 
 @media screen
