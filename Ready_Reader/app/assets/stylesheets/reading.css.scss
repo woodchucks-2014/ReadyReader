@@ -33,13 +33,6 @@
   margin-right: 80%;
 }
 
-.percentage, .text_progress{
-  padding: 10px;
-  font-size: 25px;
-  text-align: center;
-  font-style: 'Arial'
-}
-
 body{
   overflow: hidden;
 }
@@ -224,7 +217,7 @@ and (max-device-width : 320px) and (orientation: portrait) {
 
 }
 
-/*THIS WORKS - 7/29/14*/
+
 /* iPhone 5 landscape */
 @media screen
 and (max-device-width : 568px) and (orientation: landscape) {
@@ -234,12 +227,12 @@ and (max-device-width : 568px) and (orientation: landscape) {
   }
 
   .forward, .backward {
-  margin-top: -10%;
-}
-
-  #slider_bar {
-    margin-bottom: -55%;
+    margin-top: -10%;
   }
+
+ .bottom_bar {
+    margin-top: -25%;
+ }
 
   #center_notes {
     margin-right: 30%;
