@@ -38,15 +38,12 @@ class BooksController < ApplicationController
       page.search('p').each{|el| el.before ' '}
       content << page.text
     end
-
     @book = Book.new
     @book.title = params[:title]
     @book.content = content
     @book.save!
-
     @user.books << @book
     Resque.enqueue(SentenceWorker, @book.id)
-    sleep(2)
     redirect_to profile_path(@user), flash: {notice_upload: 'Book Successfully Uploaded :: Currently Processing'}
   end
 
