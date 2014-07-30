@@ -27,6 +27,9 @@ class BooksController < ApplicationController
       file.write(uploaded_io.read)
     end
 
+    #Resque.enqueue(UploadWorker, @user.id, filename)
+
+
     book = EPUB::Parser.parse(filename)
     content = ""
 
