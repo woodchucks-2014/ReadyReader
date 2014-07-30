@@ -48,7 +48,7 @@ body{
   font-size: 1.500em;
   position: fixed;
   font-family: 'Georgia';
-  margin-left: 14%;
+  margin-left: -12%;
   text-align: center;
   width: 70%;
   margin-top: 5%;
@@ -147,7 +147,7 @@ and (max-device-width : 320px) and (orientation: portrait) {
   #center_sentence {
     font-size: 1.150em;
     margin-top: 0%;
-
+    margin-left: 15%
   }
 
   .modal-body {
@@ -224,6 +224,7 @@ and (max-device-width : 568px) and (orientation: landscape) {
 
   #center_sentence {
     margin-top: -14%;
+    margin-left: 15%;
   }
 
   .forward, .backward {
