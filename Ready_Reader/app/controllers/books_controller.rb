@@ -46,12 +46,8 @@ class BooksController < ApplicationController
 
     @user.books << @book
     Resque.enqueue(SentenceWorker, @book.id)
-    # content_array = tokenize_special(book.content)
-    # content_array.each do |sentence|
-    #   Sentence.create(book_id: book.id, content: sentence)
-    # end
-
-    redirect_to profile_path(@user)
+    sleep(2)
+    redirect_to profile_path(@user), flash: {notice_upload: 'Book Successfully Uploaded :: Currently Processing'}
   end
 
   def check_point

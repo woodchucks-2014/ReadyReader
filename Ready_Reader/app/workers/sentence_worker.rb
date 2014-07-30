@@ -1,6 +1,6 @@
 class SentenceWorker
   # include Tact_Token
-  @queue = :upload
+  @queue = :sentences
 
   def self.perform(id)
     @book = Book.find(id)
