@@ -40,8 +40,6 @@
   font-style: 'Arial'
 }
 
-
-/* Commenting this out for now just to have easier access to elements 7/29/14 */
 body{
   overflow: hidden;
 }
@@ -87,7 +85,7 @@ nav {
   padding-right: 40px;
   width: 100%;
   height: 100px;
-  background-color: black;
+  background-color: #FFF;
 }
 
 .nav_right {
@@ -231,10 +229,23 @@ and (max-device-width : 320px) and (orientation: portrait) {
 @media screen
 and (max-device-width : 568px) and (orientation: landscape) {
 
-  /*body {
-    background-color: red;
+  #center_sentence {
+    margin-top: -10%;
   }
-*/
+
+  .forward, .backward {
+  margin-top: -10%;
+}
+
+  #slider_bar {
+    margin-bottom: -55%;
+  }
+
+  #center_notes {
+    margin-right: 30%;
+  }
+
+
 }
 
 

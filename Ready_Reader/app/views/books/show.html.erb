@@ -9,7 +9,7 @@
 
   <div class="sentence_wrapper">
     <div id="center_sentence">
-    <div class="error_reading"></div>
+    <!-- <div class="error_reading"></div> -->
     <div class="current_sentence"></div>
     </div>
     <% @sentences.each_with_index do |sentence, index| %>
@@ -22,18 +22,15 @@
   <div class="forward"> <div class="left"> <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-right-128.png"> </div> </div>
   <div class="backward"><div class="right"> <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-left-128.png"> </div> </div>
 
-<div class="bottom_bar">
-  <div id="slider_bar"></div>
-  <div class="percentage"> </div>
-  <div class="text_progress"> </div>
-</div>
 
 
-
-<div id="last_point"></div>
-
-
-<center id="comment_position">
-  <p id="comment_view_click"> Comments on <%= book_title %> </p>
-    <center id='comment-view-modal' style="display: none z-index: 10"><%= render 'comments/comments_show' %></center>
-</center>
+  <div class="bottom_bar">
+    <div id="slider_bar"></div>
+    <div class="percentage"> </div>
+    <div class="text_progress"> </div>
+  </div>
+  <div id="last_point"></div>
+  <center id="comment_position">
+    <p id="comment_view_click"> See Comments </p>
+      <center id='comment-view-modal' style="display: none z-index: 10"><%= render 'comments/comments_show' %></center>
+  </center>
