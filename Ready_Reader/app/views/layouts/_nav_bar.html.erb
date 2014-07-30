@@ -3,12 +3,12 @@
 
     <ul id="nav_buttons">
       <% if !logged_in? %>
-        <li class="nav_item" id="left"><%= link_to "Library", root_path %> </li>
         <li class="nav_item" id="signup"> Sign Up </li>
         <li class="nav_item" id="login"> Log In </li>
       <% end %>
 
       <% if logged_in? %>
+        <li class="nav_item" id="left"><%= link_to "Library", root_path %> </li>
         <li class="nav_item" id="profile_library_left"><%= link_to "Library", profile_path(current_user) %> </li>
         <li id="profile_logout_right"><%= link_to "Sign Out", sign_out_path(current_user), :class => "nav_right"  %></li>
 
