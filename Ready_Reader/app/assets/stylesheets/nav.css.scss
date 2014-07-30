@@ -1,5 +1,32 @@
 $link-color:#E8F2F5;
 
+
+.nav_quad_1, .nav_quad_2 {
+  float: left;
+  font-size: 1.2em;
+}
+
+.nav_quad_3, .nav_quad_4 {
+  float: right;
+  color: $link-color;
+  font-size: 1.2em;
+}
+
+.nav_quad_1 {
+  margin-left: 3%
+}
+
+.nav_quad_2 {
+  margin-left: 15%
+}
+
+.nav_quad_3 {
+  margin-right: 3%
+}
+.nav_quad_4 {
+  margin-right: 15%
+}
+
 #profile_library_left {
   float: left;
   padding: 1%;
@@ -31,7 +58,7 @@ $link-color:#E8F2F5;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   color: $link-color;
-  font-size: 0.750em;
+  font-size: 1em;
   text-decoration: none;
 }
 
@@ -40,6 +67,7 @@ $link-color:#E8F2F5;
 #reader_nav ul li,
 #reader_nav ul li a {
   margin: 0;
+  margin-top: 2%;
   /*padding: 0;*/
   border: 0;
   list-style: none;
