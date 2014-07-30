@@ -3,7 +3,7 @@ class UploadWorker
 
   def self.perform(info)
     uploaded_io = params[:book]
-    @filename = Rails.root.join('public', 'uploads', uploaded_io.original_filename)
+    @filename = Rails.root.join('public', 'uploads', uploaded_io.original_filename) #look into this tomorrow.
     File.open(@filename, 'wb') do |file|
       file.write(uploaded_io.read)
     end
