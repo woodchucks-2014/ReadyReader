@@ -1,25 +1,3 @@
-/* line 4, /Users/apprentice/Desktop/BEN_SUSENS/ReadyReader/Ready_Reader/app/assets/stylesheets/books.css.scss */
-body {
-  overflow: hidden;
-}
-
-/* line 7, /Users/apprentice/Desktop/BEN_SUSENS/ReadyReader/Ready_Reader/app/assets/stylesheets/books.css.scss */
-.book_wrapper {
-  text-align: center;
-  margin-top: 20%;
-  margin-left: 17%;
-  width: 60%;
-  color: #36AECC;
-  font-family: 'Georgia';
-  font-size: 30px;
-  height: 35%;
-}
-
-/* line 18, /Users/apprentice/Desktop/BEN_SUSENS/ReadyReader/Ready_Reader/app/assets/stylesheets/books.css.scss */
-.sentence_wrapper {
-  color: black;
-  font-size: 60px;
-}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -32,7 +10,14 @@ body {
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
-
+ *= require progress-bar
+ *= require bootstrap
+ *= require_tree .
 
  */
+
+
+
+
+
 

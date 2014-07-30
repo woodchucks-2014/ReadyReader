@@ -1,4 +1,6 @@
 
+
+
 <div class="pages" style="visibility:hidden"> <%= @pages %> </div>
 <div class="book_number" style="visibility:hidden"> <%= @book.id %> </div>
 <div class="user_name" style="visibility:hidden"> <%= current_user.name %> </div>
@@ -8,8 +10,10 @@
 
 
   <div class="sentence_wrapper">
-    <div class="error_reading"></div>
+    <div id="center_sentence">
+    <!-- <div class="error_reading"></div> -->
     <div class="current_sentence"></div>
+    </div>
     <% @sentences.each_with_index do |sentence, index| %>
     <span class="non_current_sentence"><p class ="sentence<%=index%>"><%= sentence %></span>
     <% end %>
@@ -17,6 +21,7 @@
 </div>
 
 
+<<<<<<< HEAD
   <div class="forward"> <h2 class="left"> <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-right-128.png"> </h2> </div>
   <div class="backward"><h2 class="right"> <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-left-128.png"> </h2> </div>
 
@@ -30,13 +35,20 @@
 
 
   <!-- Would very much like to rename the h2 class names and fonts (defaults to h2 size font) below for semantic purposes. Will hold off due to JS ramifications -->
+=======
+  <div class="forward"> <div class="left"> <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-right-128.png"> </div> </div>
+  <div class="backward"><div class="right"> <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-left-128.png"> </div> </div>
+>>>>>>> 010d13cec434df3f2b9f18454604715b70fdca75
 
 
-<div id="last_point"></div>
-<br>
-<br>
 
-<center>
-  <p id="comment_view_click"> Comments on <%= book_title %> </p>
-    <center id='comment-view-modal' style="display: none z-index: 10"><%= render 'comments/comments_show' %></center>
-</center>
+  <div class="bottom_bar">
+    <div id="slider_bar"></div>
+    <div class="percentage"> </div>
+    <div class="text_progress"> </div>
+  </div>
+  <div id="last_point"></div>
+  <center id="comment_position">
+    <p id="comment_view_click"> See Comments </p>
+      <center id='comment-view-modal' style="display: none z-index: 10"><%= render 'comments/comments_show' %></center>
+  </center>
