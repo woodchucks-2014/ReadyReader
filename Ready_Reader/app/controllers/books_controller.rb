@@ -8,11 +8,10 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-
+    @sentences = Book.includes(:sentences).limit(10)
     @sentences = @book.prep_for_dom
     @pages = @book.pages
     session[:book] = @book.id
-
     @user = User.find(params[:user_id])
     @comments = Comment.where(book_id: @book.id, user_id: @user.id)
   end
@@ -21,40 +20,25 @@ class BooksController < ApplicationController
     @user = User.find(params[:user_id])
     uploaded_io = params[:book]
 
-    p "**********************"
-    p uploaded_io
-    p uploaded_io.class
-    p "**********************"
-
     filename = Rails.root.join('public', 'uploads', uploaded_io.original_filename)
-
-    p "**********************"
-    p filename
-    p filename.class
-    p "**********************"
 
     File.open(filename, 'wb') do |file|
       file.write(uploaded_io.read)
     end
-
     book = EPUB::Parser.parse(filename)
     content = ""
-
     book.each_page_on_spine do |page|
       page = page.content_document.nokogiri
       page.search('p').each{|el| el.before ' '}
       content << page.text
     end
-
-    book = Book.create(title: params[:title], content: content)
-    @user.books << book
-
-    content_array = tokenize_special(book.content)
-    content_array.each do |sentence|
-      Sentence.create(book_id: book.id, content: sentence)
-    end
-
-    redirect_to profile_path(@user)
+    @book = Book.new
+    @book.title = params[:title]
+    @book.content = content
+    @book.save!
+    @user.books << @book
+    Resque.enqueue(SentenceWorker, @book.id)
+    redirect_to profile_path(@user), flash: {notice_upload: 'Book Successfully Uploaded :: Currently Processing'}
   end
 
   def check_point
@@ -73,6 +57,8 @@ class BooksController < ApplicationController
     end
 
     @user_book.farthest_point = local_val if local_val > database_val
+    database_val = @user_book.farthest_point #defaults to 0
+    local_val = params["object"]["currentSentence"].to_i
 
     save_point = @user_book.local_storage_comp(@user.id, local_val)
     @user_book.save!
@@ -95,7 +81,7 @@ class BooksController < ApplicationController
   private
 
   def book_params(params)
-    params.require(:book).permit(:title, :content)
+    params.require(:book).permit(:title)
   end
 
 end
