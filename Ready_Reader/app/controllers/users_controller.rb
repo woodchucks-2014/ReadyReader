@@ -9,10 +9,11 @@ class UsersController < ApplicationController
     @book = Book.first
 
 
-    @sentences = ["A","B", "C"]
-    #@sentences = @sentences.long_parse #takes out long sentences
+    @sentences = @book.prep_for_dom
+    p "*" * 100
+    p @sentences
+    @pages = @book.pages
 
-    @pages = @sentences.size
     session[:book] = @book.id
 
     @user = User.find(1)

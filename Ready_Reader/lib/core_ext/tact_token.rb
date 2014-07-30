@@ -21,7 +21,7 @@
 module Tact_Token
 
 
- def tokenize(content)
+ def tokenize_special(content)
     @tt ||= TactfulTokenizer::Model.new
     sentence_array = @tt.tokenize_text(content)
      sentence_array.each_with_index do |sentence, index|

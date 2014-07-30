@@ -1,3 +1,4 @@
+include Tact_Token
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -10,6 +11,13 @@ promo = Book.create(title: "ReadyReader", content: "Tap by tap, ReadyReader deli
 hp = Book.create(title: "Harry Potter and the Deathly Hallows", content: "It's the final book! Harry finds three things that allow him to defeat Voldemort. Then he sees his parents in pseudo heaven... blah blah blah. Mr. Potter is not liked by Professor Snape!")
 sound_fury = Book.create(title: "The Sound and the Fury", content: "Benny has no idea what's going on. The family is fighting! The Old South is full of sound and fury. The end.")
 infinite_jest = Book.create(title: "Infinite Jest", content: "Really meaningful stuff. Here's a super long sentence that our app should parse and if it doesn't you probably know that sentence went wrong, DFW likes to write long sentences but that's fine since he at one point was considered the best writer of our time blah blah blah blah. The end")
+
+
+books = [promo, hp, sound_fury, infinite_jest]
+books.each do |book|
+  sentences = tokenize_special(book.content)
+  sentences.each { |sentence| Sentence.create(book_id: book.id, content: sentence)}
+end
 
 promo_user = User.create(name: "user", email: "user@user.com", password: "test", password_confirmation: "test")
 ben = User.create(name: "Ben", email: "ben@ben.com", password: "test", password_confirmation: "test")
