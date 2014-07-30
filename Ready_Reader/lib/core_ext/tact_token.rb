@@ -1,9 +1,13 @@
 module Tact_Token
 
-  $tt ||= TactfulTokenizer::Model.new
+  def self.included klass
+    klass.class_eval do
+      include Tokenizer
+    end
+  end
 
  def tokenize_special(content)
-    sentence_array = $tt.tokenize_text(content)
+    sentence_array = Tokenizer::tokenizer.tokenize_text(content)
      sentence_array.each_with_index do |sentence, index|
       word_array = sentence.split(" ") #array of words
         if word_array.length > 20 #there are ~5 letters per word, we max out at 100 characters

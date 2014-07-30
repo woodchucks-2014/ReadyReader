@@ -10,11 +10,8 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @sentences = Book.includes(:sentences).limit(10)
     @sentences = @book.prep_for_dom
-
-    p @sentences
     @pages = @book.pages
     session[:book] = @book.id
-
     @user = User.find(params[:user_id])
     @comments = Comment.where(book_id: @book.id, user_id: @user.id)
   end
@@ -26,13 +23,8 @@ class BooksController < ApplicationController
     File.open(filename, 'wb') do |file|
       file.write(uploaded_io.read)
     end
-
-
-
-
     book = EPUB::Parser.parse(filename)
     content = ""
-
     book.each_page_on_spine do |page|
       page = page.content_document.nokogiri
       page.search('p').each{|el| el.before ' '}
