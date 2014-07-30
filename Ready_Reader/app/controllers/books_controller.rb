@@ -27,25 +27,25 @@ class BooksController < ApplicationController
       file.write(uploaded_io.read)
     end
 
-    #Resque.enqueue(UploadWorker, @user.id, filename)
+    Resque.enqueue(UploadWorker, @user.id, filename)
 
 
-    book = EPUB::Parser.parse(filename)
-    content = ""
+    # book = EPUB::Parser.parse(filename)
+    # content = ""
 
-    book.each_page_on_spine do |page|
-      page = page.content_document.nokogiri
-      page.search('p').each{|el| el.before ' '}
-      content << page.text
-    end
+    # book.each_page_on_spine do |page|
+    #   page = page.content_document.nokogiri
+    #   page.search('p').each{|el| el.before ' '}
+    #   content << page.text
+    # end
 
-    book = Book.create(title: params[:title], content: content)
-    @user.books << book
+    # book = Book.create(title: params[:title], content: content)
+    # @user.books << book
 
-    content_array = tokenize_special(book.content)
-    content_array.each do |sentence|
-      Sentence.create(book_id: book.id, content: sentence)
-    end
+    # content_array = tokenize_special(book.content)
+    # content_array.each do |sentence|
+    #   Sentence.create(book_id: book.id, content: sentence)
+    # end
 
     redirect_to profile_path(@user)
   end
