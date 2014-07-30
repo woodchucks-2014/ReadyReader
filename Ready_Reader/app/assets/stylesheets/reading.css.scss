@@ -6,6 +6,8 @@
 
 
 /*UNIVERSAL*/
+$link-color:#B2BABC;
+
 
 #passage{
   background-color: #FFEBCD;
@@ -48,7 +50,7 @@ body{
   font-size: 1.500em;
   position: fixed;
   font-family: 'Georgia';
-  margin-left: -12%;
+  margin-left: 15%;
   text-align: center;
   width: 70%;
   margin-top: 5%;
@@ -125,13 +127,13 @@ and (max-device-width : 320px) and (orientation: portrait) {
 
   .forward {
     margin-right: 2%;
-    margin-top: 95%;
+    margin-top: 97%;
     float: right;
   }
 
   .backward {
     margin-left: 2%;
-    margin-top: 95%;
+    margin-top: 97%;
     float: left;
   }
 
@@ -202,7 +204,7 @@ and (max-device-width : 320px) and (orientation: portrait) {
   }
 
   .bottom_bar {
-    margin-top: 70%;
+    margin-top: 90%;
   }
 
   .book_wrapper {
@@ -222,6 +224,17 @@ and (max-device-width : 320px) and (orientation: portrait) {
 @media screen
 and (max-device-width : 568px) and (orientation: landscape) {
 
+  .nav_quad_1, .nav_quad_3 {
+    float: left;
+    font-size: 0.750em;
+  }
+
+  .nav_quad_2, .nav_quad_4 {
+    float: right;
+    color: $link-color;
+    font-size: 0.750em;
+  }
+
   #center_sentence {
     margin-top: -14%;
     margin-left: 15%;
@@ -238,6 +251,7 @@ and (max-device-width : 568px) and (orientation: landscape) {
   #center_notes {
     margin-right: 30%;
   }
+}
 
 // TODO - fix modals for landscape mode
   // .modal {
@@ -259,7 +273,7 @@ and (max-device-width : 568px) and (orientation: landscape) {
   // }
 
 
-}
+
 
 
 /* MEDIA - iPad mini landscape */

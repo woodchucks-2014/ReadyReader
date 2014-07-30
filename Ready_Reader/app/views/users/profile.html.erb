@@ -1,7 +1,7 @@
-<h3 class="profile_title"> Your Books </h3>
-
-<p class="book_count_user"><%= @books.count %></p>
-<div class="library_wrapper">
+<div id="library_container">
+  <div class="profile_title"> Your Books </div>
+  <p class="book_count_user"><%= @books.count %></p>
+  <div class="library_wrapper">
 
   <% @books.each_with_index do |book, index| %>
     <ul>
@@ -13,6 +13,7 @@
       <div><span class="bar_percentage" id="bar<%=index%>"><%= ((save_point(book.id).to_f /  book.sentences.size).to_f * 100).to_i %></span><span>%</span></div>
       </div>
       <% end %>
+  </div>
 </div>
 
 <div id="upload">
