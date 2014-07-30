@@ -6,6 +6,26 @@ hp = Book.create(title: "Harry Potter and the Deathly Hallows", content: "It's t
 sound_fury = Book.create(title: "The Sound and the Fury", content: "Benny has no idea what's going on. The family is fighting! The Old South is full of sound and fury. The end.")
 infinite_jest = Book.create(title: "Infinite Jest", content: "Really meaningful stuff. Here's a super long sentence that our app should parse and if it doesn't you probably know that sentence went wrong, DFW likes to write long sentences but that's fine since he at one point was considered the best writer of our time blah blah blah blah. The end")
 
+filename = 'public/uploads/orwell-animal-farm.epub'
+
+p "EXECUTION"
+book = EPUB::Parser.parse(filename)
+content = ""
+p "EXECUTION"
+
+book.each_page_on_spine do |page|
+  page = page.content_document.nokogiri
+  page.search('p').each{|el| el.before ' '}
+  content << page.text
+end
+
+animal_farm = Book.create(title: "Animal Farm", content: content, universal: true)
+
+content_array = tokenize_special(animal_farm.content)
+content_array.each do |sentence|
+  Sentence.create(book_id: animal_farm.id, content: sentence)
+end
+
 
 books = [promo, hp, sound_fury, infinite_jest]
 books.each do |book|
@@ -22,9 +42,6 @@ ben.books << [hp, infinite_jest]
 greg.books << sound_fury
 
 
-User.all.each do |user|
-  user.books << promo
-end
 
 
 

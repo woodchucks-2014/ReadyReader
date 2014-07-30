@@ -18,11 +18,22 @@ class UsersController < ApplicationController
   end
 
   def profile
+    p "*************************"
+    p "TEST TEST"
     @this_user = User.find(params[:id])
 
     # give each user a sample library
+
     @books = @this_user.books
+    Book.where(universal: true).each do |book|
+      p "#{book.title}"
+      if @this_user.books.where(id: book.id).size == 0
+        p "BOOK BEING ADDED"
+        @this_user.books << book
+      end
+    end
     @comments = @this_user.comments
+
   end
 
   def create
