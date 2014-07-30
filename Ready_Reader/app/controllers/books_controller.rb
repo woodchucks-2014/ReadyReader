@@ -8,13 +8,10 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @sentences = tokenize(@book.content) #gets into sentences
+
+    @sentences = @book.prep_for_dom
     p @sentences
-
-    @sentences = @sentences.long_parse
-     #takes array, splits long sentences
-
-    @pages = @sentences.size
+    @pages = @book.pages
     session[:book] = @book.id
 
     @user = User.find(params[:user_id])
@@ -40,23 +37,33 @@ class BooksController < ApplicationController
 
     book = Book.create(title: params[:title], content: content)
     @user.books << book
+
+    content_array = tokenize_special(book.content)
+    content_array.each do |sentence|
+      Sentence.create(book_id: book.id, content: sentence)
+    end
+
     redirect_to profile_path(@user)
   end
 
   def check_point
+
     @user = User.find(session[:user]) # need to create guest user
-    @book = Book.find(session[:book]) #Implement nesting to compensate for logging into multiple books.
+    @book = Book.find(session[:book]) #Implement nesting to compensate for logging into multiple books
 
     @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id)
-    database_val = @user_book.farthest_point #defaults to 0
 
-    local_val = params["object"]["currentSentence"].to_i
-    # to prevent guest user from being incremented in database
-    @user_book.farthest_point = local_val if local_val > database_val
+    #defaults to 0
+    database_val = @user_book.farthest_point
+    local_val = 0
 
-    save_point = @user_book.farthest_point if session[:user] != 1
-    save_point = local_val if session[:user] == 1
-    @user_book.save!
+    #prevent overwriting
+    if (params["object"]["userName"] + params["object"]["bookId"]).gsub(" ", "") == @user.name + @book.id.to_s
+      local_val = params["object"]["currentSentence"].to_i
+    end
+
+    #make comparison
+    save_point = @user_book.local_storage_comp(@user.id, local_val)
 
     bookmarks = []
     @user.bookmarks.each do |bookmark|
@@ -66,19 +73,10 @@ class BooksController < ApplicationController
     render json: {farthest_point: save_point, bookmarks: bookmarks}.to_json
   end
 
-  def create
-
-  end
-
-  def delete
-
-  end
-
   private
 
   def book_params(params)
     params.require(:book).permit(:title, :content)
   end
-
 
 end
