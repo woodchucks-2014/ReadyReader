@@ -3,7 +3,11 @@
 <p class="book_count_user"><%= @books.count %></p>
 <div class="library_wrapper">
 <% @books.each_with_index do |book, index| %>
-  <%= save_point = UserBook.where(book_id: book.id, user_id: current_user.id).first.farthest_point %>
+  <p> DEBUGGING </p>
+  <p> SAVE POINT </p>
+  <% save_point = UserBook.where(book_id: book.id, user_id: current_user.id).first.farthest_point %>
+  <%= save_point %>
+  <p> TOTAL SENTENCES </p>
   <%= book.sentences.size %>
   <p id="user_library"><%= link_to book.title, user_book_path(@this_user, book), style: "color:black"%></p>
    <div class="progress_bar_index<%=index%>"></div>

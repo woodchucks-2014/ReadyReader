@@ -54,18 +54,21 @@ class BooksController < ApplicationController
 
     @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id)
 
-    if @user_book.user_id == @user.id && @user_book.book_id == @book.id
-      @user_book = @user_book
-    else
-      @user_book = UserBook.create(user_id: @user.id, book_id: @book.id)
-    end
 
     database_val = @user_book.farthest_point #defaults to 0
     p "*"*100
     p params
     p "*"*100
 
-    local_val = params["object"]["currentSentence"].to_i
+    local_val = 0
+
+    #prevent overwriting
+    if (params["object"]["userName"] + params["object"]["bookId"]).gsub(" ", "") == @user.name + @book.id.to_s
+      local_val = params["object"]["currentSentence"].to_i
+    end
+
+    p "THIS IS THE LOCAL VAL"
+    p local_val
 
     save_point = @user_book.local_storage_comp(@user.id, local_val)
 
