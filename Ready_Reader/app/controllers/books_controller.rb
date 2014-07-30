@@ -10,7 +10,6 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
 
     @sentences = @book.prep_for_dom
-    p @sentences
     @pages = @book.pages
     session[:book] = @book.id
 
@@ -47,13 +46,12 @@ class BooksController < ApplicationController
   end
 
   def check_point
-
-    @user = User.find(session[:user]) # need to create guest user
-    @book = Book.find(session[:book]) #Implement nesting to compensate for logging into multiple books
+    @user = User.find(session[:user])
+    @book = Book.find(session[:book])
 
     @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id)
 
-    #defaults to 0
+    #default to 0
     database_val = @user_book.farthest_point
     local_val = 0
 
@@ -62,8 +60,10 @@ class BooksController < ApplicationController
       local_val = params["object"]["currentSentence"].to_i
     end
 
-    #make comparison
+    @user_book.farthest_point = local_val if local_val > database_val
+
     save_point = @user_book.local_storage_comp(@user.id, local_val)
+    @user_book.save!
 
     bookmarks = []
     @user.bookmarks.each do |bookmark|
@@ -71,6 +71,13 @@ class BooksController < ApplicationController
     end
 
     render json: {farthest_point: save_point, bookmarks: bookmarks}.to_json
+  end
+
+  def delete
+    @user = User.find(session[:user])
+    @book = Book.find(session[:book])
+    @book.destroy
+    redirect_to profile_path(@user)
   end
 
   private

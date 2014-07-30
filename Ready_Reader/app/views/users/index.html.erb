@@ -5,12 +5,15 @@
 <div class="pages" style="visibility:hidden"> <%= @pages %> </div>
 <div class="book_number" style="visibility:hidden"> <%= @book.id %> </div>
 <div class="user_name" style="visibility:hidden"> <%= current_user.name %> </div>
+
 <div class="book_wrapper">
 
 
   <div class="sentence_wrapper">
-    <div class="error_reading"></div>
+    <div id="center_sentence">
+    <!-- <div class="error_reading"></div> -->
     <div class="current_sentence"></div>
+    </div>
     <% @sentences.each_with_index do |sentence, index| %>
     <span class="non_current_sentence"><p class ="sentence<%=index%>"><%= sentence %></span>
     <% end %>
@@ -18,12 +21,11 @@
 </div>
 
 
-  <!-- Would very much like to rename the h2 class names and fonts (defaults to h2 size font) below for semantic purposes. Will hold off due to JS ramifications -->
   <div class="forward"> <h2 class="left"> <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-right-128.png"> </h2> </div>
   <div class="backward"><h2 class="right"> <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-arrow-left-128.png"> </h2> </div>
 
-<div class="bottom_bar">
-  <div id="progressbar"></div>
+<div class="bottom_bar" style="margin-top:20%">
+  <div id="slider_bar"></div>
   <div class="percentage"> </div>
   <div class="text_progress"> </div>
 </div>

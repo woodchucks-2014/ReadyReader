@@ -4,5 +4,3 @@ $(document).ready(function() {
   Read();
 
 });
-
-
