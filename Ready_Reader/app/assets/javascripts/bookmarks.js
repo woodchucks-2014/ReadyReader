@@ -21,11 +21,12 @@ function initializeBookMarks(bookmarks, pages) {
 };
 
 var setBookmark = function(value, pages){
+    console.log("EXECUTING");
     total = pages
     return $.ajax({
       url : '/bookmarks/mark',
       method : 'POST',
-      data : { marker:  value},
+      data : { marker:  value },
 
       success : function(response){
         $.each(response.bookmarks, function( index, mark ) {

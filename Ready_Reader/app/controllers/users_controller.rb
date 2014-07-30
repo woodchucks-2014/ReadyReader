@@ -8,10 +8,9 @@ class UsersController < ApplicationController
     session[:user] = User.first.id #sets promo user
     @book = Book.first
 
-    @sentences = tokenize(@book.content) #gets into sentences
-    @sentences = @sentences.long_parse #takes out long sentences
+    @sentences = @book.prep_for_dom
+    @pages = @book.pages
 
-    @pages = @sentences.size
     session[:book] = @book.id
 
     @user = User.find(1)

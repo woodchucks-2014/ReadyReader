@@ -1,5 +1,3 @@
-// TEMP
-//
 var getCurrentPage = function(keyLook){
     return $.ajax({
       url : '/check_point',

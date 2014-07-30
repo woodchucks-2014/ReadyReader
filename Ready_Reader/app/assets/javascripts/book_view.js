@@ -1,4 +1,17 @@
 var BookView = function () {}
+  // var view = this;
+
+//   $('#slider_bar').mouseup(function(e) {
+//       // var book = new Book(0, view.getPages());
+//       var newPoint = +$(this).slider('value');
+
+//       text = view.getCurrentText(newPoint);
+//       view.showCurrentSentence(text);
+//       book.current = newPoint;
+
+//       Slider.updateText(book, view);
+//     });
+// }
 
 BookView.prototype.getCurrentText = function(index) {
   return $('.sentence' + index).text();
