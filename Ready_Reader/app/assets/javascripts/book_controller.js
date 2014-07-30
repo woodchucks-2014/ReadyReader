@@ -44,6 +44,6 @@ var BookController = function(book) {
 
     bookview.getPage().on("click", ".right", turnPageRight)
     bookview.getPage().on("click", ".left", turnPageLeft)
-    bookview.getPage().on("click", ".bookmark", bookmark);
+    bookview.getPage().on("click", "#bookmark", bookmark);
   }
 };
