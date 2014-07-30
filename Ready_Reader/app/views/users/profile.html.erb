@@ -3,10 +3,11 @@
 <p class="book_count_user"><%= @books.count %></p>
 <div class="library_wrapper">
 <% @books.each_with_index do |book, index| %>
-  <% save_point = UserBook.find_by(book_id: book.id, user_id: current_user.id).farthest_point %>
+  <%= save_point = UserBook.where(book_id: book.id, user_id: current_user.id).first.farthest_point %>
+  <%= book.sentences.size %>
   <p id="user_library"><%= link_to book.title, user_book_path(@this_user, book), style: "color:black"%></p>
    <div class="progress_bar_index<%=index%>"></div>
-   <div id="bar<%=index%>"><%= ((save_point.to_f / tokenize(book.content).size ).to_f * 100).to_i %></div>
+   <div id="bar<%=index%>"><%= (save_point.to_f / book.sentences.size.to_f * 100).round %></div>
   <br>
 <% end %>
 </div>

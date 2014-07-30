@@ -20,10 +20,10 @@
 
 module Tact_Token
 
+  $tt ||= TactfulTokenizer::Model.new
 
  def tokenize_special(content)
-    @tt ||= TactfulTokenizer::Model.new
-    sentence_array = @tt.tokenize_text(content)
+    sentence_array = $tt.tokenize_text(content)
      sentence_array.each_with_index do |sentence, index|
       word_array = sentence.split(" ") #array of words
       p "&" * 100

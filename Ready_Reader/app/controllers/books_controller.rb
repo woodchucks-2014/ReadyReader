@@ -39,7 +39,8 @@ class BooksController < ApplicationController
     book = Book.create(title: params[:title], content: content)
     @user.books << book
 
-    tokenize(book).each do |sentence|
+    content_array = tokenize_special(book.content)
+    content_array.each do |sentence|
       Sentence.create(book_id: book.id, content: sentence)
     end
 
@@ -51,7 +52,14 @@ class BooksController < ApplicationController
     @user = User.find(session[:user]) # need to create guest user
     @book = Book.find(session[:book]) #Implement nesting to compensate for logging into multiple books.
 
-    @user_book = UserBook.where(user_id: @user.id, book_id: @book.id).first_or_create
+    @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id)
+
+    if @user_book.user_id == @user.id && @user_book.book_id == @book.id
+      @user_book = @user_book
+    else
+      @user_book = UserBook.create(user_id: @user.id, book_id: @book.id)
+    end
+
     database_val = @user_book.farthest_point #defaults to 0
     p "*"*100
     p params
