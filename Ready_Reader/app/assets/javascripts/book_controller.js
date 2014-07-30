@@ -27,15 +27,14 @@ var BookController = function(book) {
 
     Slider.sliderProgress(book, book.current, book.end);
 
-    // $('#slider_bar').mouseup(function() {
-    //   var newPoint = +$(this).slider('value');
-
-    //   text = bookview.getCurrentText(newPoint);
-    //   bookview.showCurrentSentence(text);
-    //   book.current = newPoint;
-
-    //   Slider.updateText(book, bookview);
-    // });
+    // consider refactoring (event binding link on 42-44)
+    $('#slider_bar').mouseup(function() {
+      var newPoint = +$(this).slider('value');
+      book.current = newPoint;
+      text = bookview.getCurrentText(newPoint);
+      bookview.showCurrentSentence(text);
+      Slider.updateText(book, bookview);
+    });
 
     var bookmark = function(){
       setBookmark(book.current, book.end);
