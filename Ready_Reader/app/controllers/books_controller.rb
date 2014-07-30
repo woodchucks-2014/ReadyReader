@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  extend Tact_Token
+  include Tact_Token
 
   before_filter :check_for_mobile
   before_filter :prepare_for_mobile
@@ -8,8 +8,14 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @sentences = self.class.tokenize(@book.content) #gets into sentences
-    @sentences = @sentences.long_parse
+
+    p "*" * 100
+    p "HERES THE CONTENT"
+    p @book.content
+    @sentences = tokenize(@book.content)
+
+    p "*" * 100
+    p @sentences
 
     @pages = @sentences.size
     session[:book] = @book.id
@@ -75,6 +81,23 @@ class BooksController < ApplicationController
 
   def book_params(params)
     params.require(:book).permit(:title, :content)
+  end
+
+
+  def great_long_parse(array)
+    array.each_with_index do |sentence, index|
+      word_array = sentence.split(" ") #array of words
+      if word_array.length > 20 #there are ~5 letters per word, we max out at 100 characters
+        divisor = word_array.length/20
+        sliced_sentence_array = word_array.each_slice((word_array.size / divisor).round).to_a
+        sliced_sentence_array.map! { |sentence| sentence.join(" ") }
+        array[index] = sliced_sentence_array
+      end
+      p "THIS IS GETTING CALLED"
+      p "*" * 100
+      p array
+      return array
+    end
   end
 
 
