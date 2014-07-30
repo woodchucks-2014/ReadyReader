@@ -1,25 +1,38 @@
 class BooksController < ApplicationController
-  # before_action :require_login - we need to figure out how to redirect if not logged in
+
+  include Tact_Token
+
   before_filter :check_for_mobile
   before_filter :prepare_for_mobile
   respond_to :json
+
   def show
     @book = Book.find(params[:id])
-    @sentences = @book.sentences
-    session[:book] = @book.id
+
+    @sentences = @book.prep_for_dom
     @pages = @book.pages
+    session[:book] = @book.id
 
     @user = User.find(params[:user_id])
     @comments = Comment.where(book_id: @book.id, user_id: @user.id)
   end
 
   def upload
-    #@book = Book.new(book_params)
     @user = User.find(params[:user_id])
-    p uploaded_io = params[:book]
+    uploaded_io = params[:book]
+
+    p "**********************"
     p uploaded_io
-    p params
+    p uploaded_io.class
+    p "**********************"
+
     filename = Rails.root.join('public', 'uploads', uploaded_io.original_filename)
+
+    p "**********************"
+    p filename
+    p filename.class
+    p "**********************"
+
     File.open(filename, 'wb') do |file|
       file.write(uploaded_io.read)
     end
@@ -35,42 +48,48 @@ class BooksController < ApplicationController
 
     book = Book.create(title: params[:title], content: content)
     @user.books << book
+
+    content_array = tokenize_special(book.content)
+    content_array.each do |sentence|
+      Sentence.create(book_id: book.id, content: sentence)
+    end
+
     redirect_to profile_path(@user)
   end
 
   def check_point
-    p "*" * 100
-    p "TEST"
-    @user = User.find(session[:user]) # need to create guest user
-    @book = Book.find(session[:book]) #Implement nesting to compensate for logging into multiple books.
+    @user = User.find(session[:user])
+    @book = Book.find(session[:book])
+
     @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id)
-    database_val = @user_book.farthest_point #defaults to 0
 
+    #default to 0
+    database_val = @user_book.farthest_point
+    local_val = 0
 
-    local_val = params["object"]["currentSentence"].to_i
-    p "*" * 100
-    p local_val
+    #prevent overwriting
+    if (params["object"]["userName"] + params["object"]["bookId"]).gsub(" ", "") == @user.name + @book.id.to_s
+      local_val = params["object"]["currentSentence"].to_i
+    end
 
-    # to prevent guest user from being incremented in database
     @user_book.farthest_point = local_val if local_val > database_val
 
-    save_point = @user_book.farthest_point if session[:user] != 1
-    save_point = local_val if session[:user] == 1
-
+    save_point = @user_book.local_storage_comp(@user.id, local_val)
     @user_book.save!
 
-    p "*" * 100
-    p "TEST"
-    p @user_book.farthest_point
-    render json: {farthest_point: save_point}.to_json
-  end
+    bookmarks = []
+    @user.bookmarks.each do |bookmark|
+      bookmarks << bookmark.position_begin if bookmark.book_id == @book.id
+    end
 
-  def create
-
+    render json: {farthest_point: save_point, bookmarks: bookmarks}.to_json
   end
 
   def delete
-
+    @user = User.find(session[:user])
+    @book = Book.find(session[:book])
+    @book.destroy
+    redirect_to profile_path(@user)
   end
 
   private
@@ -78,6 +97,5 @@ class BooksController < ApplicationController
   def book_params(params)
     params.require(:book).permit(:title, :content)
   end
-
 
 end

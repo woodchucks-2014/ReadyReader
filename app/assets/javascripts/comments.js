@@ -21,8 +21,6 @@ $(document).ready(function(){
     });
 
     ajaxRequest.success(function(response){
-      console.log("HI FRIENDS");
-        // necessary to make modal disappear post click
         $('#commentModal').modal('hide');
         $('body').removeClass('modal-open');
         $('.modal-backdrop').remove();

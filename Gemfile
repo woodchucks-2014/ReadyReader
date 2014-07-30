@@ -14,6 +14,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
+#font awesome
+gem "font-awesome-rails"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
@@ -28,6 +30,8 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Mobile implementation for slider
+# gem 'touchpunch-rails'
 
 # Sentence parsing
 gem 'tactful_tokenizer'
@@ -45,6 +49,7 @@ gem 'travis'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
+  gem 'pry'
 end
 
 group :test do

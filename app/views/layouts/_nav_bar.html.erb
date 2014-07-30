@@ -1,22 +1,33 @@
 <header>
   <nav id="reader_nav">
 
-    <ul>
+    <ul id="nav_buttons">
       <% if !logged_in? %>
-        <li class="nav_item" id="left"><%= link_to "Library", root_path %> </li>
         <li class="nav_item" id="signup"> Sign Up </li>
         <li class="nav_item" id="login"> Log In </li>
       <% end %>
 
       <% if logged_in? %>
-        <li class="nav_item" id="right"><%= link_to "Library", profile_path(current_user) %> </li>
-        <li><%= link_to "Sign Out", sign_out_path(current_user), :class => "nav_right"  %></li>
-
+        <div class= "nav_quad_1">
+        <%= link_to profile_path(current_user) do %>
+          <i class="fa fa-book"> </i>
+          <% end%>
+        </div>
+        <div class="nav_quad_2">
+         <%= link_to sign_out_path(current_user) do %>
+          <i class="fa fa-sign-out"> </i>
+          <% end%>
+        </div>
 
        <% if session[:user] && session[:book] %>
          <% if current_page?(user_book_path(current_user, session[:book]))%>
-            <li class="nav_item" id="middle" style="margin-left: 19%"><%= title_parse(book_title) %></li>
-            <li class="nav_item" id="add_comment" style="float: right"> <img src="http://icons.iconarchive.com/icons/iconshock/real-vista-project-managment/64/task-notes-icon.png"> </li>
+            <!-- <li class="nav_item" id="middle" style="margin-left: 19%"><%= title_parse(book_title) %></li> -->
+            <div class="nav_quad_3">
+            <i class="fa fa-bookmark" id="bookmark"></i>
+            </div>
+            <div class="nav_quad_4">
+            <div id="center_notes"><i class="fa fa-comment" id="add_comment"></i></div>
+            </div>
          <%end%>
        <%end%>
 

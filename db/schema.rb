@@ -11,16 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140727184803) do
+ActiveRecord::Schema.define(version: 20140730015447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookmarks", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "book_id"
+    t.integer  "position_begin"
+    t.integer  "position_end"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bookmarks", ["book_id"], name: "index_bookmarks_on_book_id", using: :btree
+  add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
+
   create_table "books", force: true do |t|
     t.string   "title"
     t.text     "content"
-    t.text     "sentences",  default: [], array: true
     t.integer  "user_id"
+    t.boolean  "universal",  default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,6 +50,13 @@ ActiveRecord::Schema.define(version: 20140727184803) do
 
   add_index "comments", ["book_id"], name: "index_comments_on_book_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "sentences", force: true do |t|
+    t.text     "content"
+    t.integer  "book_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_books", force: true do |t|
     t.integer  "farthest_point", default: 0

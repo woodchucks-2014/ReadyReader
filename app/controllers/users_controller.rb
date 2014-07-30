@@ -1,19 +1,39 @@
 class UsersController < ApplicationController
   before_filter :check_for_mobile
   before_filter :prepare_for_mobile
+
+  include Tact_Token
+
   def index
     session[:user] = User.first.id #sets promo user
+    @book = Book.first
 
-    @book = Book.first #assume the promo book is always first in DB
-    @sentences = @book.sentences
-    session[:book] = @book.id
+    @sentences = @book.prep_for_dom
     @pages = @book.pages
+
+    session[:book] = @book.id
+
+    @user = User.find(1)
+    @comments = Comment.where(book_id: @book.id, user_id: @user.id)
   end
 
   def profile
+    p "*************************"
+    p "TEST TEST"
     @this_user = User.find(params[:id])
+
+    # give each user a sample library
+
     @books = @this_user.books
+    Book.where(universal: true).each do |book|
+      p "#{book.title}"
+      if @this_user.books.where(id: book.id).size == 0
+        p "BOOK BEING ADDED"
+        @this_user.books << book
+      end
+    end
     @comments = @this_user.comments
+
   end
 
   def create

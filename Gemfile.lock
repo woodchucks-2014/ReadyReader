@@ -73,6 +73,8 @@ GEM
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
     ffi (1.9.3)
+    font-awesome-rails (4.1.0.0)
+      railties (>= 3.2, < 5.0)
     gh (0.13.2)
       addressable
       backports
@@ -230,9 +232,11 @@ DEPENDENCIES
   epub-parser
   factory_girl_rails
   faker
+  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
   pg
+  pry
   rails (= 4.1.4)
   rails_12factor
   rspec-rails (~> 3.0.0)

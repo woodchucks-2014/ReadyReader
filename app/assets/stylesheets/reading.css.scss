@@ -1,0 +1,288 @@
+// Place all the styles related to the books controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+/*UNIVERSAL*/
+$link-color:#B2BABC;
+
+
+#passage{
+  background-color: #FFEBCD;
+  font-family: 'Georgia';
+  border-radius: 5px;
+}
+
+.passage{
+  background-color: #FFEBCD;
+  font-family: 'Georgia';
+  border-radius: 5px;
+}
+
+.forward, .backward {
+  margin-right: 2%;
+  margin-top: 10%;
+  float: right;
+}
+
+.backward {
+  float: left;
+}
+
+.bar_percentage {
+  // margin-right: 80%;
+}
+
+body{
+  overflow: hidden;
+}
+
+.sentence_wrapper:a {
+  color: black;
+}
+
+
+
+#center_sentence {
+  color: #000;
+  font-size: 1.500em;
+  position: fixed;
+  font-family: 'Georgia';
+  margin-left: 15%;
+  text-align: center;
+  width: 70%;
+  margin-top: 5%;
+
+
+}
+
+.bottom_bar{
+  margin-top: -5%;
+}
+
+.signup-form, .login-form {
+  font-size: 25px;
+  font-family: 'Georgia';
+  text-align: center;
+}
+
+#comment_commentary{
+  font-size: 23px;
+  font-family: 'Georgia';
+  height: 300px;
+  width: 250px;
+}
+
+nav {
+  font-size:30px;
+  padding-right: 40px;
+  width: 100%;
+  height: 100px;
+  background-color: #FFF;
+}
+
+.nav_right {
+  text-decoration: none;
+  margin-right: 20%;
+  float: top;
+}
+
+.sign_up{
+  margin-left: 50%;
+}
+
+
+
+.pro{
+  background: #36AECC;
+}
+
+.comment_box{
+  margin-left: 46%;
+  height: 25%;
+}
+
+#comment_view_click {
+  font-size: 1.500em;
+  width: 25%;
+}
+
+#left{
+float: left;
+}
+
+#middle{
+  margin-left: 25%;
+  font-size: 45px;
+}
+
+
+
+/* iPhone 5 Portrait */
+@media only screen
+and (max-device-width : 320px) and (orientation: portrait) {
+
+
+  .forward {
+    margin-right: 2%;
+    margin-top: 97%;
+    float: right;
+  }
+
+  .backward {
+    margin-left: 2%;
+    margin-top: 97%;
+    float: left;
+  }
+
+  .modal {
+    position: fixed;
+    top: 3%;
+    right: 3%;
+    left: 3%;
+    width: auto;
+    margin: 0;
+  }
+
+  #center_sentence {
+    font-size: 1.150em;
+    margin-top: 0%;
+    margin-left: 15%
+  }
+
+  .modal-body {
+    height: 60%;
+  }
+
+  #signupModal, #loginModal, #commentModal, #commentViewModal {
+    margin-left: -400px;
+  }
+
+  .signup-form, .login-form, #form_fun {
+    font-size: 40px;
+    font-family: 'Georgia';
+    text-align: center;
+  }
+
+  #date_time {
+    font-style: italic;
+    font-size: 30px;
+  }
+
+  #new_comments, #old_comments {
+    font-size: 35px;
+  }
+
+  #passage{
+    font-size: 35px;
+  }
+  #comment_commentary{
+    width: 500px;
+  }
+
+  #progressbar{
+    visibility: hidden;
+  }
+
+  .percentage, .text_progress{
+    font-size: 35px;
+    text-align: center;
+    font-style: 'Arial';
+  }
+
+
+  .modal-content{
+    height: auto;
+    width: 700px;
+  }
+
+
+  #middle {
+    font-size: 1.500em;
+  }
+
+  .bottom_bar {
+    margin-top: 90%;
+  }
+
+  .book_wrapper {
+    height: 25%;
+  }
+
+  .sentence_wrapper {
+    font-size: 2.50em;
+
+  }
+
+
+}
+
+
+/* iPhone 5 landscape */
+@media screen
+and (max-device-width : 568px) and (orientation: landscape) {
+
+  .nav_quad_1, .nav_quad_3 {
+    float: left;
+    font-size: 0.750em;
+  }
+
+  .nav_quad_2, .nav_quad_4 {
+    float: right;
+    color: $link-color;
+    font-size: 0.750em;
+  }
+
+  #center_sentence {
+    margin-top: -14%;
+    margin-left: 15%;
+  }
+
+  .forward, .backward {
+    margin-top: -13%;
+  }
+
+ .bottom_bar {
+    margin-top: -25%;
+ }
+
+  #center_notes {
+    margin-right: 30%;
+  }
+}
+
+// TODO - fix modals for landscape mode
+  // .modal {
+  //   // position: fixed;
+  //   top: 3%;
+  //   right: 3%;
+  //   left: 3%;
+  //   // width: auto;
+  //   margin: 0;
+  // }
+
+  // .modal-body {
+  //   height: 60%;
+  // }
+
+  // .modal-content{
+  //   height: auto;
+  //   width: 700px;
+  // }
+
+
+
+
+
+/* MEDIA - iPad mini landscape */
+
+@media only screen and (max-device-width : 1024px)
+and (orientation : landscape)
+and (-webkit-min-device-pixel-ratio: 1)  {
+
+
+
+}
+

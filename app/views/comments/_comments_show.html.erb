@@ -7,7 +7,7 @@
         <div id="new_comments"></div>
          <% @comments.reverse.each do |comment| %>
             <p id="passage"> <%= comment.commented_on %> </p>
-            <p id="date_time"> <%= current_user.name + " wrote at " + datetime_am_pm(comment.created_at) %> </p>
+            <p id="date_time"> <%= current_user.name + " wrote on " + datetime_am_pm(comment.created_at) %> </p>
             <p id="old_comments"> <%= comment.commentary %> </p>
             <p> -------------------- </p>
          <% end %>
