@@ -3,8 +3,12 @@
 
     <ul id="nav_buttons">
       <% if !logged_in? %>
-        <li class="nav_item" id="signup"> Sign Up </li>
-        <li class="nav_item" id="login"> Log In </li>
+      <div class="nav_quad_1">
+        <li class="nav_item" id="signup"><i class="fa fa-list"></i> </li>
+      </div>
+      <div class="nav_quad_2">
+        <li class="nav_item" id="login"><i class="fa fa-sign-in"></i></li>
+      </div>
       <% end %>
 
       <% if logged_in? %>
