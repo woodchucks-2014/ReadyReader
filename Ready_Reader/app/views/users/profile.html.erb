@@ -6,17 +6,13 @@
   <% @books.each_with_index do |book, index| %>
     <ul>
       <li id="user_library"><%= link_to book.title, user_book_path(@this_user, book)%></li>
-      <%= save_point(book.id)%>
-      <%= book.sentences.size %>
     </ul>
-    <div class="">
+
       <div class="progress_bar_wrapper">
       <div class="progress_bar_index<%=index%>"></div>
-      <div class="bar_percentage" id="bar<%=index%>"><%#= ((save_point(book.id).to_f /  book.sentences.size).to_f * 100).to_i %></div>
+      <div><span class="bar_percentage" id="bar<%=index%>"><%= ((save_point(book.id).to_f /  book.sentences.size).to_f * 100).to_i %></span><span>%</span></div>
       </div>
       <% end %>
-    </div>
-
 </div>
 
 <div id="upload">
