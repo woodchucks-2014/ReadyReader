@@ -64,10 +64,6 @@ class BooksController < ApplicationController
     end
 
     database_val = @user_book.farthest_point #defaults to 0
-    p "*"*100
-    p params
-    p "*"*100
-
     local_val = params["object"]["currentSentence"].to_i
 
     save_point = @user_book.local_storage_comp(@user.id, local_val)

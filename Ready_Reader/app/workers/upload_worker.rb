@@ -16,13 +16,5 @@
 #       page.search('p').each{|el| el.before ' '}
 #       content << page.text
 #     end
-
-#     @book = Book.create(title: "fun", content: content)
-#     # UserBook.create(user_id: @user.id, book_id: @book.id)
-#     # @user.books << @book
-#     # content_array = tokenize_special(@book.content)
-#     # content_array.each do |sentence|
-#     #   Sentence.create(book_id: @book.id, content: sentence)
-#     # end
 #   end
 # end
