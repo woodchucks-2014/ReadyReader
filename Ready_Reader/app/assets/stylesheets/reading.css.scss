@@ -122,7 +122,7 @@ float: left;
 and (max-device-width : 320px) and (orientation: portrait) {
 
 
-   .forward {
+  .forward {
     margin-right: 2%;
     margin-top: 95%;
     float: right;
@@ -135,12 +135,12 @@ and (max-device-width : 320px) and (orientation: portrait) {
   }
 
   .modal {
-      position: fixed;
-      top: 3%;
-      right: 3%;
-      left: 3%;
-      width: auto;
-      margin: 0;
+    position: fixed;
+    top: 3%;
+    right: 3%;
+    left: 3%;
+    width: auto;
+    margin: 0;
   }
 
   #center_sentence {
@@ -150,7 +150,7 @@ and (max-device-width : 320px) and (orientation: portrait) {
   }
 
   .modal-body {
-      height: 60%;
+    height: 60%;
   }
 
   #signupModal, #loginModal, #commentModal, #commentViewModal {
@@ -237,6 +237,25 @@ and (max-device-width : 568px) and (orientation: landscape) {
   #center_notes {
     margin-right: 30%;
   }
+
+// TODO - fix modals for landscape mode
+  // .modal {
+  //   // position: fixed;
+  //   top: 3%;
+  //   right: 3%;
+  //   left: 3%;
+  //   // width: auto;
+  //   margin: 0;
+  // }
+
+  // .modal-body {
+  //   height: 60%;
+  // }
+
+  // .modal-content{
+  //   height: auto;
+  //   width: 700px;
+  // }
 
 
 }

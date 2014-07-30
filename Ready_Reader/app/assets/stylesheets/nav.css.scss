@@ -1,4 +1,4 @@
-
+$link-color:#E8F2F5;
 
 #profile_library_left {
   float: left;
@@ -30,7 +30,7 @@
   margin-bottom: 4px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
-  color: #A89A9A;;
+  color: $link-color;
   font-size: 0.750em;
   text-decoration: none;
 }
