@@ -58,29 +58,34 @@
 and (max-device-width : 320px) and (orientation: portrait) {
 
   .progress_summary {
-    margin-top: 0%;
+    margin-top: 3%;
   }
 
 
 }
 
+// mobile phone landscape
 @media screen
-and (max-device-width : 568px) and (orientation: landscape) {
+and (max-device-width : 640px) and (orientation: landscape) {
 
-.percentage, .text_progress{
-  padding: 5px;
-  font-size: 15px;
-  text-align: center;
-  font-style: 'Arial'
-}
+  .percentage, .text_progress{
+    padding: 5px;
+    font-size: 10px;
+    text-align: center;
+    font-style: 'Arial'
+  }
 
-#comment_view_click {
-  font-size: 1em;
-}
+  .bottom_bar {
+    margin-top: -15%;
+  }
 
-.progress_summary {
-  margin-top: 0px;
-}
+  #comment_view_click {
+    font-size: 1em;
+  }
+
+  .progress_summary {
+    margin-top: -10%;
+  }
 
   #slider_bar {
     height: 10px;
@@ -96,6 +101,29 @@ and (max-device-width : 568px) and (orientation: landscape) {
     text-align:center;
     margin-top: -1px;
   }
+
+
+}
+
+@media only screen and (max-device-width : 1024px)
+and (orientation : landscape)
+and (-webkit-min-device-pixel-ratio: 1)  {
+
+.percentage, .text_progress{
+  padding: 5px;
+  font-size: 15px;
+  text-align: center;
+  font-style: 'Arial'
+}
+
+#comment_view_click {
+  font-size: 1em;
+}
+
+.progress_summary {
+  margin-top: 5%;
+}
+
 
 
 }

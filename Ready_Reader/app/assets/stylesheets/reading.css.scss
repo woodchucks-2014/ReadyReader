@@ -6,8 +6,17 @@
 
 
 /*UNIVERSAL*/
-
+$nav-link-color:#454343;
 $link-color:#000;
+
+a:hover {
+  text-decoration: none;
+  color: $nav-link-color;
+}
+
+i:hover {
+  color: $nav-link-color;
+}
 
 #passage{
   background-color: #FFEBCD;
@@ -157,7 +166,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
 
   #center_sentence {
     font-size: 1.150em;
-    margin-top: 0%;
+    margin-top: -5%;
     margin-left: 15%
   }
 
@@ -213,7 +222,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
   }
 
   .bottom_bar {
-    margin-top: 90%;
+    margin-top: 95%;
   }
 
   .book_wrapper {
@@ -225,13 +234,17 @@ and (-webkit-min-device-pixel-ratio: 1) {
 
   }
 
+  // .progress_summeray {
+  //   margin-top: 5%;
+  // }
+
 
 }
 
 
-/* iPhone 5 landscape */
+/* mobile phone landscape */
 @media screen
-and (max-device-width : 568px) and (orientation: landscape) {
+and (max-device-width : 1024px) and (orientation: landscape) {
 
   .nav_quad_1, .nav_quad_3 {
     float: left;
@@ -240,22 +253,21 @@ and (max-device-width : 568px) and (orientation: landscape) {
 
   .nav_quad_2, .nav_quad_4 {
     float: right;
-    color: $link-color;
     font-size: 0.750em;
   }
 
   #center_sentence {
-    margin-top: -14%;
+    margin-top: -7%;
     margin-left: 15%;
   }
 
   .forward, .backward {
-    margin-top: -13%;
+    margin-top: -7%;
   }
 
- .bottom_bar {
+  .bottom_bar {
     margin-top: -25%;
- }
+  }
 
   #center_notes {
     margin-right: 30%;
@@ -263,6 +275,10 @@ and (max-device-width : 568px) and (orientation: landscape) {
 
   .modal-content {
     width: 150%;
+  }
+
+  #reader_nav {
+    height: 70px;
   }
 }
 
@@ -313,6 +329,25 @@ and (-webkit-min-device-pixel-ratio: 1)  {
 @media only screen and (max-device-width : 1024px)
 and (orientation : landscape)
 and (-webkit-min-device-pixel-ratio: 1)  {
+
+  #center_sentence {
+    margin-top: 0%;
+    margin-left: 15%;
+  }
+
+  .forward, .backward {
+    margin-top: 0%;
+  }
+
+ .bottom_bar {
+    margin-top: -10%;
+ }
+
+  #center_notes {
+    margin-right: 30%;
+  }
+
+
 
 
 
