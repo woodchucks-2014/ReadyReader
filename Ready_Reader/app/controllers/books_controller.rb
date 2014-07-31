@@ -61,7 +61,9 @@ class BooksController < ApplicationController
     @user = User.find(session[:user])
     @book = Book.find(session[:book])
 
-    @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id)
+    if @book.id != 1
+      @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id)
+    end
 
     #default to 0
     database_val = @user_book.farthest_point
