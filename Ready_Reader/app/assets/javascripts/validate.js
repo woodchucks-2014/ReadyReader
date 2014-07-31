@@ -3,7 +3,7 @@ $(document).ready(function() {
     var field = document.getElementById('title').value;
     if (field === null || field === "") {
       e.preventDefault();
-      console.log('no');
+      $('#desktop_upload').append('<p>Please enter a title.</p>');
     }
   });
 });
