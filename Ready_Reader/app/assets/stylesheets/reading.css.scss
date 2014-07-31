@@ -93,7 +93,9 @@ nav {
   margin-left: 50%;
 }
 
-
+.modal-content {
+  width: 105%;
+}
 
 .pro{
   background: #36AECC;
@@ -120,9 +122,12 @@ float: left;
 
 
 
-/* iPhone 5 Portrait */
+/* iPhone 5 & most other mobile phones in Portrait */
 @media only screen
-and (max-device-width : 320px) and (orientation: portrait) {
+and (min-device-width : 320px)
+and (max-device-width : 640px)
+and (orientation: portrait)
+and (-webkit-min-device-pixel-ratio: 1) {
 
 
   .forward {
@@ -250,6 +255,10 @@ and (max-device-width : 568px) and (orientation: landscape) {
 
   #center_notes {
     margin-right: 30%;
+  }
+
+  .modal-content {
+    width: 150%;
   }
 }
 
