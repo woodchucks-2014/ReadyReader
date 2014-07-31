@@ -46,7 +46,7 @@ gem 'epub-parser'
 # gem 'debugger', group: [:development, :test]
 
 gem 'travis'
-gem 'resque', "~> 1.2.2.0"
+gem 'resque', "~> 1.22.0"
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'pry'
