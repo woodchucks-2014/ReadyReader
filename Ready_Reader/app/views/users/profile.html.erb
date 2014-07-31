@@ -20,7 +20,7 @@
 <div id="upload">
 <%unless mobile_device? %>
   <h3 id="upload_title"> Upload a Book </h3>
-  <div id="upload_box"><%= form_tag( user_books_upload_path(@this_user), :html => { :'data-ajax' => false }, method: "post", multipart: true) do %>
+  <div id="upload_box"><%= form_tag( user_books_upload_path(@this_user), :html => { :'data-ajax' => false }, :id => 'desktop_upload', method: "post", multipart: true) do %>
     <%= file_field_tag :book %>
     <%= text_field_tag :title %>
     <%= submit_tag('Upload') %>
