@@ -17,3 +17,14 @@
  *= require_tree .
 
  */
+
+$link-color:#454343;
+
+a:hover {
+  text-decoration: none;
+  color: $link-color;
+}
+
+i:hover {
+  color: $link-color;
+}

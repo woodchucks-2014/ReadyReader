@@ -6,8 +6,8 @@
 
 
 /*UNIVERSAL*/
-$link-color:#B2BABC;
 
+$link-color:#000;
 
 #passage{
   background-color: #FFEBCD;
@@ -107,8 +107,12 @@ nav {
 }
 
 #comment_view_click {
-  font-size: 1.500em;
+  font-size: 1.250em;
   width: 25%;
+}
+
+#comment_view_click:hover {
+  color: $link-color;
 }
 
 #left{

@@ -1,16 +1,19 @@
 $link-color:#B2BABC;
-
+$nav-margin:15%;
+$nav-backgroud: #F9F4E7;
 
 .nav_quad_1, .nav_quad_3 {
   float: left;
   font-size: 1.2em;
   color: $link-color;
+  margin-top: 1%;
 }
 
 .nav_quad_2, .nav_quad_4 {
   float: right;
   color: $link-color;
   font-size: 1.2em;
+  margin-top: 1%;
 }
 
 .nav_quad_1 {
@@ -22,10 +25,14 @@ $link-color:#B2BABC;
 }
 
 .nav_quad_3 {
-  margin-left: 15%
+  margin-left: $nav-margin;
 }
 .nav_quad_4 {
-  margin-right: 15%
+  margin-right: $nav-margin;
+}
+
+i:hover {
+  color: #0754FE;
 }
 
 #profile_library_left {
@@ -68,7 +75,7 @@ $link-color:#B2BABC;
 #reader_nav ul li,
 #reader_nav ul li a {
   margin: 0;
-  margin-top: 1%;
+  margin-top: 0%;
   /*padding: 0;*/
   border: 0;
   list-style: none;
@@ -80,8 +87,9 @@ $link-color:#B2BABC;
 #reader_nav {
   font-size: 3.000em;
   /*width: auto;*/
-  height: 110px;
+  height: 120px;
   padding-bottom: 4px;
+  background-color: $nav-backgroud;
 }
 #reader_nav.align-right {
   float: right;
