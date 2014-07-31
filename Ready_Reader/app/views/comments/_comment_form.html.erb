@@ -7,7 +7,7 @@
           <%= form_for :comment, id: "comment_form" do |f| %>
           <%= f.label :commentary%>
           <br>
-          <%= f.text_area :commentary, value: "", placeholder: "Admittedly a relevant and well formulated opinion, but the point is moot here as the author contradicts himself two sentences laterhrom" %>
+          <%= f.text_area :commentary, value: "", placeholder: "Admittedly a relevant and well formulated opinion, but the point is moot here as the author contradicts himself two sentences later" %>
           <%= f.hidden_field :book_id, :value => session[:book]  %>
           <%= f.hidden_field :user_id, :value => session[:user] %>
           <%= f.hidden_field :commented_on, :class => "comment_passage" %>

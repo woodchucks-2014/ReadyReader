@@ -7,6 +7,9 @@ class Book < ActiveRecord::Base
   has_many :user_books
   has_many :bookmarks
 
+  def self.eager
+    includes(:sentences).limit(1000)
+  end
   def prep_for_dom
     dom_sentences = []
     self.sentences.each do |sentence|

@@ -1,5 +1,5 @@
 require 'pry'
-
+ENV["REDISTOGO_URL"] = 'redis://redistogo:21035ac06d608690b394fd214b1a6d21@hoki.redistogo.com:9260'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 

@@ -23,7 +23,7 @@ universal_books.each do |filename|
 end
 
 #promo user
-sentences = tokenize_special(promo.content)
+sentences = tokenize_special(promo.content, 20)
 sentences.each { |sentence| Sentence.create(book_id: promo.id, content: sentence)}
 
 
