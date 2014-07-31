@@ -39,6 +39,7 @@
           <% end %>
         </div>
       <% end %>
+     <% end %>
 
        <% if session[:user] && session[:book] %>
          <% if current_page?(user_book_path(current_user, session[:book]))%>
@@ -53,7 +54,7 @@
          <%end%>
        <%end%>
 
-      <% end %>
+
     </ul>
   </nav>
 </header>
