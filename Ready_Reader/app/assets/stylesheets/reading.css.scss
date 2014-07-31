@@ -59,7 +59,7 @@ body{
 }
 
 .bottom_bar{
-  margin-top: -5%;
+  margin-top: -15%;
 }
 
 .signup-form, .login-form {
@@ -280,6 +280,25 @@ and (max-device-width : 568px) and (orientation: landscape) {
   //   height: auto;
   //   width: 700px;
   // }
+
+
+// iPad Mini portrait
+  @media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait)
+and (-webkit-min-device-pixel-ratio: 1)  {
+
+
+  .modal-content {
+    width: 150%;
+  }
+
+  .bottom_bar {
+    margin-top: 55%;
+ }
+
+}
 
 
 
