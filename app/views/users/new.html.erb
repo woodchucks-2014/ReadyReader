@@ -1,0 +1,24 @@
+<div class="sign_up">
+<h1> Sign Up </h1>
+
+
+<%= form_for :user,  url: {action: "create"} do |f| %>
+
+    <%= f.label :name, "Name" %><br />
+    <%= f.text_field :name, placeholder: "First Last" %><br><br>
+
+
+    <%= f.label :email, "Email" %><br />
+    <%= f.text_field :email, placeholder: "user@email.com" %><br><br>
+
+    <%= f.label :password %><br />
+    <%= f.password_field :password, placeholder: "Password"  %><br><br>
+
+    <%= f.label :password_confirmation, "Password Confirmation" %><br />
+    <%= f.password_field :password_confirmation, placeholder: "Confirm Password"  %><br><br>
+
+      <%= f.submit "Sign Up", class: 'button_link' %>
+
+
+  <% end %>
+</div>
