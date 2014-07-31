@@ -18,8 +18,6 @@ class UsersController < ApplicationController
   end
 
   def profile
-    p "*************************"
-    p "TEST TEST"
     @this_user = User.find(params[:id])
 
     # give each user a sample library
@@ -29,10 +27,10 @@ class UsersController < ApplicationController
       end
     end
 
+    # get promo book out of library
+    UserBook.find_by(book_id: 1).destroy
+
     @books = @this_user.books
-    p "*************************"
-    p @books.size
-    p "*************************"
     @comments = @this_user.comments
   end
 
