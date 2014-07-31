@@ -18,8 +18,84 @@
 
  */
 
+ $nav-link-color:#454343;
+
 .warning {
   // text-align: center;
   color: red;
   font-size: 2.500em;
 }
+
+/* MEDIA - iPhone Portrait */
+
+@media only screen
+and (max-device-width : 470px) and (orientation: portrait) {
+
+
+ #position_title {
+    margin-left: 15%;
+    font-size: 1.200em;
+    padding-top: 0.5%;
+  }
+
+
+
+}
+
+
+
+ // mobile phone landscape
+@media screen
+and (max-device-width : 568px) and (orientation: landscape) {
+
+
+
+ #position_title {
+    margin-left: 28%;
+    font-size: 0.800em;
+    padding-top: 0.5%;
+  }
+
+}
+
+
+/* MEDIA - iPad mini portrait */
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait)
+and (-webkit-min-device-pixel-ratio: 1)  {
+
+
+  #position_title {
+    margin-left: 15%;
+    font-size: 1.200em;
+    padding-top: 0.5%;
+  }
+
+
+
+
+
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape)
+and (-webkit-min-device-pixel-ratio: 1)  {
+
+
+  #position_title {
+    margin-left: 28%;
+    font-size: 0.800em;
+    padding-top: 0.5%;
+  }
+
+
+
+
+
+}
+

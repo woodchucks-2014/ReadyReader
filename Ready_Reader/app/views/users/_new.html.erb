@@ -4,9 +4,9 @@
       <div class="modal-body" >
         <%= form_for :user,  url: {action: "create"}, :html => {:class => "signup-form"} do |f| %>
         <%= f.label :name, "Name" %><br />
-        <%= f.text_field :name, placeholder: "First Last" %><br><br>
+        <%= f.text_field :name, value: "", placeholder: "First Last" %><br><br>
         <%= f.label :email, "Email" %><br />
-        <%= f.text_field :email, placeholder: "user@email.com" %><br><br>
+        <%= f.text_field :email, value: "", placeholder: "ready@reader.com" %><br><br>
         <%= f.label :password %><br />
         <%= f.password_field :password, placeholder: "Password"  %><br><br>
         <%= f.label :password_confirmation, "Password Confirmation" %><br />

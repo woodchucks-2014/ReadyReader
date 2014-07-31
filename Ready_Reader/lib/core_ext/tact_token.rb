@@ -28,8 +28,8 @@ module Tact_Token
       word_array = sentence.split(" ") #array of words
       p "&" * 100
       p word_array
-        if word_array.length > 20 #there are ~5 letters per word, we max out at 100 characters
-          divisor = word_array.length/20
+        if word_array.length > 10 #there are ~5 letters per word, we max out at 100 characters
+          divisor = word_array.length/10
           sliced_sentence_array = word_array.each_slice((word_array.size / divisor).round).to_a
           sliced_sentence_array.map! { |sentence| sentence.join(" ") }
           sentence_array[index] = sliced_sentence_array

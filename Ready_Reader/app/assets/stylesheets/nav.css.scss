@@ -1,8 +1,17 @@
 $link-color:#B2BABC;
 $nav-margin:15%;
 $nav-backgroud: #F9F4E7;
+$nav-link-color:#454343;
 
-.nav_quad_1, .nav_quad_3 {
+#index_title {
+  color: $nav-link-color;
+  font-size: 0.850em;
+}
+
+#position_title {
+  margin-left: 32%;
+}
+.nav_quad_1, .nav_quad_3, #position_title {
   float: left;
   font-size: 1.2em;
   color: $link-color;
