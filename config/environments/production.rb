@@ -79,4 +79,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:21035ac06d608690b394fd214b1a6d21@hoki.redistogo.com:9260/'
+  
 end
