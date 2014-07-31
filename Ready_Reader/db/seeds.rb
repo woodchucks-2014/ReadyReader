@@ -16,7 +16,7 @@ universal_books.each do |filename|
 
   new_book = Book.create(title: filename[1], content: content, universal: true)
 
-  content_array = tokenize_special(new_book.content)
+  content_array = tokenize_special(new_book.content, 10)
   content_array.each do |sentence|
     Sentence.create(book_id: new_book.id, content: sentence)
   end

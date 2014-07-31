@@ -22,14 +22,14 @@ module Tact_Token
 
   $tt ||= TactfulTokenizer::Model.new
 
- def tokenize_special(content)
+ def tokenize_special(content, parse_length)
     sentence_array = $tt.tokenize_text(content)
      sentence_array.each_with_index do |sentence, index|
       word_array = sentence.split(" ") #array of words
       p "&" * 100
       p word_array
-        if word_array.length > 10 #there are ~5 letters per word, we max out at 100 characters
-          divisor = word_array.length/10
+        if word_array.length > parse_length #there are ~5 letters per word, we max out at 100 characters
+          divisor = word_array.length / parse_length
           sliced_sentence_array = word_array.each_slice((word_array.size / divisor).round).to_a
           sliced_sentence_array.map! { |sentence| sentence.join(" ") }
           sentence_array[index] = sliced_sentence_array

@@ -49,7 +49,7 @@ class BooksController < ApplicationController
     book = Book.create(title: params[:title], content: content)
     @user.books << book
 
-    content_array = tokenize_special(book.content)
+    content_array = tokenize_special(book.content, 10)
     content_array.each do |sentence|
       Sentence.create(book_id: book.id, content: sentence)
     end
