@@ -5,9 +5,9 @@
         <div class='login-form'>
           <%= form_for :user, url: {action: "login"} do |f| %>
           <%= f.label :email %>
-          <%= f.text_field :email %>
+          <%= f.text_field :email, value: "", placeholder: "ready@reader.com" %>
           <%= f.label :password %>
-          <%= f.password_field :password %>
+          <%= f.password_field :password, placeholder: "password"%>
         <div class="modal-footer">
 
         <center>

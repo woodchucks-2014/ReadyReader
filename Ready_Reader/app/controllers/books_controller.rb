@@ -25,13 +25,16 @@ class BooksController < ApplicationController
     File.open(filename, 'wb') do |file|
       file.write(uploaded_io.read)
     end
+
     book = EPUB::Parser.parse(filename)
     content = ""
+
     book.each_page_on_spine do |page|
       page = page.content_document.nokogiri
       page.search('p').each{|el| el.before ' '}
       content << page.text
     end
+
     @book = Book.new
     @book.title = params[:title]
     @book.content = content
@@ -45,6 +48,7 @@ class BooksController < ApplicationController
     @user = User.find(session[:user])
     @book = Book.find(session[:book])
 
+    #to prevent promo from being added to user libraries
     @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id)
 
     #default to 0

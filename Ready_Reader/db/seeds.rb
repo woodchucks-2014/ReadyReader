@@ -16,14 +16,14 @@ universal_books.each do |filename|
 
   new_book = Book.create(title: filename[1], content: content, universal: true)
 
-  content_array = tokenize_special(new_book.content)
+  content_array = tokenize_special(new_book.content, 10)
   content_array.each do |sentence|
     Sentence.create(book_id: new_book.id, content: sentence)
   end
 end
 
 #promo user
-sentences = tokenize_special(promo.content)
+sentences = tokenize_special(promo.content, 20)
 sentences.each { |sentence| Sentence.create(book_id: promo.id, content: sentence)}
 
 

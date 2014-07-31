@@ -6,8 +6,17 @@
 
 
 /*UNIVERSAL*/
-$link-color:#B2BABC;
+$nav-link-color:#454343;
+$link-color:#000;
 
+a:hover {
+  text-decoration: none;
+  color: $nav-link-color;
+}
+
+i:hover {
+  color: $nav-link-color;
+}
 
 #passage{
   background-color: #FFEBCD;
@@ -59,7 +68,7 @@ body{
 }
 
 .bottom_bar{
-  margin-top: -5%;
+  margin-top: -15%;
 }
 
 .signup-form, .login-form {
@@ -93,7 +102,9 @@ nav {
   margin-left: 50%;
 }
 
-
+.modal-content {
+  width: 105%;
+}
 
 .pro{
   background: #36AECC;
@@ -105,8 +116,12 @@ nav {
 }
 
 #comment_view_click {
-  font-size: 1.500em;
+  font-size: 1.250em;
   width: 25%;
+}
+
+#comment_view_click:hover {
+  color: $link-color;
 }
 
 #left{
@@ -120,9 +135,12 @@ float: left;
 
 
 
-/* iPhone 5 Portrait */
+/* iPhone 5 & most other mobile phones in Portrait */
 @media only screen
-and (max-device-width : 320px) and (orientation: portrait) {
+and (min-device-width : 320px)
+and (max-device-width : 640px)
+and (orientation: portrait)
+and (-webkit-min-device-pixel-ratio: 1) {
 
 
   .forward {
@@ -148,7 +166,7 @@ and (max-device-width : 320px) and (orientation: portrait) {
 
   #center_sentence {
     font-size: 1.150em;
-    margin-top: 0%;
+    margin-top: 17%;
     margin-left: 15%
   }
 
@@ -204,7 +222,7 @@ and (max-device-width : 320px) and (orientation: portrait) {
   }
 
   .bottom_bar {
-    margin-top: 90%;
+    margin-top: 95%;
   }
 
   .book_wrapper {
@@ -216,13 +234,17 @@ and (max-device-width : 320px) and (orientation: portrait) {
 
   }
 
+  // .progress_summeray {
+  //   margin-top: 5%;
+  // }
+
 
 }
 
 
-/* iPhone 5 landscape */
+/* mobile phone landscape */
 @media screen
-and (max-device-width : 568px) and (orientation: landscape) {
+and (max-device-width : 1024px) and (orientation: landscape) {
 
   .nav_quad_1, .nav_quad_3 {
     float: left;
@@ -231,25 +253,32 @@ and (max-device-width : 568px) and (orientation: landscape) {
 
   .nav_quad_2, .nav_quad_4 {
     float: right;
-    color: $link-color;
     font-size: 0.750em;
   }
 
   #center_sentence {
-    margin-top: -14%;
+    margin-top: -7%;
     margin-left: 15%;
   }
 
   .forward, .backward {
-    margin-top: -13%;
+    margin-top: -7%;
   }
 
- .bottom_bar {
-    margin-top: -25%;
- }
+  .bottom_bar {
+    margin-top: -45%;
+  }
 
   #center_notes {
     margin-right: 30%;
+  }
+
+  .modal-content {
+    width: 150%;
+  }
+
+  #reader_nav {
+    height: 70px;
   }
 }
 
@@ -273,6 +302,25 @@ and (max-device-width : 568px) and (orientation: landscape) {
   // }
 
 
+// iPad Mini portrait
+  @media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait)
+and (-webkit-min-device-pixel-ratio: 1)  {
+
+
+  .modal-content {
+    width: 150%;
+  }
+
+  .bottom_bar {
+    margin-top: 55%;
+ }
+
+}
+
+
 
 
 
@@ -281,6 +329,25 @@ and (max-device-width : 568px) and (orientation: landscape) {
 @media only screen and (max-device-width : 1024px)
 and (orientation : landscape)
 and (-webkit-min-device-pixel-ratio: 1)  {
+
+  #center_sentence {
+    margin-top: 0%;
+    margin-left: 15%;
+  }
+
+  .forward, .backward {
+    margin-top: 0%;
+  }
+
+ .bottom_bar {
+    margin-top: -10%;
+ }
+
+  #center_notes {
+    margin-right: 30%;
+  }
+
+
 
 
 
