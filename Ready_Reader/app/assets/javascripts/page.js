@@ -1,10 +1,11 @@
 var getCurrentPage = function(keyLook){
+  console.log('yolo');
     return $.ajax({
       url : '/check_point',
       method : 'POST',
       data : { object: JSON.parse(localStorage[keyLook]) },
       success : function(response){
-        // setTimeout(function(){getCurrentPage();}, 400);
+        setTimeout(function(){getCurrentPage(keyLook);}, 1000);
       }
     });
   }
