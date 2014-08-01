@@ -48,8 +48,12 @@ class BooksController < ApplicationController
     @user = User.find(session[:user])
     @book = Book.find(session[:book])
 
-    #to create or find existing UserBook
-    @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id)
+    #to create or find existing UserBook excluding promo book
+    @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id) if @book.id != 1
+    #to accomodate promo book
+    if @book.id == 1
+      @user_book = UserBook.find_or_create_by(user_id: 1, book_id: 1)
+    end
 
     #default to 0
     database_val = @user_book.farthest_point
@@ -71,6 +75,7 @@ class BooksController < ApplicationController
     end
 
     save_point = @user_book.farthest_point #if LS has incremented up
+    save_point = local_val if @user.id == 1 #in order to avoid saving to DB
 
     bookmarks = []
     @user.bookmarks.each do |bookmark|
