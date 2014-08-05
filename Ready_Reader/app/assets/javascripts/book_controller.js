@@ -43,7 +43,12 @@ var BookController = function(book) {
     }
 
     bookview.getPage().on("click", ".right", turnPageRight)
+    Mousetrap.bind('right', turnPageRight)
+    
     bookview.getPage().on("click", ".left", turnPageLeft)
+    Mousetrap.bind('left', turnPageLeft)
+
     bookview.getPage().on("click", ".nav_quad_3", bookmark);
+
   }
 };
