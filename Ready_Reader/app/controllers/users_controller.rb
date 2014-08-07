@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     session[:user] = User.first.id #sets promo user
     @book = Book.first
 
-    @sentences = @book.prep_for_dom
+    @sentences = @book.dom
     @pages = @book.pages
 
     session[:book] = @book.id

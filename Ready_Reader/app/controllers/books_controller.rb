@@ -8,7 +8,6 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    # @sentences = Book.includes(:sentences).limit(10)
     @sentences = @book.dom
     p "*"*100
     p @sentences.size
