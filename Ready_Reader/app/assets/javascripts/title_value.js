@@ -5,6 +5,5 @@
     var filename = bookPath.split('\\').pop().replace(/\..+$/, '');
     var filename = filename.split("_").join(" ")
     $('#title').val(filename);
-
   });
 });
