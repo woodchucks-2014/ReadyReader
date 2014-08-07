@@ -4,7 +4,7 @@ var getCurrentPage = function(keyLook){
       method : 'POST',
       data : { object: JSON.parse(localStorage[keyLook]) },
       success : function(response){
-        setTimeout(function(){getCurrentPage(keyLook);}, 400);
+        // setTimeout(function(){getCurrentPage(keyLook);}, 400);
       }
     });
   }
