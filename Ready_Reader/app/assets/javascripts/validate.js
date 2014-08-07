@@ -1,15 +1,5 @@
 $(document).ready(function() {
 
-  $('#book').change(function() {
-    var book_path = document.getElementById('book').value;
-    console.log(book_path)
-    var bookPath = book_path.toString();
-    console.log(bookPath);
-    var filename = bookPath.split('\\').pop().replace(/\..+$/, '');
-    var filename = filename.split("_").join(" ")
-    $('#title').val(filename);
-
-  });
   $('#upload_box').on('submit', function(e){
     var book = document.getElementById('book').value;
     var field = document.getElementById('title').value;
