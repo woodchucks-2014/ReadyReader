@@ -7,7 +7,8 @@ $(document).ready(function() {
     console.log(bookPath);
     var filename = bookPath.split('\\').pop().replace(/\..+$/, '');
     var filename = filename.split("_").join(" ")
-    console.log(filename);
+    $('#title').val(filename);
+
   });
   $('#upload_box').on('submit', function(e){
     var book = document.getElementById('book').value;
