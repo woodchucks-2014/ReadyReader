@@ -10,13 +10,6 @@ class Book < ActiveRecord::Base
   def self.eager
     includes(:sentences).limit(1000)
   end
-  # def prep_for_dom
-  #   dom_sentences = []
-  #   self.sentences.each do |sentence|
-  #     dom_sentences << sentence.content
-  #   end
-  #   dom_sentences
-  # end
 
   def dom
     Sentence.where(:book_id => self.id).pluck(:content)
