@@ -2,7 +2,6 @@ $(document).ready(function() {
   $('#upload_box').on('submit', function(e){
     var book = document.getElementById('book').value;
     var field = document.getElementById('title').value;
-    console.log(book);
 
     if (field === null || field === "") {
       e.preventDefault();
