@@ -6,6 +6,7 @@ $(document).ready(function() {
     var bookPath = book_path.toString();
     console.log(bookPath);
     var filename = bookPath.split('\\').pop().replace(/\..+$/, '');
+    var filename = filename.split("_").join(" ")
     console.log(filename);
   });
   $('#upload_box').on('submit', function(e){
