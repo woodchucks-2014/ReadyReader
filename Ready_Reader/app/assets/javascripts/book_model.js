@@ -34,5 +34,5 @@ Book.prototype.advanceSentence = function(index) {
  var text = this.sentences[index];
  text = text.toString()
  console.log(text);
- $('#test').text(text);
+ $('#current_sentence').text(text);
 }
