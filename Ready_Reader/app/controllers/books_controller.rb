@@ -102,4 +102,10 @@ class BooksController < ApplicationController
     params.require(:book).permit(:title)
   end
 
+  def sentences
+    @book = Book.find(session[:book])
+    @sentences = @book.dom
+    render json: {sentences: @sentences}.to_json
+  end
+
 end

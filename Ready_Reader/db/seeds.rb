@@ -40,6 +40,3 @@ promo_user.books << promo
 
 
 
-
-
-
