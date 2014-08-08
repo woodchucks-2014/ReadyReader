@@ -13,6 +13,11 @@ class BooksController < ApplicationController
     session[:book] = @book.id
     @user = User.find(params[:user_id])
     @comments = Comment.where(book_id: @book.id, user_id: @user.id)
+    respond_to do |format|
+      format.html
+      format.json { render json: @sentences}
+    end
+   
   end
 
   def upload
