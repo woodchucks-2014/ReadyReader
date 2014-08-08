@@ -19,17 +19,17 @@ var Read = function() {
   });
 
   var getTheSentences = function() {
-    return $.ajax({
-  url : '/sentences.json', 
-  method: 'get',
-  dataType: 'json',
-  success: function(response) {
-  result = response;
-  }
- });
+   return $.ajax({
+    url : '/sentences.json', 
+    method: 'get',
+    dataType: 'json',
+    success: function(response) {
+     result = response;
+    }
+   });
   };
 
   getTheSentences().done(function(result) {
-    book.sentences = result;
+    book.sentences = result.sentences;
   });
 }

@@ -19,10 +19,20 @@ Book.prototype.checkForBeginning = function() {
 
 Book.prototype.turnPageLeft = function() {
   this.current += 1;
-  this.sentences[current];
+  // this.sentences[this.current];
+  this.advanceSentence(this.current);
+
 }
 
 Book.prototype.turnPageRight = function() {
   this.current -= 1
-  this.sentences[current];
+  this.sentences[this.current];
+  console.log(this.sentences)
+}
+
+Book.prototype.advanceSentence = function(index) {
+ var text = this.sentences[index];
+ text = text.toString()
+ console.log(text);
+ $('#test').text(text);
 }

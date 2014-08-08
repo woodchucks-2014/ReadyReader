@@ -21,9 +21,9 @@ var BookController = function(book) {
     this.bookview = bookview;
     bookview.book = this.book;
 
-    bookview.hideNonCurrent();
-    text = bookview.getCurrentText(book.current);
-    bookview.showCurrentSentence(text);
+    // bookview.hideNonCurrent();
+    // text = bookview.getCurrentText(book.current);
+    // bookview.showCurrentSentence(book.advanceSentence());
 
     Slider.sliderProgress(book, book.current, book.end);
 
