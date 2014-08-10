@@ -38,8 +38,8 @@ var BookController = function(book) {
     $('#slider_bar').mouseup(function() {
       var newPoint = +$(this).slider('value');
       book.current = newPoint;
-      text = bookview.getCurrentText(newPoint);
-      bookview.showCurrentSentence(text);
+
+      bookview.showSentence(book.changeSentence(book.current));
       Slider.updateText(book, bookview);
     });
 

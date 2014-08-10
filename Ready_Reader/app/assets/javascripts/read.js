@@ -15,6 +15,7 @@ var Read = function() {
 
     initializeBookMarks(result.bookmarks, book.end);
 
+
     LocalStorage.update(book, bookview)
   });
 

@@ -3,6 +3,8 @@ var Slider = {
   updateText: function(book, bookview) {
     $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
     $('.text_progress').text(book.current + " of " + book.end )
+    console.log(book)
+    // bookview.showSentence();
     LocalStorage.update(book, bookview);
   },
 
@@ -23,6 +25,8 @@ var Slider = {
             $( "#amount" ).val( ui.value );
             $('.text_progress').text(ui.value + " of " + pages );
             $('.percentage').text(parseInt((ui.value / pages) * 100) + '%'  )
+            text = book.changeSentence(ui.value)
+            bookview.showSentence(text);
         },
 
         create: function(event, ui) {
