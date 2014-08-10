@@ -13,14 +13,6 @@ var BookView = function () {}
 //     });
 // }
 
-BookView.prototype.getCurrentText = function(index) {
-  return $('.sentence' + index).text();
-}
-
-BookView.prototype.showCurrentSentence = function(text) {
-  $('.current_sentence').text(text);
-}
-
 BookView.prototype.bookId = function() { // LOCAL STORAGE RELATED
   return +$('.book_number').text();
 }
@@ -29,9 +21,10 @@ BookView.prototype.reader = function() { // LOCAL STORAGE RELATED
   return $('.user_name').text();
 }
 
-BookView.prototype.hideNonCurrent = function(){
-  $('.non_current_sentence').hide();
+BookView.prototype.showSentence = function(text) {
+ $('#current_sentence').text(text);
 }
+
 
 BookView.prototype.getPages = function(){
   return +$('.pages').text();

@@ -11,8 +11,9 @@ var getCurrentPage = function(keyLook){
 
 var UpdatePage = {
   page : function(book, bookview) {
-    text = bookview.getCurrentText(book.current);
-    bookview.showCurrentSentence(text);
+    text = book.changeSentence(book.current);
+    bookview.showSentence(text);
+
     LocalStorage.update(book, bookview);
 
     Slider.sliderProgress(book, book.current, book.end);

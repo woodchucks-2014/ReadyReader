@@ -20,19 +20,18 @@ Book.prototype.checkForBeginning = function() {
 Book.prototype.turnPageLeft = function() {
   this.current += 1;
   // this.sentences[this.current];
-  this.advanceSentence(this.current);
+ // this.changeSentence(this.current);
 
 }
 
 Book.prototype.turnPageRight = function() {
   this.current -= 1
-  this.sentences[this.current];
-  console.log(this.sentences)
+  //this.changeSentence(this.current);
 }
 
-Book.prototype.advanceSentence = function(index) {
- var text = this.sentences[index];
- text = text.toString()
- console.log(text);
- $('#current_sentence').text(text);
+Book.prototype.changeSentence = function(index) {
+  console.log("HEY");
+  console.log(index);
+ return this.sentences[index];
 }
+

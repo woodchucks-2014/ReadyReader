@@ -20,7 +20,7 @@ var Read = function() {
 
   var getTheSentences = function() {
    return $.ajax({
-    url : '/sentences.json', 
+    url : '/sentences.json',
     method: 'get',
     dataType: 'json',
     success: function(response) {
@@ -31,5 +31,6 @@ var Read = function() {
 
   getTheSentences().done(function(result) {
     book.sentences = result.sentences;
+    bookview.showSentence(book.changeSentence(book.current));
   });
 }
