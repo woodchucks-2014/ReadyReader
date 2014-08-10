@@ -1,7 +1,8 @@
-var Book = function(current, pages){
+var Book = function(current, pages, sentences){
   this.start = 0;
   this.current = current;
   this.end = pages;
+  this.sentences = sentences;
 };
 
 Book.prototype.checkForEnd = function() {
@@ -17,9 +18,14 @@ Book.prototype.checkForBeginning = function() {
 }
 
 Book.prototype.turnPageLeft = function() {
-  this.current += 1
+  this.current += 1;
 }
 
 Book.prototype.turnPageRight = function() {
   this.current -= 1
 }
+
+Book.prototype.changeSentence = function(index) {
+ return this.sentences[index];
+}
+

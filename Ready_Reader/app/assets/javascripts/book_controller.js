@@ -1,18 +1,21 @@
 var BookController = function(book) {
 
-  // var bookview = new BookView();
   this.bookview;
 
   var turnPageRight = function() {
     book.turnPageRight();
     book.checkForBeginning();
 
-   UpdatePage.page(book, bookview);
+    bookview.showSentence(book.changeSentence(book.current));
+
+    UpdatePage.page(book, bookview);
   }
 
   var turnPageLeft = function() {
     book.turnPageLeft();
     book.checkForEnd();
+
+    bookview.showSentence(book.changeSentence(book.current));
 
     UpdatePage.page(book, bookview);
   }
@@ -20,10 +23,6 @@ var BookController = function(book) {
   this.initialize = function (bookview) {
     this.bookview = bookview;
     bookview.book = this.book;
-
-    bookview.hideNonCurrent();
-    text = bookview.getCurrentText(book.current);
-    bookview.showCurrentSentence(text);
 
     Slider.sliderProgress(book, book.current, book.end);
 
@@ -33,8 +32,8 @@ var BookController = function(book) {
     $('#slider_bar').mouseup(function() {
       var newPoint = +$(this).slider('value');
       book.current = newPoint;
-      text = bookview.getCurrentText(newPoint);
-      bookview.showCurrentSentence(text);
+
+      bookview.showSentence(book.changeSentence(book.current));
       Slider.updateText(book, bookview);
     });
 
@@ -44,7 +43,7 @@ var BookController = function(book) {
 
     bookview.getPage().on("click", ".right", turnPageRight)
     Mousetrap.bind('left', turnPageRight)
-    
+
     bookview.getPage().on("click", ".left", turnPageLeft)
     Mousetrap.bind('right', turnPageLeft)
 
