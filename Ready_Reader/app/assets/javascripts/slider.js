@@ -3,8 +3,6 @@ var Slider = {
   updateText: function(book, bookview) {
     $('.percentage').text(parseInt((book.current / book.end) * 100) + '%'  )
     $('.text_progress').text(book.current + " of " + book.end )
-    console.log(book)
-    // bookview.showSentence();
     LocalStorage.update(book, bookview);
   },
 

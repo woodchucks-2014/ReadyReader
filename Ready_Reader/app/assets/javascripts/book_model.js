@@ -19,19 +19,13 @@ Book.prototype.checkForBeginning = function() {
 
 Book.prototype.turnPageLeft = function() {
   this.current += 1;
-  // this.sentences[this.current];
- // this.changeSentence(this.current);
-
 }
 
 Book.prototype.turnPageRight = function() {
   this.current -= 1
-  //this.changeSentence(this.current);
 }
 
 Book.prototype.changeSentence = function(index) {
-  console.log("HEY");
-  console.log(index);
  return this.sentences[index];
 }
 
