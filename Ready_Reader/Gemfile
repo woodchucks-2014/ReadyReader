@@ -40,7 +40,8 @@ gem 'epub-parser'
 # Keyboard bindings
 gem 'mousetrap-rails'
 
-
+#Use thin instread of WEBrick
+gem 'thin'
 # Use unicorn as the app server
 # gem 'unicorn'
 
