@@ -6,16 +6,12 @@ var BookController = function(book) {
     book.turnPageRight();
     book.checkForBeginning();
 
-    bookview.showSentence(book.changeSentence(book.current));
-
     UpdatePage.page(book, bookview);
   }
 
   var turnPageLeft = function() {
     book.turnPageLeft();
     book.checkForEnd();
-
-    bookview.showSentence(book.changeSentence(book.current));
 
     UpdatePage.page(book, bookview);
   }
@@ -33,8 +29,7 @@ var BookController = function(book) {
       var newPoint = +$(this).slider('value');
       book.current = newPoint;
 
-      bookview.showSentence(book.changeSentence(book.current));
-      Slider.updateText(book, bookview);
+      UpdatePage.page(book, bookview);
     });
 
     var bookmark = function(){
