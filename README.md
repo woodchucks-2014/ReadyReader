@@ -44,6 +44,8 @@ Now you're ready to rock-and-roll:
 rails s thin
 ```
 
+We welcome pull requests, questions and comments. Please raise an issue if you find bugs in the application.
+
 #Thank You
 
 We owe a great debt to our Dev Bootcamp instructor [Matt Bunday](http://zencephalon.com), without whom this project would not have been possible. Matt came up with the original idea for ReadyReader and trusted us to execute on his vision.
@@ -51,5 +53,3 @@ We owe a great debt to our Dev Bootcamp instructor [Matt Bunday](http://zencepha
 We are further in debt to our Phase 3 lead Dev Bootcamp instructor, [Rebecca Miller-Webster](http://www.rebeccamiller-webster.com/). Rebecca provided frequent consulting on this project and devoted significant time to guiding us through the issues we encountered on the road to deployment.
 
 Rebecca and Matt - thank you.
-
-We welcome pull requests, questions and comments.
