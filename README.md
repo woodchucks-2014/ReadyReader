@@ -11,9 +11,8 @@ Primary contributors are as follows:
 This project was built using the Ruby on the Rails framework and additionally followed a JavaScript MVC pattern on the client side. We prioritized responsive design in building ReadyReader, as the impetus for the project in part was using mobile devices for long commutes. We attempted to use a Test Driven Development oriented approach throughout this project, and made use of [RSpec](http://rspec.info/), [Capybara](https://github.com/jnicklas/capybara) and [SimpleCov]
 (https://github.com/colszowka/simplecov) to achieve this purpose.
 
-#Screenshots
+#Screenshot
 ![](Ready_Reader/screenshots/read_landscape.PNG)
-![](Ready_Reader/screenshots/read_portrait.PNG)
 
 #Usage / Contribute
 
@@ -25,13 +24,11 @@ bundle install
 rake db:create
 rake db:migrate
 rake db:seed
-
 ```
 For book uploads, the application uses Redis and Resque, and you'll have to run the server prior to initiating the Rais server:
 
 ```
 redis-server
-
 ```
 
 Next, queue the relevant job using a custom rake task in a new terminal tab:
@@ -39,14 +36,12 @@ Next, queue the relevant job using a custom rake task in a new terminal tab:
 
 ```
 rake resque:work QUEUE=sentences
-
 ```
 
 Now you're ready to rock-and-roll:
 
 ```
 rails s thin
-
 ```
 
 #Thank You
