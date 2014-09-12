@@ -23,6 +23,8 @@ var Slider = {
             $( "#amount" ).val( ui.value );
             $('.text_progress').text(ui.value + " of " + pages );
             $('.percentage').text(parseInt((ui.value / pages) * 100) + '%'  )
+            text = book.changeSentence(ui.value)
+            bookview.showSentence(text);
         },
 
         create: function(event, ui) {

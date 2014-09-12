@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     session[:user] = User.first.id #sets promo user
     @book = Book.first
 
-    @sentences = @book.prep_for_dom
+    @sentences = @book.dom
     @pages = @book.pages
 
     session[:book] = @book.id
@@ -28,7 +28,9 @@ class UsersController < ApplicationController
     end
 
     # get promo book out of library
-    UserBook.find_by(book_id: 1).destroy
+    if UserBook.exists?(:book_id => 1)
+      UserBook.find_by(book_id: 1).destroy
+    end
 
     @books = @this_user.books
     @comments = @this_user.comments

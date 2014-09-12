@@ -36,6 +36,12 @@ gem 'bcrypt', '~> 3.1.7'
 # Sentence parsing
 gem 'tactful_tokenizer'
 gem 'epub-parser'
+
+# Keyboard bindings
+gem 'mousetrap-rails'
+
+#Use thin instread of WEBrick
+gem 'thin'
 # Use unicorn as the app server
 # gem 'unicorn'
 

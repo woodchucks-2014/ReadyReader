@@ -1,25 +1,4 @@
 var BookView = function () {}
-  // var view = this;
-
-//   $('#slider_bar').mouseup(function(e) {
-//       // var book = new Book(0, view.getPages());
-//       var newPoint = +$(this).slider('value');
-
-//       text = view.getCurrentText(newPoint);
-//       view.showCurrentSentence(text);
-//       book.current = newPoint;
-
-//       Slider.updateText(book, view);
-//     });
-// }
-
-BookView.prototype.getCurrentText = function(index) {
-  return $('.sentence' + index).text();
-}
-
-BookView.prototype.showCurrentSentence = function(text) {
-  $('.current_sentence').text(text);
-}
 
 BookView.prototype.bookId = function() { // LOCAL STORAGE RELATED
   return +$('.book_number').text();
@@ -29,9 +8,10 @@ BookView.prototype.reader = function() { // LOCAL STORAGE RELATED
   return $('.user_name').text();
 }
 
-BookView.prototype.hideNonCurrent = function(){
-  $('.non_current_sentence').hide();
+BookView.prototype.showSentence = function(text) {
+ $('#current_sentence').text(text);
 }
+
 
 BookView.prototype.getPages = function(){
   return +$('.pages').text();

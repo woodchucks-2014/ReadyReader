@@ -8,12 +8,16 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @sentences = Book.includes(:sentences).limit(10)
-    @sentences = @book.prep_for_dom
+    @sentences = @book.dom
     @pages = @book.pages
     session[:book] = @book.id
     @user = User.find(params[:user_id])
     @comments = Comment.where(book_id: @book.id, user_id: @user.id)
+    respond_to do |format|
+      format.html
+      format.json { render json: @sentences}
+    end
+   
   end
 
   def upload
@@ -48,24 +52,34 @@ class BooksController < ApplicationController
     @user = User.find(session[:user])
     @book = Book.find(session[:book])
 
-    #to prevent promo from being added to user libraries
-    @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id)
+    #to create or find existing UserBook excluding promo book
+    @user_book = UserBook.find_or_create_by(user_id: @user.id, book_id: @book.id) if @book.id != 1
+    #to accomodate promo book
+    if @book.id == 1
+      @user_book = UserBook.find_or_create_by(user_id: 1, book_id: 1)
+    end
 
     #default to 0
     database_val = @user_book.farthest_point
     local_val = 0
 
-    #prevent overwriting
+    #prevent overwriting through unique key lookup
     if (params["object"]["userName"] + params["object"]["bookId"]).gsub(" ", "") == @user.name + @book.id.to_s
       local_val = params["object"]["currentSentence"].to_i
     end
 
+    #make comparison and reset if necessary
     @user_book.farthest_point = local_val if local_val > database_val
-    database_val = @user_book.farthest_point #defaults to 0
-    local_val = params["object"]["currentSentence"].to_i
-
-    save_point = @user_book.local_storage_comp(@user.id, local_val)
     @user_book.save!
+
+    #prevent max out
+    if @user_book.farthest_point > @book.pages
+      @user_book.farthest_point = @book.pages #max in DB
+      @user_book.save! #save in DB
+    end
+
+    save_point = @user_book.farthest_point #if LS has incremented up
+    save_point = local_val if @user.id == 1 #in order to avoid saving to DB
 
     bookmarks = []
     @user.bookmarks.each do |bookmark|
@@ -86,6 +100,12 @@ class BooksController < ApplicationController
 
   def book_params(params)
     params.require(:book).permit(:title)
+  end
+
+  def sentences
+    @book = Book.find(session[:book])
+    @sentences = @book.dom
+    render json: {sentences: @sentences}.to_json
   end
 
 end

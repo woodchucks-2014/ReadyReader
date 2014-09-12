@@ -4,15 +4,16 @@ var getCurrentPage = function(keyLook){
       method : 'POST',
       data : { object: JSON.parse(localStorage[keyLook]) },
       success : function(response){
-        setTimeout(function(){getCurrentPage(keyLook);}, 400);
+        // setTimeout(function(){getCurrentPage(keyLook);}, 400);
       }
     });
   }
 
 var UpdatePage = {
   page : function(book, bookview) {
-    text = bookview.getCurrentText(book.current);
-    bookview.showCurrentSentence(text);
+    text = book.changeSentence(book.current);
+    bookview.showSentence(text);
+
     LocalStorage.update(book, bookview);
 
     Slider.sliderProgress(book, book.current, book.end);
